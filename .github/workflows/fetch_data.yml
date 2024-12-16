@@ -7,6 +7,9 @@ on:
     branches: [ main ]
   workflow_dispatch: # Allows manual triggering of the workflow
 
+permissions:
+  contents: write
+
 jobs:
   process_data:
     runs-on: ubuntu-latest
@@ -28,21 +31,21 @@ jobs:
 
       # Step 4: Run fetch_data.py
       - name: Fetch data
-        run: python ./src/data/fetch_data.py
+        run: python src/data/fetch_data.py
 
       # Step 5: Run preprocess_data.py
       - name: Preprocess data
-        run: python ./src/data/preprocess_data.py
+        run: python src/data/preprocess_data.py
 
       # Step 6: Run final_processing.py
       - name: Final processing
-        run: python ./src/data/final_processing.py
+        run: python src/data/final_processing.py
 
       # Step 7: Commit and push changes if any
-      - name: Commit and push changes
+      - name: Commit and push if there are changes
         run: |
-          git config user.name "github-actions"
-          git config user.email "github-actions@github.com"
+          git config user.email "nadica.uzunova@student.um.si"
+          git config user.name "NadicaUzunova"
           git add .
-          git commit -m "Data processing update [skip ci]" || echo "No changes to commit"
+          git commit -m "Update data" || echo "No changes to commit"
           git push
