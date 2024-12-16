@@ -3,6 +3,7 @@ import requests
 import pandas as pd
 from datetime import datetime
 import logging
+import time
 
 # Configure logging
 logging.basicConfig(
@@ -20,6 +21,9 @@ weather_raw_dir = './data/raw/weather'
 # Ensure directories exist
 os.makedirs(bike_raw_dir, exist_ok=True)
 os.makedirs(weather_raw_dir, exist_ok=True)
+
+# Define a timeout between API calls (in seconds)
+API_CALL_TIMEOUT = 2  # 2-second delay between API calls
 
 
 def fetch_bike_data(api_url):
@@ -52,6 +56,9 @@ def fetch_bike_data(api_url):
                     updated_df = pd.concat([original_df, station_df]).drop_duplicates(subset=["timestamp"]).reset_index(drop=True)
                     updated_df.to_csv(csv_file_path, index=False)
                     logging.info(f"Updated bike data for station: {station_name}")
+
+            # Add a timeout between API calls
+            time.sleep(API_CALL_TIMEOUT)
     else:
         logging.error(f"Failed to fetch bike data. Status code: {response.status_code}")
 
@@ -109,6 +116,9 @@ def fetch_weather_data(lat, lng, station_name):
             logging.warning(f"No valid hourly data for {station_name}. Response: {weather_data}")
     else:
         logging.error(f"Failed to fetch weather data for {station_name}. Status code: {response.status_code}")
+
+    # Add a timeout between API calls
+    time.sleep(API_CALL_TIMEOUT)
 
 
 def fetch_data():
