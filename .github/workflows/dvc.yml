@@ -1,0 +1,272 @@
+# name: 'dvc'
+# on:
+#   schedule:
+#     - cron: '15 * * * *'
+#   push:
+#     branches: [ main ]
+
+# jobs:
+#   fetch_bike_data:
+#     runs-on: ubuntu-latest
+#     outputs:
+#       sha_new: ${{steps.sha_new.outputs.SHA_NEW}}
+#     permissions:
+#       contents: write
+#     steps:
+#       - uses: actions/checkout@v3
+#       - name: Python setup (3.11.7)
+#         uses: actions/setup-python@v4
+#         with:
+#           python-version: 3.11.7
+#       - name: Install dependencies
+#         run: |
+#           pip install poetry
+#           poetry install --no-root
+#       - name: Pull DVC data
+#         run: |
+#           poetry run dvc remote modify origin-s3 endpointurl ${{secrets.DVC_ENDPOINT_URL}}
+#           poetry run dvc remote modify origin-s3 --local access_key_id ${{secrets.DVC_KEY_ID}}
+#           poetry run dvc remote modify origin-s3 --local secret_access_key ${{secrets.DVC_TOKEN}}
+#           poetry run dvc pull -f -r origin-s3
+#       - name: Fetch bike data
+#         run: poetry run python ./src/data/fetch_data.py
+#       - name: Commit changes to DVC and git
+#         run: |
+#           poetry run dvc add data/raw/mbajk
+#           git config user.name github-actions
+#           git config user.email github-actions@github.com
+#           git checkout main
+#           git add .
+#           git commit -m "cron: Fetch bike data [skip ci]"
+#           poetry run dvc push -r origin-s3
+#       - name: Push changes
+#         if: ${{ steps.fetch_bike_data.outputs.sha_new != github.event.before }}
+#         uses: ad-m/github-push-action@master
+#         with:
+#           github_token: ${{ secrets.IIS_TOKEN }}
+#           branch: ${{ github.ref }}
+#         env:
+#           github_token: ${{ secrets.IIS_TOKEN }}
+#       - name: Get commit SHA
+#         id: sha_new
+#         run: echo "SHA_NEW=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+
+#   fetch_weather_data:
+#     needs: fetch_bike_data
+#     runs-on: ubuntu-latest
+#     outputs:
+#       sha_new: ${{steps.sha_new.outputs.SHA_NEW}}
+#     permissions:
+#       contents: write
+#     steps:
+#       - uses: actions/checkout@v3
+#       - name: Python setup (3.11.7)
+#         uses: actions/setup-python@v4
+#         with:
+#           python-version: 3.11.7
+#       - name: Install dependencies
+#         run: |
+#           pip install poetry
+#           poetry install --no-root
+#       - name: Pull DVC data
+#         run: |
+#           poetry run dvc remote modify origin-s3 endpointurl ${{secrets.DVC_ENDPOINT_URL}}
+#           poetry run dvc remote modify origin-s3 --local access_key_id ${{secrets.DVC_KEY_ID}}
+#           poetry run dvc remote modify origin-s3 --local secret_access_key ${{secrets.DVC_TOKEN}}
+#           poetry run dvc pull -f -r origin-s3
+#       - name: Fetch bike data
+#         run: poetry run python ./src/data/fetch_weather_data.py
+#       - name: Commit changes to DVC and git
+#         run: |
+#           poetry run dvc add data/raw/weather
+#           git config user.name github-actions
+#           git config user.email github-actions@github.com
+#           git checkout main
+#           git add .
+#           git commit -m "cron: Fetch weather data [skip ci]"
+#           poetry run dvc push -r origin-s3
+#       - name: Push changes
+#         if: ${{ steps.fetch_weather_data.outputs.sha_new != github.event.before }}
+#         uses: ad-m/github-push-action@master
+#         with:
+#           github_token: ${{ secrets.IIS_TOKEN }}
+#           branch: ${{ github.ref }}
+#       - name: Get commit SHA
+#         id: sha_new
+#         run: echo "SHA_NEW=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+
+#   preprocess_bike_data:
+#     needs: fetch_bike_data
+#     runs-on: ubuntu-latest
+#     outputs:
+#       sha_new: ${{steps.sha_new.outputs.SHA_NEW}}
+#     permissions:
+#       contents: write
+#     steps:
+#       - uses: actions/checkout@v3
+#       - name: Python setup (3.11.7)
+#         uses: actions/setup-python@v4
+#         with:
+#           python-version: 3.11.7
+#       - name: Install dependencies
+#         run: |
+#           pip install poetry
+#           poetry install --no-root
+#       - name: Pull DVC data
+#         run: |
+#           poetry run dvc remote modify origin-s3 endpointurl ${{secrets.DVC_ENDPOINT_URL}}
+#           poetry run dvc remote modify origin-s3 --local access_key_id ${{secrets.DVC_KEY_ID}}
+#           poetry run dvc remote modify origin-s3 --local secret_access_key ${{secrets.DVC_TOKEN}}
+#           poetry run dvc pull -f -r origin-s3
+#       - name: Preprocess bike data
+#         run: poetry run python ./src/data/preprocessing_bike_data.py
+#       - name: Commit changes to DVC and git
+#         run: |
+#           poetry run dvc add data/processed/mbajk
+#           git config user.name github-actions
+#           git config user.email github-actions@github.com
+#           git checkout main
+#           git add .
+#           git commit -m "cron: Preprocess bike data [skip ci]"
+#           poetry run dvc push -r origin-s3
+#       - name: Push changes
+#         if: ${{ steps.preprocess_bike_data.outputs.sha_new != github.event.before }}
+#         uses: ad-m/github-push-action@master
+#         with:
+#           github_token: ${{ secrets.IIS_TOKEN }}
+#           branch: ${{ github.ref }}
+#       - name: Get commit SHA
+#         id: sha_new
+#         run: echo "SHA_NEW=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+
+#   preprocess_weather_data:
+#     needs: fetch_weather_data
+#     runs-on: ubuntu-latest
+#     outputs:
+#       sha_new: ${{steps.sha_new.outputs.SHA_NEW}}
+#     permissions:
+#       contents: write
+#     steps:
+#       - uses: actions/checkout@v3
+#       - name: Python setup (3.11.7)
+#         uses: actions/setup-python@v4
+#         with:
+#           python-version: 3.11.7
+#       - name: Install dependencies
+#         run: |
+#           pip install poetry
+#           poetry install --no-root
+#       - name: Pull DVC data
+#         run: |
+#           poetry run dvc remote modify origin-s3 endpointurl ${{secrets.DVC_ENDPOINT_URL}}
+#           poetry run dvc remote modify origin-s3 --local access_key_id ${{secrets.DVC_KEY_ID}}
+#           poetry run dvc remote modify origin-s3 --local secret_access_key ${{secrets.DVC_TOKEN}}
+#           poetry run dvc pull -f -r origin-s3
+#       - name: Fetch bike data
+#         run: poetry run python ./src/data/preprocessing_weather_data.py
+#       - name: Commit changes to DVC and git
+#         run: |
+#           poetry run dvc add data/processed/weather
+#           git config user.name github-actions
+#           git config user.email github-actions@github.com
+#           git checkout main
+#           git add .
+#           git commit -m "cron: Preprocess weather data [skip ci]"
+#           poetry run dvc push -r origin-s3
+#       - name: Push changes
+#         if: ${{ steps.preprocess_weather_data.outputs.sha_new != github.event.before }}
+#         uses: ad-m/github-push-action@master
+#         with:
+#           github_token: ${{ secrets.IIS_TOKEN }}
+#           branch: ${{ github.ref }}
+#       - name: Get commit SHA
+#         id: sha_new
+#         run: echo "SHA_NEW=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+
+#   preprocess_combined_data:
+#     needs: [preprocess_bike_data, preprocess_weather_data]
+#     runs-on: ubuntu-latest
+#     outputs:
+#       sha_new: ${{steps.sha_new.outputs.SHA_NEW}}
+#     permissions:
+#       contents: write
+#     steps:
+#       - uses: actions/checkout@v3
+#       - name: Python setup (3.11.7)
+#         uses: actions/setup-python@v4
+#         with:
+#           python-version: 3.11.7
+#       - name: Install dependencies
+#         run: |
+#           pip install poetry
+#           poetry install --no-root
+#       - name: Pull DVC data
+#         run: |
+#           poetry run dvc remote modify origin-s3 endpointurl ${{secrets.DVC_ENDPOINT_URL}}
+#           poetry run dvc remote modify origin-s3 --local access_key_id ${{secrets.DVC_KEY_ID}}
+#           poetry run dvc remote modify origin-s3 --local secret_access_key ${{secrets.DVC_TOKEN}}
+#           poetry run dvc pull -f -r origin-s3
+#       - name: Fetch bike data
+#         run: poetry run python ./src/data/preprocessing_combined.py
+#       - name: Commit changes to DVC and git
+#         run: |
+#           poetry run dvc add data/processed/combined
+#           git config user.name github-actions
+#           git config user.email github-actions@github.com
+#           git checkout main
+#           git add .
+#           git commit -m "cron: Preprocess combined data [skip ci]"
+#           poetry run dvc push -r origin-s3
+#       - name: Push changes
+#         if: ${{ steps.preprocess_combined_data.outputs.sha_new != github.event.before }}
+#         uses: ad-m/github-push-action@master
+#         with:
+#           github_token: ${{ secrets.IIS_TOKEN }}
+#           branch: ${{ github.ref }}
+#       - name: Get commit SHA
+#         id: sha_new
+#         run: echo "SHA_NEW=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+
+#   preprocess_complete_data:
+#     needs: [preprocess_combined_data]
+#     runs-on: ubuntu-latest
+#     outputs:
+#       sha_new: ${{steps.sha_new.outputs.SHA_NEW}}
+#     permissions:
+#       contents: write
+#     steps:
+#       - uses: actions/checkout@v3
+#       - name: Python setup (3.11.7)
+#         uses: actions/setup-python@v4
+#         with:
+#           python-version: 3.11.7
+#       - name: Install dependencies
+#         run: |
+#           pip install poetry
+#           poetry install --no-root
+#       - name: Pull DVC data
+#         run: |
+#           poetry run dvc remote modify origin-s3 endpointurl ${{secrets.DVC_ENDPOINT_URL}}
+#           poetry run dvc remote modify origin-s3 --local access_key_id ${{secrets.DVC_KEY_ID}}
+#           poetry run dvc remote modify origin-s3 --local secret_access_key ${{secrets.DVC_TOKEN}}
+#           poetry run dvc pull -f -r origin-s3
+#       - name: Fetch bike data
+#         run: poetry run python ./src/data/preprocessing_data.py
+#       - name: Commit changes to DVC and git
+#         run: |
+#           poetry run dvc add data/processed/complete
+#           git config user.name github-actions
+#           git config user.email github-actions@github.com
+#           git checkout main
+#           git add .
+#           git commit -m "cron: Preprocess complete data [skip ci]"
+#           poetry run dvc push -r origin-s3
+#       - name: Push changes
+#         if: ${{ steps.preprocess_complete_data.outputs.sha_new != github.event.before }}
+#         uses: ad-m/github-push-action@master
+#         with:
+#           github_token: ${{ secrets.IIS_TOKEN }}
+#           branch: ${{ github.ref }}
+#       - name: Get commit SHA
+#         id: sha_new
+#         run: echo "SHA_NEW=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"

@@ -1,0 +1,10 @@
+.app-container {
+  display: flex;
+  flex-direction: row;
+}
+.app-container > *:nth-child(1) {
+  width: calc(100% / 3 * 1);
+}
+.app-container > *:nth-child(2) {
+  width: calc(100% / 3 * 2);
+}

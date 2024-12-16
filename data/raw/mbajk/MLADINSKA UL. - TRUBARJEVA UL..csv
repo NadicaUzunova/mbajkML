@@ -1,0 +1,7 @@
+number,contract_name,name,address,banking,bonus,bike_stands,available_bike_stands,available_bikes,status,last_update,position_lat,position_lng,timestamp
+5,maribor,MLADINSKA UL. - TRUBARJEVA UL.,Mladinska ulica 15,False,False,16,13,3,OPEN,1734188147000,46.56294,15.644185,2024-12-14 15:55:47
+5,maribor,MLADINSKA UL. - TRUBARJEVA UL.,Mladinska ulica 15,False,False,16,10,6,OPEN,1734260716000,46.56294,15.644185,2024-12-15 12:05:16
+5,maribor,MLADINSKA UL. - TRUBARJEVA UL.,Mladinska ulica 15,False,False,16,10,6,OPEN,1734261321000,46.56294,15.644185,2024-12-15 12:15:21
+5,maribor,MLADINSKA UL. - TRUBARJEVA UL.,Mladinska ulica 15,False,False,16,10,6,OPEN,1734261926000,46.56294,15.644185,2024-12-15 12:25:26
+5,maribor,MLADINSKA UL. - TRUBARJEVA UL.,Mladinska ulica 15,False,False,16,10,6,OPEN,1734262531000,46.56294,15.644185,2024-12-15 12:35:31
+5,maribor,MLADINSKA UL. - TRUBARJEVA UL.,Mladinska ulica 15,False,False,16,13,3,OPEN,1734267378000,46.56294,15.644185,2024-12-15 13:56:18

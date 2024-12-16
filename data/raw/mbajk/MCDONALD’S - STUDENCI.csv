@@ -1,0 +1,7 @@
+number,contract_name,name,address,banking,bonus,bike_stands,available_bike_stands,available_bikes,status,last_update,position_lat,position_lng,timestamp
+30,maribor,MCDONALD’S - STUDENCI,Ul. Jožeta Košarja 2,False,False,20,9,11,OPEN,1734188405000,46.547827,15.620882,2024-12-14 16:00:05
+30,maribor,MCDONALD’S - STUDENCI,Ul. Jožeta Košarja 2,False,False,20,5,15,OPEN,1734260758000,46.547827,15.620882,2024-12-15 12:05:58
+30,maribor,MCDONALD’S - STUDENCI,Ul. Jožeta Košarja 2,False,False,20,5,15,OPEN,1734261361000,46.547827,15.620882,2024-12-15 12:16:01
+30,maribor,MCDONALD’S - STUDENCI,Ul. Jožeta Košarja 2,False,False,20,5,15,OPEN,1734261964000,46.547827,15.620882,2024-12-15 12:26:04
+30,maribor,MCDONALD’S - STUDENCI,Ul. Jožeta Košarja 2,False,False,20,5,15,OPEN,1734262567000,46.547827,15.620882,2024-12-15 12:36:07
+30,maribor,MCDONALD’S - STUDENCI,Ul. Jožeta Košarja 2,False,False,20,6,14,OPEN,1734267395000,46.547827,15.620882,2024-12-15 13:56:35
