@@ -29,19 +29,11 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      # Step 4: Run fetch_data.py
-      - name: Fetch data
-        run: python src/data/fetch_data.py
+      # Step 4: Run data processing script
+      - name: Run processing script
+        run: python src/data/script.py
 
-      # Step 5: Run preprocess_data.py
-      - name: Preprocess data
-        run: python src/data/preprocess_data.py
-
-      # Step 6: Run final_processing.py
-      - name: Final processing
-        run: python src/data/final_processing.py
-
-      # Step 7: Commit and push changes if any
+      # Step 5: Commit and push changes if any
       - name: Commit and push if there are changes
         run: |
           git config user.email "nadica.uzunova@student.um.si"

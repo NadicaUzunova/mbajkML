@@ -1,0 +1,9 @@
+number,contract_name,name,address,banking,bonus,bike_stands,available_bike_stands,available_bikes,status,last_update,position_lat,position_lng,timestamp
+19,maribor,LIDL - TITOVA C.,Titova cesta 15,False,False,20,10,10,OPEN,1734188242000,46.551963,15.651564,2024-12-14 15:57:22
+19,maribor,LIDL - TITOVA C.,Titova cesta 15,False,False,20,8,12,OPEN,1734260702000,46.551963,15.651564,2024-12-15 12:05:02
+19,maribor,LIDL - TITOVA C.,Titova cesta 15,False,False,20,8,12,OPEN,1734261307000,46.551963,15.651564,2024-12-15 12:15:07
+19,maribor,LIDL - TITOVA C.,Titova cesta 15,False,False,20,8,12,OPEN,1734261913000,46.551963,15.651564,2024-12-15 12:25:13
+19,maribor,LIDL - TITOVA C.,Titova cesta 15,False,False,20,8,12,OPEN,1734262518000,46.551963,15.651564,2024-12-15 12:35:18
+19,maribor,LIDL - TITOVA C.,Titova cesta 15,False,False,20,8,12,OPEN,1734267360000,46.551963,15.651564,2024-12-15 13:56:00
+19,maribor,LIDL - TITOVA C.,Titova cesta 15,False,False,20,11,9,OPEN,1734354298000,46.551963,15.651564,2024-12-16 14:04:58
+19,maribor,LIDL - TITOVA C.,Titova cesta 15,False,False,20,11,9,OPEN,1734356109000,46.551963,15.651564,2024-12-16 14:35:09

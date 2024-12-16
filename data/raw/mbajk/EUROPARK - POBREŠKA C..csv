@@ -1,0 +1,8 @@
+number,contract_name,name,address,banking,bonus,bike_stands,available_bike_stands,available_bikes,status,last_update,position_lat,position_lng,timestamp
+20,maribor,EUROPARK - POBREŠKA C.,Pobreška cesta 18,False,False,21,10,11,OPEN,1734188509000,46.554703,15.652826,2024-12-14 16:01:49
+20,maribor,EUROPARK - POBREŠKA C.,Pobreška cesta 18,False,False,21,15,6,OPEN,1734261246000,46.554703,15.652826,2024-12-15 12:14:06
+20,maribor,EUROPARK - POBREŠKA C.,Pobreška cesta 18,False,False,21,15,6,OPEN,1734261850000,46.554703,15.652826,2024-12-15 12:24:10
+20,maribor,EUROPARK - POBREŠKA C.,Pobreška cesta 18,False,False,21,15,6,OPEN,1734262454000,46.554703,15.652826,2024-12-15 12:34:14
+20,maribor,EUROPARK - POBREŠKA C.,Pobreška cesta 18,False,False,21,15,6,OPEN,1734267286000,46.554703,15.652826,2024-12-15 13:54:46
+20,maribor,EUROPARK - POBREŠKA C.,Pobreška cesta 18,False,False,21,10,11,OPEN,1734354461000,46.554703,15.652826,2024-12-16 14:07:41
+20,maribor,EUROPARK - POBREŠKA C.,Pobreška cesta 18,False,False,21,11,10,OPEN,1734356267000,46.554703,15.652826,2024-12-16 14:37:47

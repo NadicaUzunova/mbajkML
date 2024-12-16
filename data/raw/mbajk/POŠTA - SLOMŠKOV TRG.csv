@@ -1,0 +1,8 @@
+number,contract_name,name,address,banking,bonus,bike_stands,available_bike_stands,available_bikes,status,last_update,position_lat,position_lng,timestamp
+6,maribor,POŠTA - SLOMŠKOV TRG,Slomškov trg 10,False,False,20,14,6,OPEN,1734188241000,46.558924,15.644443,2024-12-14 15:57:21
+6,maribor,POŠTA - SLOMŠKOV TRG,Slomškov trg 10,False,False,20,7,13,OPEN,1734261209000,46.558924,15.644443,2024-12-15 12:13:29
+6,maribor,POŠTA - SLOMŠKOV TRG,Slomškov trg 10,False,False,20,7,13,OPEN,1734261813000,46.558924,15.644443,2024-12-15 12:23:33
+6,maribor,POŠTA - SLOMŠKOV TRG,Slomškov trg 10,False,False,20,7,13,OPEN,1734262416000,46.558924,15.644443,2024-12-15 12:33:36
+6,maribor,POŠTA - SLOMŠKOV TRG,Slomškov trg 10,False,False,20,9,11,OPEN,1734267246000,46.558924,15.644443,2024-12-15 13:54:06
+6,maribor,POŠTA - SLOMŠKOV TRG,Slomškov trg 10,False,False,20,5,15,OPEN,1734354453000,46.558924,15.644443,2024-12-16 14:07:33
+6,maribor,POŠTA - SLOMŠKOV TRG,Slomškov trg 10,False,False,20,7,13,OPEN,1734356379000,46.558924,15.644443,2024-12-16 14:39:39

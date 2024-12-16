@@ -1,0 +1,9 @@
+number,contract_name,name,address,banking,bonus,bike_stands,available_bike_stands,available_bikes,status,last_update,position_lat,position_lng,timestamp
+9,maribor,OTP BANKA - TRG LEONA ŠTUKLJA,Ulica slovenske osamosvojitve 5,False,False,20,1,19,OPEN,1734188069000,46.558519,15.649072,2024-12-14 15:54:29
+9,maribor,OTP BANKA - TRG LEONA ŠTUKLJA,Ulica slovenske osamosvojitve 5,False,False,20,0,20,OPEN,1734260711000,46.558519,15.649072,2024-12-15 12:05:11
+9,maribor,OTP BANKA - TRG LEONA ŠTUKLJA,Ulica slovenske osamosvojitve 5,False,False,20,0,20,OPEN,1734261314000,46.558519,15.649072,2024-12-15 12:15:14
+9,maribor,OTP BANKA - TRG LEONA ŠTUKLJA,Ulica slovenske osamosvojitve 5,False,False,20,0,20,OPEN,1734261918000,46.558519,15.649072,2024-12-15 12:25:18
+9,maribor,OTP BANKA - TRG LEONA ŠTUKLJA,Ulica slovenske osamosvojitve 5,False,False,20,0,20,OPEN,1734262522000,46.558519,15.649072,2024-12-15 12:35:22
+9,maribor,OTP BANKA - TRG LEONA ŠTUKLJA,Ulica slovenske osamosvojitve 5,False,False,20,0,20,OPEN,1734267351000,46.558519,15.649072,2024-12-15 13:55:51
+9,maribor,OTP BANKA - TRG LEONA ŠTUKLJA,Ulica slovenske osamosvojitve 5,False,False,20,2,18,OPEN,1734354405000,46.558519,15.649072,2024-12-16 14:06:45
+9,maribor,OTP BANKA - TRG LEONA ŠTUKLJA,Ulica slovenske osamosvojitve 5,False,False,20,0,20,OPEN,1734356234000,46.558519,15.649072,2024-12-16 14:37:14
