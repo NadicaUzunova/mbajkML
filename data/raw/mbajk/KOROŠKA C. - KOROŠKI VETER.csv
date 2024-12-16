@@ -1,7 +1,0 @@
-number,contract_name,name,address,banking,bonus,bike_stands,available_bike_stands,available_bikes,status,last_update,position_lat,position_lng,timestamp
-16,maribor,KOROŠKA C. - KOROŠKI VETER,Koroška cesta 74,False,False,20,20,0,OPEN,1734188144000,46.559319,15.63498,2024-12-14 15:55:44
-16,maribor,KOROŠKA C. - KOROŠKI VETER,Koroška cesta 74,False,False,20,20,0,OPEN,1734260723000,46.559319,15.63498,2024-12-15 12:05:23
-16,maribor,KOROŠKA C. - KOROŠKI VETER,Koroška cesta 74,False,False,20,20,0,OPEN,1734261329000,46.559319,15.63498,2024-12-15 12:15:29
-16,maribor,KOROŠKA C. - KOROŠKI VETER,Koroška cesta 74,False,False,20,19,1,OPEN,1734261935000,46.559319,15.63498,2024-12-15 12:25:35
-16,maribor,KOROŠKA C. - KOROŠKI VETER,Koroška cesta 74,False,False,20,19,1,OPEN,1734262540000,46.559319,15.63498,2024-12-15 12:35:40
-16,maribor,KOROŠKA C. - KOROŠKI VETER,Koroška cesta 74,False,False,20,19,1,OPEN,1734267386000,46.559319,15.63498,2024-12-15 13:56:26
