@@ -1,7 +1,5 @@
-import time
 import subprocess
 import logging
-from datetime import datetime, timedelta
 
 
 # Configure logging
@@ -33,30 +31,9 @@ def run_script(script_path):
         logging.error(f"Failed to run {script_path}. Exception: {e}")
 
 
-def job():
-    """
-    Job to run all scripts consecutively.
-    """
+if __name__ == "__main__":
     logging.info("Starting data processing job...")
     run_script("src/data/fetch_data.py")
     run_script("src/data/preprocess_data.py")
     run_script("src/data/final_processing.py")
     logging.info("Data processing job completed.")
-
-
-if __name__ == "__main__":
-    logging.info("Scheduler started. Waiting for the next scheduled time...")
-
-    # Set the interval to run the job (1 hour and 15 minutes)
-    interval = timedelta(hours=1, minutes=15)
-    next_run_time = datetime.now()
-
-    while True:
-        current_time = datetime.now()
-        if current_time >= next_run_time:
-            job()
-            next_run_time = current_time + interval
-            logging.info(f"Next job scheduled for {next_run_time.strftime('%Y-%m-%d %H:%M:%S')}")
-
-        # Sleep for a short interval to prevent busy waiting
-        time.sleep(30)

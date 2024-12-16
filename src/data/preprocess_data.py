@@ -2,11 +2,11 @@ import os
 import pandas as pd
 
 # Direct paths for raw and processed data
-raw_bike_dir = '/Users/xopiie/Documents/IIS/iis_1_2/data/raw/mbajk'
-processed_bike_dir = '/Users/xopiie/Documents/IIS/iis_1_2/data/processed/mbajk'
-raw_weather_dir = '/Users/xopiie/Documents/IIS/iis_1_2/data/raw/weather'
-processed_weather_dir = '/Users/xopiie/Documents/IIS/iis_1_2/data/processed/weather'
-combined_dir = '/Users/xopiie/Documents/IIS/iis_1_2/data/processed/combined'
+raw_bike_dir = './data/raw/mbajk'
+processed_bike_dir = './data/processed/mbajk'
+raw_weather_dir = './data/raw/weather'
+processed_weather_dir = './data/processed/weather'
+combined_dir = './data/processed/combined'
 
 # Ensure directories exist
 os.makedirs(processed_bike_dir, exist_ok=True)

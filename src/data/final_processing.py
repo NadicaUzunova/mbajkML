@@ -6,9 +6,9 @@ import os
 # train_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', '..', 'data', 'processed', 'train')
 # test_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', '..', 'data', 'processed', 'test')
 
-complete_dir = '/Users/xopiie/Documents/IIS/iis_1_2/data/processed/combined'
-train_dir = '/Users/xopiie/Documents/IIS/iis_1_2/data/processed/train'
-test_dir = '/Users/xopiie/Documents/IIS/iis_1_2/data/processed/test'
+complete_dir = './data/processed/combined'
+train_dir = './data/processed/train'
+test_dir = './data/processed/test'
 
 os.makedirs(train_dir, exist_ok=True)
 os.makedirs(test_dir, exist_ok=True)

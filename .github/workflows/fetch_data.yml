@@ -2,10 +2,10 @@ name: 'Fetch and Process Data'
 
 on:
   schedule:
-    - cron: '15 * * * *' # Runs every hour at 15 minutes past the hour
+    - cron: '15 * * * *'  # Runs every hour at 15 minutes past the hour
   push:
-    branches: [ main ]
-  workflow_dispatch: # Allows manual triggering of the workflow
+    branches: [main]
+  workflow_dispatch:  # Allows manual triggering of the workflow
 
 permissions:
   contents: write
