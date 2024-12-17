@@ -1,2 +1,3 @@
 number,contract_name,name,address,banking,bonus,bike_stands,available_bike_stands,available_bikes,status,last_update,position_lat,position_lng,timestamp
 33,maribor,HOFER - TITOVA CESTA,Linhartova ulica 5,False,False,20,0,0,OPEN,1734427698000,46.5485967,15.6489818,2024-12-17 09:28:18
+33,maribor,HOFER - TITOVA CESTA,Linhartova ulica 5,False,False,20,0,0,OPEN,1734431626000,46.5485967,15.6489818,2024-12-17 10:33:46
