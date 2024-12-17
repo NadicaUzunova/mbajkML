@@ -1,0 +1,2 @@
+timestamp,position_lat,position_lng,available_bike_stands,available_bikes,temperature,humidity,dew_point,apparent_temperature,precipitation
+2024-12-17 09:00:00,46.5485967,15.6489818,0.0,0.0,0.5,100,0.5,-1.8,0.0
