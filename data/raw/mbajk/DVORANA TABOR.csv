@@ -36,3 +36,4 @@ number,contract_name,name,address,banking,bonus,bike_stands,available_bike_stand
 22,maribor,DVORANA TABOR,Gorkega ulica 48,False,False,20,9,11,OPEN,1734453432000,46.549005,15.635014,2024-12-17 16:37:12
 22,maribor,DVORANA TABOR,Gorkega ulica 48,False,False,20,11,9,OPEN,1734456459000,46.549005,15.635014,2024-12-17 17:27:39
 22,maribor,DVORANA TABOR,Gorkega ulica 48,False,False,20,12,8,OPEN,1734460692000,46.549005,15.635014,2024-12-17 18:38:12
+22,maribor,DVORANA TABOR,Gorkega ulica 48,False,False,20,13,7,OPEN,1734463112000,46.549005,15.635014,2024-12-17 19:18:32
