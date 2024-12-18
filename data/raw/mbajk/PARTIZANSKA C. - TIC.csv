@@ -49,3 +49,4 @@ number,contract_name,name,address,banking,bonus,bike_stands,available_bike_stand
 7,maribor,PARTIZANSKA C. - TIC,Partizanska cesta 6a,False,False,20,0,20,OPEN,1734499475000,46.560227,15.650781,2024-12-18 05:24:35
 7,maribor,PARTIZANSKA C. - TIC,Partizanska cesta 6a,False,False,20,1,19,OPEN,1734503707000,46.560227,15.650781,2024-12-18 06:35:07
 7,maribor,PARTIZANSKA C. - TIC,Partizanska cesta 6a,False,False,20,9,9,OPEN,1734506836000,46.560227,15.650781,2024-12-18 07:27:16
+7,maribor,PARTIZANSKA C. - TIC,Partizanska cesta 6a,False,False,20,12,6,OPEN,1734510623000,46.560227,15.650781,2024-12-18 08:30:23
