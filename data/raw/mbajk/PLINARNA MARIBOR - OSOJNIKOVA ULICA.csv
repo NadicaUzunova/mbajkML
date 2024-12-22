@@ -1,0 +1,2 @@
+number,contract_name,name,address,banking,bonus,bike_stands,available_bike_stands,available_bikes,status,last_update,position_lat,position_lng,timestamp
+34,maribor,PLINARNA MARIBOR - OSOJNIKOVA ULICA,Osojnikova ulica 29,False,False,20,14,5,OPEN,1734877552000,46.5549848,15.666239,2024-12-22 14:25:52
