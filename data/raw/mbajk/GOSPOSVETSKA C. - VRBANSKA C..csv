@@ -64,3 +64,4 @@ number,contract_name,name,address,banking,bonus,bike_stands,available_bike_stand
 2,maribor,GOSPOSVETSKA C. - VRBANSKA C.,Gosposvetska cesta 20,False,False,22,22,0,OPEN,1734553796000,46.561422,15.637118,2024-12-18 20:29:56
 2,maribor,GOSPOSVETSKA C. - VRBANSKA C.,Gosposvetska cesta 20,False,False,22,22,0,OPEN,1734877633000,46.561422,15.637118,2024-12-22 14:27:13
 2,maribor,GOSPOSVETSKA C. - VRBANSKA C.,Gosposvetska cesta 20,False,False,22,22,0,OPEN,1734880660000,46.561422,15.637118,2024-12-22 15:17:40
+2,maribor,GOSPOSVETSKA C. - VRBANSKA C.,Gosposvetska cesta 20,False,False,22,20,2,OPEN,1734884900000,46.561422,15.637118,2024-12-22 16:28:20
