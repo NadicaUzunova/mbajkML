@@ -1,0 +1,66 @@
+schema: '2.0'
+stages:
+  fetch_data:
+    cmd: python src/data/fetch_data.py
+    deps:
+    - path: src/data/fetch_data.py
+      hash: md5
+      md5: 5867135077809f48fce60c83bb9fc0f9
+      size: 6465
+    outs:
+    - path: data/raw
+      hash: md5
+      md5: b3498d6eccb11a41c5a6aa7777ab4215.dir
+      size: 42344
+      nfiles: 68
+  preprocess_and_combine:
+    cmd: python src/data/preprocess_data.py
+    deps:
+    - path: data/raw
+      hash: md5
+      md5: b3498d6eccb11a41c5a6aa7777ab4215.dir
+      size: 42344
+      nfiles: 68
+    - path: src/data/preprocess_data.py
+      hash: md5
+      md5: 7ef46e948dd800a42025f9a0d6b6dad3
+      size: 4556
+    outs:
+    - path: data/processed/combined
+      hash: md5
+      md5: 730c8e7800ec9799b65f4beecf112cf8.dir
+      size: 7125
+      nfiles: 34
+    - path: data/processed/mbajk
+      hash: md5
+      md5: b56a10dd7d30b5304d2f4479703f70a5.dir
+      size: 4176
+      nfiles: 34
+    - path: data/processed/weather
+      hash: md5
+      md5: 38d884a2807901970f67b3d828c264b7.dir
+      size: 34906
+      nfiles: 34
+  final_processing:
+    cmd: python src/data/final_processing.py
+    deps:
+    - path: data/processed/combined
+      hash: md5
+      md5: 730c8e7800ec9799b65f4beecf112cf8.dir
+      size: 7125
+      nfiles: 34
+    - path: src/data/final_processing.py
+      hash: md5
+      md5: d2c5d2c19feacb974214dc76498f2327
+      size: 1085
+    outs:
+    - path: data/processed/test
+      hash: md5
+      md5: 730c8e7800ec9799b65f4beecf112cf8.dir
+      size: 7125
+      nfiles: 34
+    - path: data/processed/train
+      hash: md5
+      md5: 20a20b192e6bb0432b45695478e9931e.dir
+      size: 4760
+      nfiles: 34
