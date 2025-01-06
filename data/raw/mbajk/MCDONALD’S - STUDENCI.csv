@@ -1,0 +1,2 @@
+number,contract_name,name,address,banking,bonus,bike_stands,available_bike_stands,available_bikes,status,last_update,position_lat,position_lng,timestamp
+30,maribor,MCDONALD’S - STUDENCI,Ul. Jožeta Košarja 2,False,False,20,8,12,OPEN,1736166070000,46.547827,15.620882,2025-01-06 13:21:10

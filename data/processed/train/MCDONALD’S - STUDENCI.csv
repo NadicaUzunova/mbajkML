@@ -1,0 +1,3 @@
+timestamp,latitude,longitude,available_bike_stands,available_bikes,temperature,humidity,dew_point,apparent_temperature,precipitation,position_lat,position_lng
+2024-12-14 15:00:00,,,9.0,11.0,1.7,90,0.2,-0.6,0.0,46.547827,15.620882
+2024-12-15 11:00:00,,,5.0,15.0,8.1,56,-0.2,4.5,0.0,46.547827,15.620882

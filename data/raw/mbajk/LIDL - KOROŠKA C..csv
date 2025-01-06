@@ -1,0 +1,2 @@
+number,contract_name,name,address,banking,bonus,bike_stands,available_bike_stands,available_bikes,status,last_update,position_lat,position_lng,timestamp
+18,maribor,LIDL - KOROŠKA C.,Koroška cesta 173,False,False,20,4,16,OPEN,1736166472000,46.565603,15.623133,2025-01-06 13:27:52

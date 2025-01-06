@@ -1,0 +1,2 @@
+number,contract_name,name,address,banking,bonus,bike_stands,available_bike_stands,available_bikes,status,last_update,position_lat,position_lng,timestamp
+19,maribor,LIDL - TITOVA C.,Titova cesta 15,False,False,20,12,8,OPEN,1736166522000,46.551963,15.651564,2025-01-06 13:28:42

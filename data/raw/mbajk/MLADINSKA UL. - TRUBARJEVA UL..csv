@@ -1,0 +1,2 @@
+number,contract_name,name,address,banking,bonus,bike_stands,available_bike_stands,available_bikes,status,last_update,position_lat,position_lng,timestamp
+5,maribor,MLADINSKA UL. - TRUBARJEVA UL.,Mladinska ulica 15,False,False,16,11,5,OPEN,1736166530000,46.56294,15.644185,2025-01-06 13:28:50

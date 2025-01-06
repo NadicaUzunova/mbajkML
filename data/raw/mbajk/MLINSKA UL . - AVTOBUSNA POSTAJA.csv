@@ -1,0 +1,2 @@
+number,contract_name,name,address,banking,bonus,bike_stands,available_bike_stands,available_bikes,status,last_update,position_lat,position_lng,timestamp
+12,maribor,MLINSKA UL . - AVTOBUSNA POSTAJA,Mlinska ulica 24,False,False,20,5,15,OPEN,1736166523000,46.558534,15.654739,2025-01-06 13:28:43

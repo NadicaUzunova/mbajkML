@@ -1,0 +1,10 @@
+[core]
+    remote = dagshub_remote
+['remote "dagshub"']
+    url = https://dagshub.com/NadicaUzunova/mbajk_predictions.git
+    auth = basic
+    user = NadicaUzunova
+    password = 97ef4826f7835a2c007c72463ef9f79c86e74233
+['remote "dagshub_remote"']
+    url = s3://mbajk_predictions
+    endpointurl = https://dagshub.com/api/v1/repo-buckets/s3/NadicaUzunova
