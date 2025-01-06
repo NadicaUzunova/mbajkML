@@ -1,0 +1,24 @@
+stages:
+  fetch_data:
+    cmd: python src/data/fetch_data.py
+    deps:
+    - src/data/fetch_data.py
+    outs:
+    - data/raw
+  preprocess_and_combine:
+    cmd: python src/data/preprocess_data.py
+    deps:
+    - data/raw
+    - src/data/preprocess_data.py
+    outs:
+    - data/processed/combined
+    - data/processed/mbajk
+    - data/processed/weather
+  final_processing:
+    cmd: python src/data/final_processing.py
+    deps:
+    - data/processed/combined
+    - src/data/final_processing.py
+    outs:
+    - data/processed/test
+    - data/processed/train
