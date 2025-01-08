@@ -162,6 +162,7 @@ cython_debug/
 .idea/
 
 *.zip
-data/**
-!data/reference/*.dvc
+data/*
+!data/current/
+!data/current/current_data.csv
 
