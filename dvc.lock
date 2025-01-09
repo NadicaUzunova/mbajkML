@@ -51,8 +51,8 @@ stages:
       nfiles: 34
     - path: src/data/final_processing.py
       hash: md5
-      md5: d2c5d2c19feacb974214dc76498f2327
-      size: 1085
+      md5: e44f552aca4a1680161aebb0f1d65a67
+      size: 1469
     outs:
     - path: data/processed/test
       hash: md5
