@@ -36,7 +36,8 @@ stages:
       - data/processed/current_data.csv
       - src/data/validate_data.py
     outs:
-      - reports/validation_report.html
+      - reports/current_data_validation_report.json
+      - reports/reference_data_validation_report.json
   test_data:
     cmd: python src/data/test_data.py
     deps:

@@ -1,0 +1,7 @@
+[core]
+    remote = mbajkml
+['remote "mbajkml"']
+    url = https://dagshub.com/NadicaUzunova/mbajkML
+    auth = basic
+    user = NadicaUzunova
+    password = 01923d386e8a9ed601ac601e13cbe25f968b5ff0
