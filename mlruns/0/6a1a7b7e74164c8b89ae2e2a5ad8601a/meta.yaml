@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/xopiie/Documents/IIS/iis_1_2/mlruns/0/6a1a7b7e74164c8b89ae2e2a5ad8601a/artifacts
+end_time: 1736701838777
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 6a1a7b7e74164c8b89ae2e2a5ad8601a
+run_name: efficient-turtle-166
+run_uuid: 6a1a7b7e74164c8b89ae2e2a5ad8601a
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1736701831572
+status: 3
+tags: []
+user_id: xopiie

@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/xopiie/Documents/IIS/iis_1_2/mlruns/0/faaf2aaac8674c49aaa61a6cbd7d5c35/artifacts
+end_time: 1736701740434
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: faaf2aaac8674c49aaa61a6cbd7d5c35
+run_name: youthful-toad-990
+run_uuid: faaf2aaac8674c49aaa61a6cbd7d5c35
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1736701733454
+status: 3
+tags: []
+user_id: xopiie

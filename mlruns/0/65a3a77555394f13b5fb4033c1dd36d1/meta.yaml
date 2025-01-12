@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/xopiie/Documents/IIS/iis_1_2/mlruns/0/65a3a77555394f13b5fb4033c1dd36d1/artifacts
+end_time: 1736701761487
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 65a3a77555394f13b5fb4033c1dd36d1
+run_name: mysterious-lynx-952
+run_uuid: 65a3a77555394f13b5fb4033c1dd36d1
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1736701754380
+status: 3
+tags: []
+user_id: xopiie

@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/xopiie/Documents/IIS/iis_1_2/mlruns/0/116c4eab5a3549848264861cf3b66c72/artifacts
+end_time: 1736701775357
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 116c4eab5a3549848264861cf3b66c72
+run_name: adaptable-deer-196
+run_uuid: 116c4eab5a3549848264861cf3b66c72
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1736701768483
+status: 3
+tags: []
+user_id: xopiie

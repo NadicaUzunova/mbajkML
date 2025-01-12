@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/xopiie/Documents/IIS/iis_1_2/mlruns/0/f182ea2cb4d242adb80396d61070dda3/artifacts
+end_time: 1736701873957
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: f182ea2cb4d242adb80396d61070dda3
+run_name: charming-fish-42
+run_uuid: f182ea2cb4d242adb80396d61070dda3
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1736701867026
+status: 3
+tags: []
+user_id: xopiie

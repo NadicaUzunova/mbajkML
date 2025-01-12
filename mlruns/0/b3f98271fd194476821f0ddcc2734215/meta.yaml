@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/xopiie/Documents/IIS/iis_1_2/mlruns/0/b3f98271fd194476821f0ddcc2734215/artifacts
+end_time: 1736701768479
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: b3f98271fd194476821f0ddcc2734215
+run_name: smiling-quail-743
+run_uuid: b3f98271fd194476821f0ddcc2734215
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1736701761491
+status: 3
+tags: []
+user_id: xopiie

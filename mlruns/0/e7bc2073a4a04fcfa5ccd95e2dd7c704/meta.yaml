@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/xopiie/Documents/IIS/iis_1_2/mlruns/0/e7bc2073a4a04fcfa5ccd95e2dd7c704/artifacts
+end_time: 1736701888264
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: e7bc2073a4a04fcfa5ccd95e2dd7c704
+run_name: serious-perch-664
+run_uuid: e7bc2073a4a04fcfa5ccd95e2dd7c704
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1736701880865
+status: 3
+tags: []
+user_id: xopiie

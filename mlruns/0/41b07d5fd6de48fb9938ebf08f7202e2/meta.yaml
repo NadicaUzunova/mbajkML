@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/xopiie/Documents/IIS/iis_1_2/mlruns/0/41b07d5fd6de48fb9938ebf08f7202e2/artifacts
+end_time: 1736701824733
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 41b07d5fd6de48fb9938ebf08f7202e2
+run_name: gaudy-gnu-556
+run_uuid: 41b07d5fd6de48fb9938ebf08f7202e2
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1736701817527
+status: 3
+tags: []
+user_id: xopiie

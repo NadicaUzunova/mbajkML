@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/xopiie/Documents/IIS/iis_1_2/mlruns/0/cc157daa15f64c4bbb37dd91949c6fa8/artifacts
+end_time: 1736701895212
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: cc157daa15f64c4bbb37dd91949c6fa8
+run_name: clean-moose-488
+run_uuid: cc157daa15f64c4bbb37dd91949c6fa8
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1736701888272
+status: 3
+tags: []
+user_id: xopiie

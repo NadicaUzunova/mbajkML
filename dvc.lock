@@ -90,32 +90,32 @@ stages:
     deps:
     - path: data/processed/current_data.csv
       hash: md5
-      md5: 4cf0166d741bf7f8c2779df43058ce9b
-      size: 2517
+      md5: e332cc86495fac15f4195d5a891ea9bd
+      size: 2111741
     - path: src/data/validate_data.py
       hash: md5
-      md5: 3ffe897d8cea137932736518eb5daf41
+      md5: 1796ff17801b0d4449a56621fbf315f4
       size: 2171
     outs:
     - path: reports/current_data_validation_report.json
       hash: md5
-      md5: b77605f75cfc52f53bbf25650521fd22
-      size: 10750
+      md5: e46cfa900767cf387eb645fe40c24817
+      size: 10787
     - path: reports/reference_data_validation_report.json
       hash: md5
-      md5: e23450472ea7848fd00cd89ff56659da
-      size: 10750
+      md5: 8346d23405fee6339ba0c78ca377cea8
+      size: 10787
   test_data:
     cmd: python src/data/test_data.py
     deps:
     - path: data/processed/current_data.csv
       hash: md5
-      md5: 4cf0166d741bf7f8c2779df43058ce9b
-      size: 2517
+      md5: e332cc86495fac15f4195d5a891ea9bd
+      size: 2111741
     - path: data/processed/reference_data.csv
       hash: md5
-      md5: 4cf0166d741bf7f8c2779df43058ce9b
-      size: 2517
+      md5: e332cc86495fac15f4195d5a891ea9bd
+      size: 2111741
     - path: src/data/test_data.py
       hash: md5
       md5: 4256740bf0fb2af78e3c0bcd62108b4f
@@ -123,15 +123,15 @@ stages:
     outs:
     - path: reports/data_drift_report.html
       hash: md5
-      md5: 48970e53d70312413a16ef269de32847
-      size: 3149198
+      md5: b35f911a7c1061068b5da56b6db348f9
+      size: 4879947
   train_model:
     cmd: python src/models/train_model.py
     deps:
     - path: data/processed/train
       hash: md5
-      md5: 20a20b192e6bb0432b45695478e9931e.dir
-      size: 4760
+      md5: 09b1fdbe2b3b63eafc54746105fe2215.dir
+      size: 1905989
       nfiles: 34
     - path: src/models/train_model.py
       hash: md5
@@ -140,6 +140,6 @@ stages:
     outs:
     - path: models/
       hash: md5
-      md5: d751713988987e9331980363e24189ce.dir
-      size: 0
-      nfiles: 0
+      md5: 09b4555861281430d0772522c8c2dbee.dir
+      size: 2379277
+      nfiles: 58
