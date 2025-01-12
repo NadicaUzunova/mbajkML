@@ -1,8 +1,6 @@
 [core]
     remote = mbajkml
+
 ['remote "mbajkml"']
     url = s3://mbajkML
     endpointurl = https://dagshub.com/api/v1/repo-buckets/s3/NadicaUzunova
-    auth = basic
-    user = 01923d386e8a9ed601ac601e13cbe25f968b5ff0  
-    password = 01923d386e8a9ed601ac601e13cbe25f968b5ff0
