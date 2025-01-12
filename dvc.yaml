@@ -58,14 +58,16 @@ stages:
       - data/processed/train
       - src/models/train_model.py
     outs:
-      - models/
+      - models/intermediate:
+          persist: true  # Vse začasne modele shranimo tukaj
   train_final_model:
-    cmd: poetry run python src/models/merge_model.py
+    cmd: poetry run python src/models/train_final_model.py
     deps:
       - data/processed/train
       - data/processed/test
-      - src/models/merge_model.py
+      - src/models/train_final_model.py
     outs:
-      - models/final/final_model.keras
+      - models/final:
+          persist: true  # Končni model shranimo tukaj
     
 
