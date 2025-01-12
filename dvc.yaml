@@ -14,6 +14,14 @@ stages:
       - data/processed/combined
       - data/processed/mbajk
       - data/processed/weather
+  generate_data_files:
+    cmd: python src/data/generate_data_files.py
+    deps:
+      - data/processed/combined
+      - src/data/generate_data_files.py
+    outs:
+      - data/processed/current_data.csv
+      - data/processed/reference_data.csv
   final_processing:
     cmd: python src/data/final_processing.py
     deps:
@@ -22,3 +30,20 @@ stages:
     outs:
       - data/processed/train
       - data/processed/test
+  validate_data:
+    cmd: python src/data/validate_data.py
+    deps:
+      - data/processed/current_data.csv
+      - src/data/validate_data.py
+    outs:
+      - reports/validation_report.html
+  test_data:
+    cmd: python src/data/test_data.py
+    deps:
+      - data/processed/current_data.csv
+      - data/processed/reference_data.csv
+      - src/data/test_data.py
+    outs:
+      - reports/data_drift_report.html
+    
+

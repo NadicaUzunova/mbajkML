@@ -1,0 +1,331 @@
+{
+    "success": true,
+    "results": [
+        {
+            "success": true,
+            "expectation_config": {
+                "expectation_type": "expect_column_values_to_not_be_null",
+                "kwargs": {
+                    "column": "timestamp",
+                    "result_format": "BASIC"
+                },
+                "meta": {}
+            },
+            "result": {
+                "element_count": 34,
+                "unexpected_count": 0,
+                "unexpected_percent": 0.0,
+                "unexpected_percent_total": 0.0,
+                "partial_unexpected_list": []
+            },
+            "meta": {},
+            "exception_info": {
+                "raised_exception": false,
+                "exception_message": null,
+                "exception_traceback": null
+            }
+        },
+        {
+            "success": true,
+            "expectation_config": {
+                "expectation_type": "expect_column_values_to_be_of_type",
+                "kwargs": {
+                    "column": "timestamp",
+                    "type_": "str",
+                    "result_format": "BASIC"
+                },
+                "meta": {}
+            },
+            "result": {
+                "element_count": 34,
+                "missing_count": 0,
+                "missing_percent": 0.0,
+                "unexpected_count": 0,
+                "unexpected_percent": 0.0,
+                "unexpected_percent_total": 0.0,
+                "unexpected_percent_nonmissing": 0.0,
+                "partial_unexpected_list": []
+            },
+            "meta": {},
+            "exception_info": {
+                "raised_exception": false,
+                "exception_message": null,
+                "exception_traceback": null
+            }
+        },
+        {
+            "success": true,
+            "expectation_config": {
+                "expectation_type": "expect_column_values_to_match_strftime_format",
+                "kwargs": {
+                    "column": "timestamp",
+                    "strftime_format": "%Y-%m-%d %H:%M:%S",
+                    "result_format": "BASIC"
+                },
+                "meta": {}
+            },
+            "result": {
+                "element_count": 34,
+                "missing_count": 0,
+                "missing_percent": 0.0,
+                "unexpected_count": 0,
+                "unexpected_percent": 0.0,
+                "unexpected_percent_total": 0.0,
+                "unexpected_percent_nonmissing": 0.0,
+                "partial_unexpected_list": []
+            },
+            "meta": {},
+            "exception_info": {
+                "raised_exception": false,
+                "exception_message": null,
+                "exception_traceback": null
+            }
+        },
+        {
+            "success": true,
+            "expectation_config": {
+                "expectation_type": "expect_column_values_to_not_be_null",
+                "kwargs": {
+                    "column": "available_bikes",
+                    "result_format": "BASIC"
+                },
+                "meta": {}
+            },
+            "result": {
+                "element_count": 34,
+                "unexpected_count": 0,
+                "unexpected_percent": 0.0,
+                "unexpected_percent_total": 0.0,
+                "partial_unexpected_list": []
+            },
+            "meta": {},
+            "exception_info": {
+                "raised_exception": false,
+                "exception_message": null,
+                "exception_traceback": null
+            }
+        },
+        {
+            "success": true,
+            "expectation_config": {
+                "expectation_type": "expect_column_min_to_be_between",
+                "kwargs": {
+                    "column": "available_bikes",
+                    "min_value": 0,
+                    "max_value": 21,
+                    "result_format": "BASIC"
+                },
+                "meta": {}
+            },
+            "result": {
+                "observed_value": 0.0,
+                "element_count": 34,
+                "missing_count": null,
+                "missing_percent": null
+            },
+            "meta": {},
+            "exception_info": {
+                "raised_exception": false,
+                "exception_message": null,
+                "exception_traceback": null
+            }
+        },
+        {
+            "success": true,
+            "expectation_config": {
+                "expectation_type": "expect_column_max_to_be_between",
+                "kwargs": {
+                    "column": "available_bikes",
+                    "min_value": 0,
+                    "max_value": 21,
+                    "result_format": "BASIC"
+                },
+                "meta": {}
+            },
+            "result": {
+                "observed_value": 19.0,
+                "element_count": 34,
+                "missing_count": null,
+                "missing_percent": null
+            },
+            "meta": {},
+            "exception_info": {
+                "raised_exception": false,
+                "exception_message": null,
+                "exception_traceback": null
+            }
+        },
+        {
+            "success": true,
+            "expectation_config": {
+                "expectation_type": "expect_column_values_to_not_be_null",
+                "kwargs": {
+                    "column": "temperature",
+                    "result_format": "BASIC"
+                },
+                "meta": {}
+            },
+            "result": {
+                "element_count": 34,
+                "unexpected_count": 0,
+                "unexpected_percent": 0.0,
+                "unexpected_percent_total": 0.0,
+                "partial_unexpected_list": []
+            },
+            "meta": {},
+            "exception_info": {
+                "raised_exception": false,
+                "exception_message": null,
+                "exception_traceback": null
+            }
+        },
+        {
+            "success": true,
+            "expectation_config": {
+                "expectation_type": "expect_column_min_to_be_between",
+                "kwargs": {
+                    "column": "temperature",
+                    "min_value": -30,
+                    "max_value": 50,
+                    "result_format": "BASIC"
+                },
+                "meta": {}
+            },
+            "result": {
+                "observed_value": 12.7,
+                "element_count": 34,
+                "missing_count": null,
+                "missing_percent": null
+            },
+            "meta": {},
+            "exception_info": {
+                "raised_exception": false,
+                "exception_message": null,
+                "exception_traceback": null
+            }
+        },
+        {
+            "success": true,
+            "expectation_config": {
+                "expectation_type": "expect_column_max_to_be_between",
+                "kwargs": {
+                    "column": "temperature",
+                    "min_value": -30,
+                    "max_value": 50,
+                    "result_format": "BASIC"
+                },
+                "meta": {}
+            },
+            "result": {
+                "observed_value": 13.7,
+                "element_count": 34,
+                "missing_count": null,
+                "missing_percent": null
+            },
+            "meta": {},
+            "exception_info": {
+                "raised_exception": false,
+                "exception_message": null,
+                "exception_traceback": null
+            }
+        },
+        {
+            "success": true,
+            "expectation_config": {
+                "expectation_type": "expect_column_values_to_not_be_null",
+                "kwargs": {
+                    "column": "humidity",
+                    "result_format": "BASIC"
+                },
+                "meta": {}
+            },
+            "result": {
+                "element_count": 34,
+                "unexpected_count": 0,
+                "unexpected_percent": 0.0,
+                "unexpected_percent_total": 0.0,
+                "partial_unexpected_list": []
+            },
+            "meta": {},
+            "exception_info": {
+                "raised_exception": false,
+                "exception_message": null,
+                "exception_traceback": null
+            }
+        },
+        {
+            "success": true,
+            "expectation_config": {
+                "expectation_type": "expect_column_min_to_be_between",
+                "kwargs": {
+                    "column": "humidity",
+                    "min_value": 0,
+                    "max_value": 100,
+                    "result_format": "BASIC"
+                },
+                "meta": {}
+            },
+            "result": {
+                "observed_value": 54,
+                "element_count": 34,
+                "missing_count": null,
+                "missing_percent": null
+            },
+            "meta": {},
+            "exception_info": {
+                "raised_exception": false,
+                "exception_message": null,
+                "exception_traceback": null
+            }
+        },
+        {
+            "success": true,
+            "expectation_config": {
+                "expectation_type": "expect_column_max_to_be_between",
+                "kwargs": {
+                    "column": "humidity",
+                    "min_value": 0,
+                    "max_value": 100,
+                    "result_format": "BASIC"
+                },
+                "meta": {}
+            },
+            "result": {
+                "observed_value": 60,
+                "element_count": 34,
+                "missing_count": null,
+                "missing_percent": null
+            },
+            "meta": {},
+            "exception_info": {
+                "raised_exception": false,
+                "exception_message": null,
+                "exception_traceback": null
+            }
+        }
+    ],
+    "evaluation_parameters": {},
+    "statistics": {
+        "evaluated_expectations": 12,
+        "successful_expectations": 12,
+        "unsuccessful_expectations": 0,
+        "success_percent": 100.0
+    },
+    "meta": {
+        "great_expectations_version": "0.15.50",
+        "expectation_suite_name": "default",
+        "run_id": {
+            "run_name": null,
+            "run_time": "2025-01-09T12:36:45.249492+00:00"
+        },
+        "batch_kwargs": {
+            "ge_batch_id": "62ede114-ce86-11ef-b540-6e87111b7e7b"
+        },
+        "batch_markers": {},
+        "batch_parameters": {},
+        "validation_time": "20250109T123645.249470Z",
+        "expectation_suite_meta": {
+            "great_expectations_version": "0.15.50"
+        }
+    }
+}

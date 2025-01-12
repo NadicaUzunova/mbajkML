@@ -1,0 +1,63 @@
+name: 'DVC Pipeline Execution'
+
+on:
+  schedule:
+    - cron: '15 * * * *'  # Runs every hour at 15 minutes past the hour
+  push:
+    branches: [main]
+  workflow_dispatch:  # Allows manual triggering of the workflow
+
+permissions:
+  contents: write
+
+jobs:
+  execute_dvc_pipeline:
+    runs-on: ubuntu-latest
+    steps:
+      # Step 1: Checkout repository
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      # Step 2: Set up Python environment
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.11.7
+
+      # Step 3: Install dependencies
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install poetry
+          poetry install --no-root
+          pip install dvc
+
+      # Step 4: Fetch data stage
+      - name: Run fetch_data stage
+        run: dvc repro fetch_data
+
+      # Step 5: Preprocess and combine stage
+      - name: Run preprocess_and_combine stage
+        run: dvc repro preprocess_and_combine
+
+      # Step 6: Final processing stage
+      - name: Run final_processing stage
+        run: dvc repro final_processing
+
+      # Step 7: Push results to DVC remote
+      - name: Push data to DVC remote
+        run: dvc push
+
+      # Step 8: Commit and push changes
+      - name: Commit and push if there are changes
+        env:
+          GIT_AUTHOR_NAME: NadicaUzunova
+          GIT_AUTHOR_EMAIL: nadica.uzunova@student.um.si
+          GIT_COMMITTER_NAME: NadicaUzunova
+          GIT_COMMITTER_EMAIL: nadica.uzunova@student.um.si
+        run: |
+          git config --global user.name "${GIT_AUTHOR_NAME}"
+          git config --global user.email "${GIT_AUTHOR_EMAIL}"
+          git add .
+          git diff-index --quiet HEAD || git commit -m "Updated pipeline artifacts"
+          git push
