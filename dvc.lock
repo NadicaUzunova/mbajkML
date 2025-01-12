@@ -105,3 +105,23 @@ stages:
       hash: md5
       md5: e23450472ea7848fd00cd89ff56659da
       size: 10750
+  test_data:
+    cmd: python src/data/test_data.py
+    deps:
+    - path: data/processed/current_data.csv
+      hash: md5
+      md5: 4cf0166d741bf7f8c2779df43058ce9b
+      size: 2517
+    - path: data/processed/reference_data.csv
+      hash: md5
+      md5: 4cf0166d741bf7f8c2779df43058ce9b
+      size: 2517
+    - path: src/data/test_data.py
+      hash: md5
+      md5: 4256740bf0fb2af78e3c0bcd62108b4f
+      size: 1071
+    outs:
+    - path: reports/data_drift_report.html
+      hash: md5
+      md5: 48970e53d70312413a16ef269de32847
+      size: 3149198
