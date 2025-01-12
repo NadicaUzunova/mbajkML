@@ -59,5 +59,13 @@ stages:
       - src/models/train_model.py
     outs:
       - models/
+  train_final_model:
+    cmd: poetry run python src/models/merge_model.py
+    deps:
+      - data/processed/train
+      - data/processed/test
+      - src/models/merge_model.py
+    outs:
+      - models/final/final_model.keras
     
 
