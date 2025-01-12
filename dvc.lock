@@ -10,17 +10,17 @@ stages:
     outs:
     - path: data/raw
       hash: md5
-      md5: dda0fb8deefa505156ff90db83b7566d.dir
-      size: 44079
-      nfiles: 68
+      md5: a7287b0226ff86379dba0a201537ba68.dir
+      size: 133385
+      nfiles: 69
   preprocess_and_combine:
     cmd: python src/data/preprocess_data.py
     deps:
     - path: data/raw
       hash: md5
-      md5: dda0fb8deefa505156ff90db83b7566d.dir
-      size: 44079
-      nfiles: 68
+      md5: a7287b0226ff86379dba0a201537ba68.dir
+      size: 133385
+      nfiles: 69
     - path: src/data/preprocess_data.py
       hash: md5
       md5: 7ef46e948dd800a42025f9a0d6b6dad3
@@ -28,26 +28,26 @@ stages:
     outs:
     - path: data/processed/combined
       hash: md5
-      md5: cad0e2840db4c9155cd70a3464365a66.dir
-      size: 7137
+      md5: 79e7e3b8a86dbcfa31413f6d2d9aece8.dir
+      size: 2116442
       nfiles: 34
     - path: data/processed/mbajk
       hash: md5
-      md5: 885cbd4f50d8e0d9f6ca0ccd14c0f7af.dir
-      size: 4179
+      md5: 3549450a277d29871116263a5641ad87.dir
+      size: 18807
       nfiles: 34
     - path: data/processed/weather
       hash: md5
-      md5: 6aed4e8fa2443fc41cb218b2f97f6c68.dir
-      size: 36638
+      md5: ffdfd729bf04f2c3a6aa8556d03d19ba.dir
+      size: 99755
       nfiles: 34
   final_processing:
     cmd: python src/data/final_processing.py
     deps:
     - path: data/processed/combined
       hash: md5
-      md5: cad0e2840db4c9155cd70a3464365a66.dir
-      size: 7137
+      md5: 79e7e3b8a86dbcfa31413f6d2d9aece8.dir
+      size: 2116442
       nfiles: 34
     - path: src/data/final_processing.py
       hash: md5
@@ -56,21 +56,21 @@ stages:
     outs:
     - path: data/processed/test
       hash: md5
-      md5: cad0e2840db4c9155cd70a3464365a66.dir
-      size: 7137
+      md5: 7845c8c73fa8146801891f64b073c7fa.dir
+      size: 215213
       nfiles: 34
     - path: data/processed/train
       hash: md5
-      md5: 20a20b192e6bb0432b45695478e9931e.dir
-      size: 4760
+      md5: 278fa1db99d70f308e7ab522aa58fb9e.dir
+      size: 1906046
       nfiles: 34
   generate_data_files:
     cmd: python src/data/generate_data_files.py
     deps:
     - path: data/processed/combined
       hash: md5
-      md5: cad0e2840db4c9155cd70a3464365a66.dir
-      size: 7137
+      md5: 79e7e3b8a86dbcfa31413f6d2d9aece8.dir
+      size: 2116442
       nfiles: 34
     - path: src/data/generate_data_files.py
       hash: md5
@@ -79,12 +79,12 @@ stages:
     outs:
     - path: data/processed/current_data.csv
       hash: md5
-      md5: 4cf0166d741bf7f8c2779df43058ce9b
-      size: 2517
+      md5: cddff28003c9643e0183d9c66ed351e8
+      size: 2173092
     - path: data/processed/reference_data.csv
       hash: md5
-      md5: 4cf0166d741bf7f8c2779df43058ce9b
-      size: 2517
+      md5: cddff28003c9643e0183d9c66ed351e8
+      size: 2173092
   validate_data:
     cmd: python src/data/validate_data.py
     deps:
@@ -125,3 +125,21 @@ stages:
       hash: md5
       md5: 48970e53d70312413a16ef269de32847
       size: 3149198
+  train_model:
+    cmd: python src/models/train_model.py
+    deps:
+    - path: data/processed/train
+      hash: md5
+      md5: 20a20b192e6bb0432b45695478e9931e.dir
+      size: 4760
+      nfiles: 34
+    - path: src/models/train_model.py
+      hash: md5
+      md5: 4762bdb5e0dd02e14d476f0fc34723b2
+      size: 4075
+    outs:
+    - path: models/
+      hash: md5
+      md5: d751713988987e9331980363e24189ce.dir
+      size: 0
+      nfiles: 0

@@ -22,6 +22,9 @@ for csv_file in os.listdir(raw_bike_dir):
         file_path = os.path.join(raw_bike_dir, csv_file)
         bike_df = pd.read_csv(file_path)
 
+        # Odstranimo neželene stolpce (latitude, longitude)
+        bike_df = bike_df.drop(columns=["latitude", "longitude"], errors="ignore")
+
         # Convert timestamps
         bike_df['last_update'] = pd.to_datetime(bike_df['last_update'], unit='ms')
         bike_df['timestamp'] = bike_df['last_update'].dt.floor('H')  # Aggregate to hourly level
@@ -73,6 +76,10 @@ for csv_file in os.listdir(processed_bike_dir):
 
         if os.path.exists(weather_data_path):
             bike_df = pd.read_csv(bike_data_path, parse_dates=['timestamp'])
+
+            # Odstranimo neželene stolpce (latitude, longitude)
+            bike_df = bike_df.drop(columns=["latitude", "longitude"], errors="ignore")
+
             weather_df = pd.read_csv(weather_data_path, parse_dates=['timestamp'])
 
             # Merge on timestamp

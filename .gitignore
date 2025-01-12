@@ -167,3 +167,4 @@ data/*
 !data/current/current_data.csv
 
 /data-file.bin
+/models

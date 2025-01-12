@@ -5,6 +5,8 @@ import tensorflow as tf
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Dense, LSTM
 import unicodedata
+import mlflow
+import mlflow.tensorflow
 
 
 def create_model(input_shape):
@@ -73,20 +75,36 @@ for csv_file in csv_files:
     # Define input shape
     input_shape = (X.shape[1], X.shape[2])
 
-    # Create and compile the model
-    model = create_model(input_shape)
-    model.compile(optimizer='adam', loss='mean_squared_error')
+    # Start MLflow run
+    with mlflow.start_run():
+        # Create and compile the model
+        model = create_model(input_shape)
+        model.compile(optimizer='adam', loss='mean_squared_error')
 
-    # Train the model
-    history = model.fit(X, y, validation_split=0.2, epochs=10, verbose=1)
+        # Log model parameters
+        mlflow.log_param('window_size', window_size)
+        mlflow.log_param('input_shape', input_shape)
 
-    # Save the model with normalized filename
-    model_name = normalize_string(os.path.splitext(csv_file)[0]) + '.keras'
-    model.save(os.path.join(output_dir, model_name))
+        # Train the model
+        history = model.fit(X, y, validation_split=0.2, epochs=10, verbose=1)
 
-    # Save training metrics
-    train_metrics = pd.DataFrame({
-        'loss': [np.mean(history.history['loss'])],
-        'val_loss': [np.mean(history.history['val_loss'])]
-    })
-    train_metrics.to_csv(os.path.join(output_dir, f"{normalize_string(os.path.splitext(csv_file)[0])}_train_metrics.csv"), index=False)
+        # Save the model with normalized filename
+        model_name = normalize_string(os.path.splitext(csv_file)[0]) + '.keras'
+        model.save(os.path.join(output_dir, model_name))
+
+        # Log the model in MLflow
+        mlflow.tensorflow.log_model(model, artifact_path="models")
+
+        # Save and log training metrics
+        train_metrics = pd.DataFrame({
+            'loss': [np.mean(history.history['loss'])],
+            'val_loss': [np.mean(history.history['val_loss'])]
+        })
+        train_metrics_path = os.path.join(output_dir, f"{normalize_string(os.path.splitext(csv_file)[0])}_train_metrics.csv")
+        train_metrics.to_csv(train_metrics_path, index=False)
+
+        # Log metrics to MLflow
+        mlflow.log_metric('loss', np.mean(history.history['loss']))
+        mlflow.log_metric('val_loss', np.mean(history.history['val_loss']))
+
+        print(f"Model and metrics for {csv_file} have been logged to MLflow.")

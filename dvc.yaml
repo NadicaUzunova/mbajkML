@@ -4,16 +4,20 @@ stages:
     deps:
       - src/data/fetch_data.py
     outs:
-      - data/raw
+      - data/raw:
+          persist: true
   preprocess_and_combine:
     cmd: python src/data/preprocess_data.py
     deps:
       - data/raw
       - src/data/preprocess_data.py
     outs:
-      - data/processed/combined
-      - data/processed/mbajk
-      - data/processed/weather
+      - data/processed/combined:
+          persist: true
+      - data/processed/mbajk:
+          persist: true
+      - data/processed/weather:
+          persist: true
   generate_data_files:
     cmd: python src/data/generate_data_files.py
     deps:
@@ -28,8 +32,10 @@ stages:
       - data/processed/combined
       - src/data/final_processing.py
     outs:
-      - data/processed/train
-      - data/processed/test
+      - data/processed/train:
+          persist: true
+      - data/processed/test:
+          persist: true
   validate_data:
     cmd: python src/data/validate_data.py
     deps:
@@ -46,5 +52,12 @@ stages:
       - src/data/test_data.py
     outs:
       - reports/data_drift_report.html
+  train_model:
+    cmd: python src/models/train_model.py
+    deps:
+      - data/processed/train
+      - src/models/train_model.py
+    outs:
+      - models/
     
 
