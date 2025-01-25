@@ -2,33 +2,43 @@ name: 'Fetch and Process Data'
 
 on:
   schedule:
-    - cron: '15 * * * *'  # Runs every hour at 15 minutes past the hour
+    - cron: '15 * * * *' # Runs every hour at 15 minutes past the hour
   push:
-    branches: [main]
-  workflow_dispatch:  # Allows manual triggering of the workflow
-
-permissions:
-  contents: write
+    branches: [ main ]
+  workflow_dispatch: # Allows manual triggering of the workflow
 
 jobs:
   process_data:
     runs-on: ubuntu-latest
     steps:
+      # Step 1: Checkout repository
       - uses: actions/checkout@v3
-      - name: Set up Python
+
+      # Step 2: Set up Python
+      - name: Set up Python 3.11.7
         uses: actions/setup-python@v4
         with:
           python-version: 3.11.7
+
+      # Step 3: Install dependencies
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
-      - name: Run DVC pipeline
-        run: dvc repro
-      - name: Push data to DVC remote
-        run: dvc push
+          
+      # Step 4: Run tests
+      - name: Run tests
+        run: poetry run pytest ./src/tests/
 
-      # Step 5: Commit and push changes if any
+      - name: Fetch data
+        run: python ./src/data/fetch_data.py
+
+      - name: Preprocess data
+        run: python ./src/data/preprocess_data.py
+
+      - name: Final processing
+        run: python ./src/data/final_processing.py
+
       - name: Commit and push if there are changes
         run: |
           git config user.email "nadica.uzunova@student.um.si"
@@ -36,29 +46,3 @@ jobs:
           git add .
           git commit -m "Update data" || echo "No changes to commit"
           git push
-          
-  dvc_fetch:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-
-      - name: Set up Python
-        uses: actions/setup-python@v3
-        with:
-          python-version: 3.9
-
-      # Step 3: Install dependencies
-      - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install poetry
-          poetry install --no-root
-          pip install -r requirements.txt
-          pip install dvc pytest
-
-      - name: Run DVC Pipeline
-        run: dvc repro
-
-      - name: Push to DVC Remote
-        run: dvc push
