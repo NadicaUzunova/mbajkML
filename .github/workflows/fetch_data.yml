@@ -21,12 +21,19 @@ jobs:
         with:
           python-version: 3.11.7
 
+    # Step 3: Install Poetry
+      - name: Install Poetry
+        run: |
+          python -m pip install --upgrade pip
+          pip install poetry
+
       # Step 3: Install dependencies
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
           pip install dvc[all]
+          poetry install
 
       - name: Configure DagsHub credentials
         run: |
@@ -44,15 +51,15 @@ jobs:
 
       # Step 6: Fetch data
       - name: Fetch data
-        run: python ./src/data/fetch_data.py
+        run: poetry run python ./src/data/fetch_data.py
 
       # Step 7: Preprocess data
       - name: Preprocess data
-        run: python ./src/data/preprocess_data.py
+        run: poetry run python ./src/data/preprocess_data.py
 
       # Step 8: Final processing
       - name: Final processing
-        run: python ./src/data/final_processing.py
+        run: poetry run python ./src/data/final_processing.py
 
       # Step 9: Commit and push changes if necessary
       - name: Commit and push if there are changes
