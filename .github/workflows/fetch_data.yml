@@ -28,6 +28,12 @@ jobs:
           pip install -r requirements.txt
           pip install dvc[all]
 
+      - name: Configure DagsHub credentials
+        run: |
+          dvc remote modify dagshub_remote --local auth basic
+          dvc remote modify dagshub_remote --local user NadicaUzunova
+          dvc remote modify dagshub_remote --local password ${{ secrets.DAGSHUB_TOKEN }}
+
       # Step 4: Pull DVC data
       - name: Pull DVC data
         run: dvc pull
