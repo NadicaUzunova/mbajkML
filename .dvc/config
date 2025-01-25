@@ -1,7 +1,0 @@
-[core]
-    remote = origin
-['remote "origin"']
-    url = s3://mbajkML
-    endpointurl = https://dagshub.com/api/v1/repo-buckets/s3/NadicaUzunova
-    access_key_id = 01923d386e8a9ed601ac601e13cbe25f968b5ff0
-    secret_access_key = 01923d386e8a9ed601ac601e13cbe25f968b5ff0
