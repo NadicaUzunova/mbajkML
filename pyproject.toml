@@ -6,7 +6,7 @@ authors = ["xopiie <nadica.uzunova1@student.um.si>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = ">=3.11,<3.12"
+python = ">=3.11,<=3.12.7"
 pandas = "1.5.3"
 numpy = "^1.26.4"
 tensorflow = "2.15.0"

@@ -1,0 +1,7 @@
+[core]
+    remote = dagshub_remote
+['remote "origin"']
+    url = s3://dvc
+    endpointurl = https://dagshub.com/NadicaUzunova/mbajkML.s3
+['remote "dagshub_remote"']
+    url = https://dagshub.com/NadicaUzunova/mbajkML.dvc

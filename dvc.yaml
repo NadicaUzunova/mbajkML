@@ -1,0 +1,26 @@
+stages:
+  fetch:
+    cmd: poetry run python src/data/fetch_data.py
+    deps:
+      - src/data/fetch_data.py
+    outs:
+      - data/raw
+
+  preprocess:
+    cmd: poetry run python src/data/preprocess_data.py
+    deps:
+      - src/data/preprocess_data.py
+      - data/raw
+    outs:
+      - data/processed/mbajk
+      - data/processed/weather
+      - data/processed/combined
+
+  split:
+    cmd: poetry run python src/data/final_processing.py
+    deps:
+      - src/data/final_processing.py
+      - data/processed/combined
+    outs:
+      - data/processed/train
+      - data/processed/test
