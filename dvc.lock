@@ -138,8 +138,8 @@ stages:
       md5: 499acb5189b8024cc43f5e7d058850f5
       size: 3311
     outs:
-    - path: models/
+    - path: models/intermediate
       hash: md5
-      md5: 475077bfb752a95180ea78c78a239117.dir
-      size: 2377812
-      nfiles: 29
+      md5: d751713988987e9331980363e24189ce.dir
+      size: 0
+      nfiles: 0
