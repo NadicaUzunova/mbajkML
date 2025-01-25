@@ -1,31 +1,25 @@
 [tool.poetry]
-name = "iis"
+name = "iis_1_2"
 version = "0.1.0"
 description = ""
 authors = ["xopiie <nadica.uzunova1@student.um.si>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = ">=3.11,<=3.12.7"
-pandas = "1.5.3"
+python = ">=3.11,<3.12"
+pandas = "^2.2.1"
 numpy = "^1.26.4"
 tensorflow = "2.15.0"
 keras = "2.15.0"
+tensorflow-io-gcs-filesystem="0.31.0"
 scikit-learn = "^1.4.1.post1"
-flask = "2.2.5"  # Compatible with Jinja2 3.0.x
-jinja2 = "3.0.3"  # Compatible with great-expectations
+flask = "^3.0.2"
 pytest = "^8.0.2"
 flask-cors = "^4.0.0"
-tensorflow-io-gcs-filesystem = "^0.37.1"
-dvc = "^3.58.0"
-great-expectations = "^0.15.50"  # or your preferred version
-evidently = "^0.5.1"
-mlflow = "^2.19.0"
-black = "21.12b0"
-pygit2 = "1.16.0"
-dvc-s3 = "^3.2.0"
+dvc = "^3.49.0"
+dvc-s3 = "^3.1.0"
 
-[tool.poetry.dev-dependencies]
+[tool.poetry.group.dev.dependencies]
 black = "^21.7b0"
 jupyter = "^1.1.1"
 
