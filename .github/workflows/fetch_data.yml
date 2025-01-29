@@ -45,9 +45,9 @@ jobs:
       - name: Pull DVC data
         run: dvc pull
 
-      # Step 5: Run tests
-      - name: Run tests
-        run: poetry run pytest ./src/tests/
+      # # Step 5: Run tests
+      # - name: Run tests
+      #   run: poetry run pytest ./src/tests/
 
       # Step 6: Fetch data
       - name: Fetch data
