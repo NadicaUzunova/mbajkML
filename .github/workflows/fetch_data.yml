@@ -63,12 +63,15 @@ jobs:
 
       # Step 9: Commit and push changes if necessary
       - name: Commit and push if there are changes
+        env:
+          GH_TOKEN: ${{ secrets.GH_PATH }}
         run: |
-          git config user.email "nadica.uzunova@student.um.si"
-          git config user.name "NadicaUzunova"
+          git config --global user.email "nadica.uzunova@student.um.si"
+          git config --global user.name "NadicaUzunova"
+          git remote set-url origin https://x-access-token:${GH_TOKEN}@github.com/NadicaUzunova/mbajkML.git
           git add .
           git commit -m "Update data" || echo "No changes to commit"
-          git push
+          git push origin main
 
       # Step 10: Push DVC changes
       - name: Push DVC changes
