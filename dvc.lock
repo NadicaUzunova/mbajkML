@@ -99,14 +99,14 @@ stages:
       nfiles: 34
     - path: src/data/validate_and_test.py
       hash: md5
-      md5: 1cccad968dbfc79be5b4fd7dff378d6e
-      size: 4432
+      md5: 99f1b723fd83f6d858dde9784ff4a198
+      size: 4630
     outs:
     - path: reports/
       hash: md5
-      md5: 8500181dd25899f70c41cb39e50375ed.dir
-      size: 3677
-      nfiles: 42
+      md5: a4e6f09686e6266a582aa32a5cedf875.dir
+      size: 114419376
+      nfiles: 68
   split_data:
     cmd: poetry run python src/data/split_data.py
     deps:
