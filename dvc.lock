@@ -64,3 +64,23 @@ stages:
       md5: d0c238b016a1f9564fbc853b63c4506c.dir
       size: 1907980
       nfiles: 34
+  reference_data:
+    cmd: "dvc checkout data/processed/combined\ncp -r data/processed/combined data/processed/reference_data\n
+      dvc pull\ncp -r data/processed/combined data/processed/current_data\n"
+    deps:
+    - path: data/processed/combined
+      hash: md5
+      md5: e5316771bf43705f3e5d026904d80cf6.dir
+      size: 2118667
+      nfiles: 34
+    outs:
+    - path: data/processed/current_data
+      hash: md5
+      md5: e5316771bf43705f3e5d026904d80cf6.dir
+      size: 2118667
+      nfiles: 34
+    - path: data/processed/reference_data
+      hash: md5
+      md5: e5316771bf43705f3e5d026904d80cf6.dir
+      size: 2118667
+      nfiles: 34
