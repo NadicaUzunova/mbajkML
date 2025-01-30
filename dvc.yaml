@@ -30,3 +30,26 @@ stages:
           persist: true
       - data/processed/test:
           persist: true
+
+  reference_data:
+    cmd: |
+      dvc checkout data/processed/combined
+      cp -r data/processed/combined data/processed/reference_data
+      dvc pull
+      cp -r data/processed/combined data/processed/current_data
+    deps:
+      - data/processed/combined
+    outs:
+      - data/processed/reference_data
+      - data/processed/current_data
+
+  validate_and_test:
+    cmd: poetry run python src/data/validate_and_test.py
+    deps:
+      - src/data/validate_and_test.py
+      - data/processed/reference_data
+      - data/processed/current_data
+    outs:
+      - reports/validation_report.html
+      - reports/data_drift_report.html
+
