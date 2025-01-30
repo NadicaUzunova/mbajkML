@@ -1,0 +1,3 @@
+[build]
+  publish = "reports"
+  command = "echo 'Deploying validation reports'"
