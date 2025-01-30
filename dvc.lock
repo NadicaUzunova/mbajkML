@@ -10,17 +10,17 @@ stages:
     outs:
     - path: data/raw
       hash: md5
-      md5: be8d165712a7de3fe1fb8743bbf0746c.dir
-      size: 42512
-      nfiles: 68
+      md5: dfe251678f3bb66ddbc4dacffd18dff1.dir
+      size: 168615
+      nfiles: 69
   preprocess:
     cmd: poetry run python src/data/preprocess_data.py
     deps:
     - path: data/raw
       hash: md5
-      md5: be8d165712a7de3fe1fb8743bbf0746c.dir
-      size: 42512
-      nfiles: 68
+      md5: dfe251678f3bb66ddbc4dacffd18dff1.dir
+      size: 168615
+      nfiles: 69
     - path: src/data/preprocess_data.py
       hash: md5
       md5: 0442e88ad2aafa41bdd5e3cc45e3d4e2
@@ -28,39 +28,39 @@ stages:
     outs:
     - path: data/processed/combined
       hash: md5
-      md5: 4cc243d4258d6f8a56e91db57b61b2b3.dir
-      size: 7066
+      md5: e5316771bf43705f3e5d026904d80cf6.dir
+      size: 2118667
       nfiles: 34
     - path: data/processed/mbajk
       hash: md5
-      md5: 24645fcc97b678921f09b11e2481fed6.dir
-      size: 4176
+      md5: 266159ac9c4f05fbddb175684349ebcd.dir
+      size: 20499
       nfiles: 34
     - path: data/processed/weather
       hash: md5
-      md5: f24e5c3e5cd820a533a4f21874a93c57.dir
-      size: 35074
+      md5: 3c9ed97da7837cd64b27173537757b5c.dir
+      size: 132749
       nfiles: 34
   split:
     cmd: poetry run python src/data/final_processing.py
     deps:
     - path: data/processed/combined
       hash: md5
-      md5: 4cc243d4258d6f8a56e91db57b61b2b3.dir
-      size: 7066
+      md5: e5316771bf43705f3e5d026904d80cf6.dir
+      size: 2118667
       nfiles: 34
     - path: src/data/final_processing.py
       hash: md5
-      md5: e44f552aca4a1680161aebb0f1d65a67
-      size: 1469
+      md5: a6f312adc6982afb88ab0126cc06c9b5
+      size: 1434
     outs:
     - path: data/processed/test
       hash: md5
-      md5: 4cc243d4258d6f8a56e91db57b61b2b3.dir
-      size: 7066
+      md5: abbf7dc412a64596bccd3c2103c2199a.dir
+      size: 215447
       nfiles: 34
     - path: data/processed/train
       hash: md5
-      md5: 20a20b192e6bb0432b45695478e9931e.dir
-      size: 4760
+      md5: d0c238b016a1f9564fbc853b63c4506c.dir
+      size: 1907980
       nfiles: 34
