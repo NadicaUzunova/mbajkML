@@ -6,7 +6,6 @@ stages:
     outs:
       - data/raw:
           persist: true
-  preprocess_and_combine:
 
   preprocess:
     cmd: poetry run python src/data/preprocess_data.py
