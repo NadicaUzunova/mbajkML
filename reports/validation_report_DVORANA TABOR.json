@@ -1,0 +1,97 @@
+{
+    "success": true,
+    "results": [
+        {
+            "success": true,
+            "expectation_config": {
+                "expectation_type": "expect_column_to_exist",
+                "kwargs": {
+                    "column": "timestamp"
+                },
+                "meta": {}
+            },
+            "result": {},
+            "meta": {},
+            "exception_info": {
+                "raised_exception": false,
+                "exception_message": null,
+                "exception_traceback": null
+            }
+        },
+        {
+            "success": true,
+            "expectation_config": {
+                "expectation_type": "expect_column_values_to_not_be_null",
+                "kwargs": {
+                    "column": "available_bikes"
+                },
+                "meta": {}
+            },
+            "result": {
+                "element_count": 1058,
+                "unexpected_count": 0,
+                "unexpected_percent": 0.0,
+                "unexpected_percent_total": 0.0,
+                "partial_unexpected_list": []
+            },
+            "meta": {},
+            "exception_info": {
+                "raised_exception": false,
+                "exception_message": null,
+                "exception_traceback": null
+            }
+        },
+        {
+            "success": true,
+            "expectation_config": {
+                "expectation_type": "expect_column_values_to_be_between",
+                "kwargs": {
+                    "column": "available_bikes",
+                    "min_value": 0,
+                    "max_value": 50
+                },
+                "meta": {}
+            },
+            "result": {
+                "element_count": 1058,
+                "missing_count": 0,
+                "missing_percent": 0.0,
+                "unexpected_count": 0,
+                "unexpected_percent": 0.0,
+                "unexpected_percent_total": 0.0,
+                "unexpected_percent_nonmissing": 0.0,
+                "partial_unexpected_list": []
+            },
+            "meta": {},
+            "exception_info": {
+                "raised_exception": false,
+                "exception_message": null,
+                "exception_traceback": null
+            }
+        }
+    ],
+    "evaluation_parameters": {},
+    "statistics": {
+        "evaluated_expectations": 3,
+        "successful_expectations": 3,
+        "unsuccessful_expectations": 0,
+        "success_percent": 100.0
+    },
+    "meta": {
+        "great_expectations_version": "0.15.50",
+        "expectation_suite_name": "mbajk_suite_DVORANA TABOR",
+        "run_id": {
+            "run_name": null,
+            "run_time": "2025-01-30T13:02:42.249312+00:00"
+        },
+        "batch_kwargs": {
+            "ge_batch_id": "7da64ba6-df0a-11ef-a66f-6e87111b7e7b"
+        },
+        "batch_markers": {},
+        "batch_parameters": {},
+        "validation_time": "20250130T130242.249294Z",
+        "expectation_suite_meta": {
+            "great_expectations_version": "0.15.50"
+        }
+    }
+}
