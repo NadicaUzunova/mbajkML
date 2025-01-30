@@ -30,7 +30,7 @@ stages:
           persist: true
       - data/processed/test:
           persist: true
-
+  
   reference_data:
     cmd: |
       dvc checkout data/processed/combined
@@ -52,4 +52,14 @@ stages:
     outs:
       - reports/validation_report.html
       - reports/data_drift_report.html
-
+  
+  split_data:
+    cmd: poetry run python src/data/split_data.py
+    deps:
+      - src/data/split_data.py
+      - data/processed/current_data
+    outs:
+      - data/processed/train_test_from_current/train:
+          persist: true
+      - data/processed/train_test_from_current/test:
+          persist: true
