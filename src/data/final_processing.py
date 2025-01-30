@@ -14,7 +14,6 @@ test_dir = './data/processed/test'
 os.makedirs(train_dir, exist_ok=True)
 os.makedirs(test_dir, exist_ok=True)
 
-# Define test size as a percentage
 test_size_ratio = 0.1
 
 for csv_file in os.listdir(complete_dir):

@@ -4,7 +4,9 @@ stages:
     deps:
       - src/data/fetch_data.py
     outs:
-      - data/raw
+      - data/raw:
+          persist: true
+  preprocess_and_combine:
 
   preprocess:
     cmd: poetry run python src/data/preprocess_data.py
@@ -12,9 +14,12 @@ stages:
       - src/data/preprocess_data.py
       - data/raw
     outs:
-      - data/processed/mbajk
-      - data/processed/weather
-      - data/processed/combined
+      - data/processed/mbajk:
+          persist: true
+      - data/processed/weather:
+          persist: true
+      - data/processed/combined:
+          persist: true
 
   split:
     cmd: poetry run python src/data/final_processing.py
@@ -22,5 +27,7 @@ stages:
       - src/data/final_processing.py
       - data/processed/combined
     outs:
-      - data/processed/train
-      - data/processed/test
+      - data/processed/train:
+          persist: true
+      - data/processed/test:
+          persist: true
