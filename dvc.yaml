@@ -44,14 +44,13 @@ stages:
       - data/processed/current_data
 
   validate_and_test:
-    cmd: poetry run python src/data/validate_and_test.py
+  cmd: poetry run python src/data/validate_and_test.py
     deps:
       - src/data/validate_and_test.py
       - data/processed/reference_data
       - data/processed/current_data
     outs:
-      - reports/validation_report.html
-      - reports/data_drift_report.html
+      - reports/
   
   split_data:
     cmd: poetry run python src/data/split_data.py
