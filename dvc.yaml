@@ -60,3 +60,19 @@ stages:
           persist: true
       - data/processed/train_test_from_current/test:
           persist: true
+
+  train_model_mlflow:
+    cmd: poetry run python src/model/train_model_mlflow.py
+    deps:
+      - src/model/train_model_mlflow.py
+      - data/processed/train_test_from_current/train
+    outs:
+      - models_mlflow:
+          persist: true
+
+  predict_model_mlflow:
+    cmd: poetry run python src/model/predict_model_mlflow.py
+    deps:
+      - src/model/predict_model_mlflow.py
+      - models_mlflow
+      - data/processed/train_test_from_current/test
