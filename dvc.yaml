@@ -49,8 +49,6 @@ stages:
         - src/data/validate_and_test.py
         - data/processed/reference_data
         - data/processed/current_data
-    outs:
-        - reports/
   
   split_data:
     cmd: poetry run python src/data/split_data.py
