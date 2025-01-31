@@ -4,8 +4,7 @@ import numpy as np
 import mlflow
 import mlflow.tensorflow
 import tensorflow as tf
-import keras
-from keras.models import load_model
+from tensorflow.keras.models import load_model
 from sklearn.metrics import mean_absolute_error, mean_squared_error, explained_variance_score
 
 def normalize_string(input_str: str) -> str:
