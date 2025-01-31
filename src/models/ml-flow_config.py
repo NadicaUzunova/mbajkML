@@ -1,12 +1,10 @@
 import dagshub
-dagshub.init(repo_owner='nadicauzunova',
-             repo_name='mbajkML',
-             mlflow=True)
-
 import mlflow
 
-mlflow.set_tracking_uri("https://dagshub.com/NadicaUzunova/mbajkML.mlflow")
+dagshub.init(repo_owner='NadicaUzunova', repo_name='mbajkML', mlflow=True)
+
 
 with mlflow.start_run():
-  mlflow.log_param('parameter name', 'value')
-  mlflow.log_metric('metric name', 1)
+  # Your training code here...
+  mlflow.log_metric('accuracy', 42)
+  mlflow.log_param('Param name', 'Value')
