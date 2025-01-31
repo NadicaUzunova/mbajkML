@@ -117,8 +117,8 @@ stages:
       nfiles: 34
     - path: src/data/split_data.py
       hash: md5
-      md5: bae8a0e4cd73421b327eb1b7017c0442
-      size: 1478
+      md5: bd02b4c874c5cb7567129a20eade3536
+      size: 1768
     outs:
     - path: data/processed/train_test_from_current/test
       hash: md5

@@ -64,7 +64,7 @@ stages:
   train_model_mlflow:
     cmd: poetry run python src/model/train_model_mlflow.py
     deps:
-      - src/model/train_model_mlflow.py
+      - src/models/train_model_mlflow.py
       - data/processed/train_test_from_current/train
     outs:
       - models/models_mlflow:
@@ -73,6 +73,6 @@ stages:
   predict_model_mlflow:
     cmd: poetry run python src/model/predict_model_mlflow.py
     deps:
-      - src/model/predict_model_mlflow.py
+      - src/models/predict_model_mlflow.py
       - models/models_mlflow
       - data/processed/train_test_from_current/test
