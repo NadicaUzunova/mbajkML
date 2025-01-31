@@ -4,8 +4,8 @@ import numpy as np
 import mlflow
 import mlflow.tensorflow
 import tensorflow as tf
-from tensorflow.keras.models import Sequential
-from tensorflow.keras.layers import Dense, LSTM
+from keras.models import Sequential
+from keras.layers import Dense, LSTM
 import unicodedata
 
 def create_model(input_shape):
