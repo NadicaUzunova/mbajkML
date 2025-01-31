@@ -4,6 +4,7 @@ import numpy as np
 import mlflow
 import mlflow.tensorflow
 import tensorflow as tf
+import keras
 from keras.models import Sequential
 from keras.layers import Dense, LSTM
 import unicodedata
