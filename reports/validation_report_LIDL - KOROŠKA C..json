@@ -28,7 +28,7 @@
                 "meta": {}
             },
             "result": {
-                "element_count": 1058,
+                "element_count": 1059,
                 "unexpected_count": 0,
                 "unexpected_percent": 0.0,
                 "unexpected_percent_total": 0.0,
@@ -53,7 +53,7 @@
                 "meta": {}
             },
             "result": {
-                "element_count": 1058,
+                "element_count": 1059,
                 "missing_count": 0,
                 "missing_percent": 0.0,
                 "unexpected_count": 0,
@@ -82,14 +82,14 @@
         "expectation_suite_name": "mbajk_suite_LIDL - KORO\u0160KA C.",
         "run_id": {
             "run_name": null,
-            "run_time": "2025-02-01T16:47:42.137318+00:00"
+            "run_time": "2025-02-01T20:05:10.052560+00:00"
         },
         "batch_kwargs": {
-            "ge_batch_id": "41093b8c-e0bc-11ef-a14b-6e87111b7e7b"
+            "ge_batch_id": "d6f1a07e-e0d7-11ef-a53b-6e87111b7e7b"
         },
         "batch_markers": {},
         "batch_parameters": {},
-        "validation_time": "20250201T164742.137302Z",
+        "validation_time": "20250201T200510.052542Z",
         "expectation_suite_meta": {
             "great_expectations_version": "0.15.50"
         }

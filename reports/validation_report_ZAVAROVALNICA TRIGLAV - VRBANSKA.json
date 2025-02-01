@@ -28,7 +28,7 @@
                 "meta": {}
             },
             "result": {
-                "element_count": 5,
+                "element_count": 6,
                 "unexpected_count": 0,
                 "unexpected_percent": 0.0,
                 "unexpected_percent_total": 0.0,
@@ -53,7 +53,7 @@
                 "meta": {}
             },
             "result": {
-                "element_count": 5,
+                "element_count": 6,
                 "missing_count": 0,
                 "missing_percent": 0.0,
                 "unexpected_count": 0,
@@ -82,14 +82,14 @@
         "expectation_suite_name": "mbajk_suite_ZAVAROVALNICA TRIGLAV - VRBANSKA",
         "run_id": {
             "run_name": null,
-            "run_time": "2025-02-01T16:47:41.733295+00:00"
+            "run_time": "2025-02-01T20:05:09.655370+00:00"
         },
         "batch_kwargs": {
-            "ge_batch_id": "40cb9566-e0bc-11ef-a14b-6e87111b7e7b"
+            "ge_batch_id": "d6b505b0-e0d7-11ef-a53b-6e87111b7e7b"
         },
         "batch_markers": {},
         "batch_parameters": {},
-        "validation_time": "20250201T164741.733279Z",
+        "validation_time": "20250201T200509.655355Z",
         "expectation_suite_meta": {
             "great_expectations_version": "0.15.50"
         }

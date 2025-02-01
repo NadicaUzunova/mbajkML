@@ -21,13 +21,13 @@ jobs:
         with:
           python-version: 3.11.7
 
-    # Step 3: Install Poetry
+      # Step 3: Install Poetry
       - name: Install Poetry
         run: |
           python -m pip install --upgrade pip
           pip install poetry
 
-      # Step 3: Install dependencies
+      # Step 4: Install dependencies
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
@@ -35,33 +35,34 @@ jobs:
           pip install dvc[all]
           poetry install
 
+      # Step 5: Configure DagsHub credentials
       - name: Configure DagsHub credentials
         run: |
           dvc remote modify dagshub_remote --local auth basic
           dvc remote modify dagshub_remote --local user NadicaUzunova
           dvc remote modify dagshub_remote --local password ${{ secrets.DAGSHUB_TOKEN }}
 
-      # Step 4: Pull DVC data
+      # Step 6: Pull DVC data
       - name: Pull DVC data
         run: dvc pull
 
-      # # Step 5: Run tests
-      # - name: Run tests
-      #   run: poetry run pytest ./src/tests/
+      # # Step 7: Fetch data
+      # - name: Fetch data
+      #   run: poetry run python ./src/data/fetch_data.py
 
-      # Step 6: Fetch data
-      - name: Fetch data
-        run: poetry run python ./src/data/fetch_data.py
+      # # Step 8: Preprocess data
+      # - name: Preprocess data
+      #   run: poetry run python ./src/data/preprocess_data.py
 
-      # Step 7: Preprocess data
-      - name: Preprocess data
-        run: poetry run python ./src/data/preprocess_data.py
+      # # Step 9: Final processing
+      # - name: Final processing
+      #   run: poetry run python ./src/data/final_processing.py
 
-      # Step 8: Final processing
-      - name: Final processing
-        run: poetry run python ./src/data/final_processing.py
+      # NOV KORAK: Reproduciraj DVC pipeline z --force
+      - name: Reproduce DVC pipeline (force)
+        run: dvc repro --force
 
-      # Step 9: Commit and push changes if necessary
+      # Step 10: Commit and push changes if necessary
       - name: Commit and push if there are changes
         env:
           mbajkML: ${{ secrets.mbajkML }}
@@ -73,6 +74,6 @@ jobs:
           git commit -m "Update data" || echo "No changes to commit"
           git push origin main
 
-      # Step 10: Push DVC changes
+      # Step 11: Push DVC changes
       - name: Push DVC changes
         run: dvc push

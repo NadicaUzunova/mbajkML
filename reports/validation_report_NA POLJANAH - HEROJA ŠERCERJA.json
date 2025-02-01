@@ -28,7 +28,7 @@
                 "meta": {}
             },
             "result": {
-                "element_count": 1058,
+                "element_count": 1059,
                 "unexpected_count": 0,
                 "unexpected_percent": 0.0,
                 "unexpected_percent_total": 0.0,
@@ -53,7 +53,7 @@
                 "meta": {}
             },
             "result": {
-                "element_count": 1058,
+                "element_count": 1059,
                 "missing_count": 0,
                 "missing_percent": 0.0,
                 "unexpected_count": 0,
@@ -82,14 +82,14 @@
         "expectation_suite_name": "mbajk_suite_NA POLJANAH - HEROJA \u0160ERCERJA",
         "run_id": {
             "run_name": null,
-            "run_time": "2025-02-01T16:47:40.012476+00:00"
+            "run_time": "2025-02-01T20:05:07.924539+00:00"
         },
         "batch_kwargs": {
-            "ge_batch_id": "3fc501f2-e0bc-11ef-a14b-6e87111b7e7b"
+            "ge_batch_id": "d5aceaa2-e0d7-11ef-a53b-6e87111b7e7b"
         },
         "batch_markers": {},
         "batch_parameters": {},
-        "validation_time": "20250201T164740.012458Z",
+        "validation_time": "20250201T200507.924520Z",
         "expectation_suite_meta": {
             "great_expectations_version": "0.15.50"
         }

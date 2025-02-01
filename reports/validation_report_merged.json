@@ -82,14 +82,14 @@
         "expectation_suite_name": "mbajk_merged_suite",
         "run_id": {
             "run_name": null,
-            "run_time": "2025-02-01T16:47:50.191667+00:00"
+            "run_time": "2025-02-01T20:15:50.772774+00:00"
         },
         "batch_kwargs": {
-            "ge_batch_id": "45d638b8-e0bc-11ef-9666-6e87111b7e7b"
+            "ge_batch_id": "54d7c440-e0d9-11ef-b4d6-6e87111b7e7b"
         },
         "batch_markers": {},
         "batch_parameters": {},
-        "validation_time": "20250201T164750.191648Z",
+        "validation_time": "20250201T201550.772755Z",
         "expectation_suite_meta": {
             "great_expectations_version": "0.15.50"
         }
