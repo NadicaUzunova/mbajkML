@@ -28,7 +28,7 @@
                 "meta": {}
             },
             "result": {
-                "element_count": 1058,
+                "element_count": 5,
                 "unexpected_count": 0,
                 "unexpected_percent": 0.0,
                 "unexpected_percent_total": 0.0,
@@ -53,7 +53,7 @@
                 "meta": {}
             },
             "result": {
-                "element_count": 1058,
+                "element_count": 5,
                 "missing_count": 0,
                 "missing_percent": 0.0,
                 "unexpected_count": 0,
@@ -82,14 +82,14 @@
         "expectation_suite_name": "mbajk_suite_GOSPOSVETSKA C. - VRBANSKA C.",
         "run_id": {
             "run_name": null,
-            "run_time": "2025-01-30T13:02:43.622914+00:00"
+            "run_time": "2025-02-01T16:37:04.053425+00:00"
         },
         "batch_kwargs": {
-            "ge_batch_id": "7e77e404-df0a-11ef-a66f-6e87111b7e7b"
+            "ge_batch_id": "c4b55ba2-e0ba-11ef-94cf-6e87111b7e7b"
         },
         "batch_markers": {},
         "batch_parameters": {},
-        "validation_time": "20250130T130243.622896Z",
+        "validation_time": "20250201T163704.053409Z",
         "expectation_suite_meta": {
             "great_expectations_version": "0.15.50"
         }

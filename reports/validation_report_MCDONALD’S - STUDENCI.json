@@ -82,14 +82,14 @@
         "expectation_suite_name": "mbajk_suite_MCDONALD\u2019S - STUDENCI",
         "run_id": {
             "run_name": null,
-            "run_time": "2025-01-30T13:02:43.396649+00:00"
+            "run_time": "2025-02-01T16:37:03.854282+00:00"
         },
         "batch_kwargs": {
-            "ge_batch_id": "7e555d8a-df0a-11ef-a66f-6e87111b7e7b"
+            "ge_batch_id": "c496f87e-e0ba-11ef-94cf-6e87111b7e7b"
         },
         "batch_markers": {},
         "batch_parameters": {},
-        "validation_time": "20250130T130243.396631Z",
+        "validation_time": "20250201T163703.854267Z",
         "expectation_suite_meta": {
             "great_expectations_version": "0.15.50"
         }
