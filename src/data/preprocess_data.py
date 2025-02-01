@@ -13,6 +13,7 @@ merged_dir = "./data/processed/merged"
 os.makedirs(processed_bike_dir, exist_ok=True)
 os.makedirs(processed_weather_dir, exist_ok=True)
 os.makedirs(combined_dir, exist_ok=True)
+os.makedirs(merged_dir, exist_ok=True)  # 🔹 Dodano: ustvari mapo merged
 
 print("📂 Directories set up. Starting processing...")
 
@@ -39,11 +40,6 @@ for csv_file in os.listdir(raw_bike_dir):
 
         # Save processed bike data
         processed_file_path = os.path.join(processed_bike_dir, csv_file)
-        if os.path.exists(processed_file_path):
-            print(f"⚠️ Appending to existing bike file: {processed_file_path}")
-            existing_bike_df = pd.read_csv(processed_file_path, parse_dates=["timestamp"])
-            bike_df = pd.concat([existing_bike_df, bike_df]).drop_duplicates(subset=["timestamp"]).reset_index(drop=True)
-
         bike_df.to_csv(processed_file_path, index=False)
         print(f"✅ Saved processed bike data to: {processed_file_path}")
 
@@ -59,11 +55,6 @@ for csv_file in os.listdir(raw_weather_dir):
 
         # Save processed weather data
         processed_file_path = os.path.join(processed_weather_dir, csv_file)
-        if os.path.exists(processed_file_path):
-            print(f"⚠️ Appending to existing weather file: {processed_file_path}")
-            existing_weather_df = pd.read_csv(processed_file_path, parse_dates=["timestamp"])
-            weather_raw = pd.concat([existing_weather_df, weather_raw]).drop_duplicates(subset=["timestamp"]).reset_index(drop=True)
-
         weather_raw.to_csv(processed_file_path, index=False)
         print(f"✅ Saved processed weather data to: {processed_file_path}")
 
@@ -76,8 +67,6 @@ for csv_file in os.listdir(processed_bike_dir):
 
         if os.path.exists(weather_data_path):
             bike_df = pd.read_csv(bike_data_path, parse_dates=["timestamp"])
-            bike_df = bike_df.drop(columns=["latitude", "longitude"], errors="ignore")
-
             weather_df = pd.read_csv(weather_data_path, parse_dates=["timestamp"])
 
             # Merge on timestamp
@@ -91,11 +80,6 @@ for csv_file in os.listdir(processed_bike_dir):
 
             # Save combined data
             combined_file_path = os.path.join(combined_dir, csv_file)
-            if os.path.exists(combined_file_path):
-                print(f"⚠️ Appending to existing combined file: {combined_file_path}")
-                existing_combined_df = pd.read_csv(combined_file_path, parse_dates=["timestamp"])
-                merged_df = pd.concat([existing_combined_df, merged_df]).drop_duplicates(subset=["timestamp"]).reset_index(drop=True)
-
             merged_df.to_csv(combined_file_path, index=False)
             print(f"✅ Saved combined data to: {combined_file_path}")
         else:
@@ -104,16 +88,19 @@ for csv_file in os.listdir(processed_bike_dir):
 # 🛠️ **Merge all processed station files into one final dataset**
 output_file = os.path.join(merged_dir, "data.csv")
 
-csv_files = [f for f in os.listdir(merged_dir) if f.endswith(".csv")]
+csv_files = [f for f in os.listdir(combined_dir) if f.endswith(".csv")]
 df_list = []
 for file in csv_files:
-    file_path = os.path.join(merged_dir, file)
+    file_path = os.path.join(combined_dir, file)
     df = pd.read_csv(file_path)
-    df_list.append(df)
+
+    if not df.empty:
+        df_list.append(df)  # 🔹 Skip empty files
 
 # Create final merged dataset
-final_df = pd.concat(df_list, ignore_index=True)
-
-# Save merged dataset
-final_df.to_csv(output_file, index=False)
-print(f"✅ Merged {len(csv_files)} station files into {output_file}")
+if df_list:
+    final_df = pd.concat(df_list, ignore_index=True)
+    final_df.to_csv(output_file, index=False)
+    print(f"✅ Merged {len(csv_files)} station files into {output_file}")
+else:
+    print(f"⚠️ No valid files to merge in {combined_dir}.")
