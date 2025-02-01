@@ -7,7 +7,7 @@ description = "Abseil Python Common Libraries, see https://github.com/abseil/abs
 optional = false
 python-versions = ">=3.7"
 groups = ["main"]
-markers = "platform_system == \"Darwin\" and platform_machine == \"arm64\" or platform_system == \"Windows\""
+markers = "sys_platform == \"darwin\" and (platform_system == \"Darwin\" or platform_system == \"Windows\") and (platform_machine == \"arm64\" or platform_system == \"Windows\")"
 files = [
     {file = "absl-py-2.1.0.tar.gz", hash = "sha256:7820790efbb316739cde8b4e19357243fc3608a152024288513dd968d7d959ff"},
     {file = "absl_py-2.1.0-py3-none-any.whl", hash = "sha256:526a04eadab8b4ee719ce68f204172ead1027549089702d99b9059f129ff1308"},
@@ -414,7 +414,7 @@ description = "An AST unparser for Python"
 optional = false
 python-versions = "*"
 groups = ["main"]
-markers = "platform_system == \"Darwin\" and platform_machine == \"arm64\" or platform_system == \"Windows\""
+markers = "sys_platform == \"darwin\" and (platform_system == \"Darwin\" or platform_system == \"Windows\") and (platform_machine == \"arm64\" or platform_system == \"Windows\")"
 files = [
     {file = "astunparse-1.6.3-py2.py3-none-any.whl", hash = "sha256:c2652417f2c8b5bb325c885ae329bdf3f86424075c4fd1a128674bc6fba4b8e8"},
     {file = "astunparse-1.6.3.tar.gz", hash = "sha256:5ad93a8456f0d084c3456d059fd9a92cce667963232cbf763eac3bc5b7940872"},
@@ -1840,7 +1840,7 @@ description = "The FlatBuffers serialization format for Python"
 optional = false
 python-versions = "*"
 groups = ["main"]
-markers = "platform_system == \"Darwin\" and platform_machine == \"arm64\" or platform_system == \"Windows\""
+markers = "sys_platform == \"darwin\" and (platform_system == \"Darwin\" or platform_system == \"Windows\") and (platform_machine == \"arm64\" or platform_system == \"Windows\")"
 files = [
     {file = "flatbuffers-25.1.24-py2.py3-none-any.whl", hash = "sha256:1abfebaf4083117225d0723087ea909896a34e3fec933beedb490d595ba24145"},
     {file = "flatbuffers-25.1.24.tar.gz", hash = "sha256:e0f7b7d806c0abdf166275492663130af40c11f89445045fbef0aa3c9a8643ad"},
@@ -2128,7 +2128,7 @@ description = "Python AST that abstracts the underlying Python version"
 optional = false
 python-versions = "!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,>=2.7"
 groups = ["main"]
-markers = "platform_system == \"Darwin\" and platform_machine == \"arm64\" or platform_system == \"Windows\""
+markers = "sys_platform == \"darwin\" and (platform_system == \"Darwin\" or platform_system == \"Windows\") and (platform_machine == \"arm64\" or platform_system == \"Windows\")"
 files = [
     {file = "gast-0.6.0-py3-none-any.whl", hash = "sha256:52b182313f7330389f72b069ba00f174cfe2a06411099547288839c6cbafbd54"},
     {file = "gast-0.6.0.tar.gz", hash = "sha256:88fc5300d32c7ac6ca7b515310862f71e6fdf2c029bbec7c66c0f5dd47b6b1fb"},
@@ -2200,7 +2200,7 @@ description = "pasta is an AST-based Python refactoring library"
 optional = false
 python-versions = "*"
 groups = ["main"]
-markers = "platform_system == \"Darwin\" and platform_machine == \"arm64\" or platform_system == \"Windows\""
+markers = "sys_platform == \"darwin\" and (platform_system == \"Darwin\" or platform_system == \"Windows\") and (platform_machine == \"arm64\" or platform_system == \"Windows\")"
 files = [
     {file = "google-pasta-0.2.0.tar.gz", hash = "sha256:c9f2c8dfc8f96d0d5808299920721be30c9eec37f2389f28904f454565c8a16e"},
     {file = "google_pasta-0.2.0-py2-none-any.whl", hash = "sha256:4612951da876b1a10fe3960d7226f0c7682cf901e16ac06e473b267a5afa8954"},
@@ -2441,7 +2441,7 @@ description = "HTTP/2-based RPC framework"
 optional = false
 python-versions = ">=3.8"
 groups = ["main"]
-markers = "platform_system == \"Darwin\" and platform_machine == \"arm64\" or platform_system == \"Windows\""
+markers = "sys_platform == \"darwin\" and (platform_system == \"Darwin\" or platform_system == \"Windows\") and (platform_machine == \"arm64\" or platform_system == \"Windows\")"
 files = [
     {file = "grpcio-1.70.0-cp310-cp310-linux_armv7l.whl", hash = "sha256:95469d1977429f45fe7df441f586521361e235982a0b39e33841549143ae2851"},
     {file = "grpcio-1.70.0-cp310-cp310-macosx_12_0_universal2.whl", hash = "sha256:ed9718f17fbdb472e33b869c77a16d0b55e166b100ec57b016dc7de9c8d236bf"},
@@ -2572,7 +2572,7 @@ description = "Read and write HDF5 files from Python"
 optional = false
 python-versions = ">=3.9"
 groups = ["main"]
-markers = "platform_system == \"Darwin\" and platform_machine == \"arm64\" or platform_system == \"Windows\""
+markers = "sys_platform == \"darwin\" and (platform_system == \"Darwin\" or platform_system == \"Windows\") and (platform_machine == \"arm64\" or platform_system == \"Windows\")"
 files = [
     {file = "h5py-3.12.1-cp310-cp310-macosx_10_9_x86_64.whl", hash = "sha256:2f0f1a382cbf494679c07b4371f90c70391dedb027d517ac94fa2c05299dacda"},
     {file = "h5py-3.12.1-cp310-cp310-macosx_11_0_arm64.whl", hash = "sha256:cb65f619dfbdd15e662423e8d257780f9a66677eae5b4b3fc9dca70b5fd2d2a3"},
@@ -3346,7 +3346,7 @@ description = "Multi-backend Keras"
 optional = false
 python-versions = ">=3.9"
 groups = ["main"]
-markers = "platform_system == \"Darwin\" and platform_machine == \"arm64\" or platform_system == \"Windows\""
+markers = "sys_platform == \"darwin\" and (platform_system == \"Darwin\" or platform_system == \"Windows\") and (platform_machine == \"arm64\" or platform_system == \"Windows\")"
 files = [
     {file = "keras-3.8.0-py3-none-any.whl", hash = "sha256:b65d125976b0f8bf8ad1e93311a98e7dfb334ff6023627a59a52b35499165ec3"},
     {file = "keras-3.8.0.tar.gz", hash = "sha256:6289006e6f6cb2b68a563b58cf8ae5a45569449c5a791df6b2f54c1877f3f344"},
@@ -3493,7 +3493,7 @@ description = "Clang Python Bindings, mirrored from the official LLVM repo: http
 optional = false
 python-versions = "*"
 groups = ["main"]
-markers = "platform_system == \"Darwin\" and platform_machine == \"arm64\" or platform_system == \"Windows\""
+markers = "sys_platform == \"darwin\" and (platform_system == \"Darwin\" or platform_system == \"Windows\") and (platform_machine == \"arm64\" or platform_system == \"Windows\")"
 files = [
     {file = "libclang-18.1.1-1-py2.py3-none-macosx_11_0_arm64.whl", hash = "sha256:0b2e143f0fac830156feb56f9231ff8338c20aecfe72b4ffe96f19e5a1dbb69a"},
     {file = "libclang-18.1.1-py2.py3-none-macosx_10_9_x86_64.whl", hash = "sha256:6f14c3f194704e5d09769108f03185fce7acaf1d1ae4bbb2f30a72c2400cb7c5"},
@@ -3835,7 +3835,7 @@ description = ""
 optional = false
 python-versions = ">=3.9"
 groups = ["main"]
-markers = "platform_system == \"Darwin\" and platform_machine == \"arm64\" or platform_system == \"Windows\""
+markers = "sys_platform == \"darwin\" and (platform_system == \"Darwin\" or platform_system == \"Windows\") and (platform_machine == \"arm64\" or platform_system == \"Windows\")"
 files = [
     {file = "ml_dtypes-0.3.2-cp310-cp310-macosx_10_9_universal2.whl", hash = "sha256:7afde548890a92b41c0fed3a6c525f1200a5727205f73dc21181a2726571bb53"},
     {file = "ml_dtypes-0.3.2-cp310-cp310-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:d1a746fe5fb9cd974a91070174258f0be129c592b93f9ce7df6cc336416c3fbd"},
@@ -4138,7 +4138,7 @@ description = "A simple utility to separate the implementation of your Python pa
 optional = false
 python-versions = "*"
 groups = ["main"]
-markers = "platform_system == \"Darwin\" and platform_machine == \"arm64\" or platform_system == \"Windows\""
+markers = "sys_platform == \"darwin\" and (platform_system == \"Darwin\" or platform_system == \"Windows\") and platform_machine == \"arm64\" or sys_platform == \"darwin\" and platform_system == \"Windows\""
 files = [
     {file = "namex-0.0.8-py3-none-any.whl", hash = "sha256:7ddb6c2bb0e753a311b7590f84f6da659dd0c05e65cb89d519d54c0a250c0487"},
     {file = "namex-0.0.8.tar.gz", hash = "sha256:32a50f6c565c0bb10aa76298c959507abdc0e850efe085dc38f3440fcb3aa90b"},
@@ -4460,7 +4460,7 @@ description = "Path optimization of einsum functions."
 optional = false
 python-versions = ">=3.8"
 groups = ["main"]
-markers = "platform_system == \"Darwin\" and platform_machine == \"arm64\" or platform_system == \"Windows\""
+markers = "sys_platform == \"darwin\" and (platform_system == \"Darwin\" or platform_system == \"Windows\") and (platform_machine == \"arm64\" or platform_system == \"Windows\")"
 files = [
     {file = "opt_einsum-3.4.0-py3-none-any.whl", hash = "sha256:69bb92469f86a1565195ece4ac0323943e83477171b91d24c35afe028a90d7cd"},
     {file = "opt_einsum-3.4.0.tar.gz", hash = "sha256:96ca72f1b886d148241348783498194c577fa30a8faac108586b14f1ba4473ac"},
@@ -4473,7 +4473,7 @@ description = "Optimized PyTree Utilities."
 optional = false
 python-versions = ">=3.8"
 groups = ["main"]
-markers = "platform_system == \"Darwin\" and platform_machine == \"arm64\" or platform_system == \"Windows\""
+markers = "sys_platform == \"darwin\" and (platform_system == \"Darwin\" or platform_system == \"Windows\") and platform_machine == \"arm64\" or sys_platform == \"darwin\" and platform_system == \"Windows\""
 files = [
     {file = "optree-0.14.0-cp310-cp310-macosx_10_9_universal2.whl", hash = "sha256:d83eca94393fd4a3dbcd5c64ed90e45606c96d28041653fce1318ed19dbfb93c"},
     {file = "optree-0.14.0-cp310-cp310-macosx_11_0_arm64.whl", hash = "sha256:b89e755790644d92c9780f10eb77ee2aca0e2a28d11abacd9fc08be9b10b4b1a"},
@@ -6638,7 +6638,7 @@ description = "TensorBoard lets you watch Tensors Flow"
 optional = false
 python-versions = ">=3.9"
 groups = ["main"]
-markers = "platform_system == \"Darwin\" and platform_machine == \"arm64\" or platform_system == \"Windows\""
+markers = "sys_platform == \"darwin\" and (platform_system == \"Darwin\" or platform_system == \"Windows\") and (platform_machine == \"arm64\" or platform_system == \"Windows\")"
 files = [
     {file = "tensorboard-2.16.2-py3-none-any.whl", hash = "sha256:9f2b4e7dad86667615c0e5cd072f1ea8403fc032a299f0072d6f74855775cc45"},
 ]
@@ -6661,7 +6661,7 @@ description = "Fast data loading for TensorBoard"
 optional = false
 python-versions = ">=3.7"
 groups = ["main"]
-markers = "platform_system == \"Darwin\" and platform_machine == \"arm64\" or platform_system == \"Windows\""
+markers = "sys_platform == \"darwin\" and (platform_system == \"Darwin\" or platform_system == \"Windows\") and platform_machine == \"arm64\" or sys_platform == \"darwin\" and platform_system == \"Windows\""
 files = [
     {file = "tensorboard_data_server-0.7.2-py3-none-any.whl", hash = "sha256:7e0610d205889588983836ec05dc098e80f97b7e7bbff7e994ebb78f578d0ddb"},
     {file = "tensorboard_data_server-0.7.2-py3-none-macosx_10_9_x86_64.whl", hash = "sha256:9fe5d24221b29625dbc7328b0436ca7fc1c23de4acf4d272f1180856e32f9f60"},
@@ -6675,7 +6675,7 @@ description = "TensorFlow is an open source machine learning framework for every
 optional = false
 python-versions = ">=3.9"
 groups = ["main"]
-markers = "platform_system == \"Darwin\" and platform_machine == \"arm64\""
+markers = "platform_system == \"Darwin\" and platform_machine == \"arm64\" and sys_platform == \"darwin\""
 files = [
     {file = "tensorflow-2.16.2-cp310-cp310-macosx_10_15_x86_64.whl", hash = "sha256:546dc68d0740fb4b75593a6bfa308da9526fe31f65c2181d48c8551c4a0ad02f"},
     {file = "tensorflow-2.16.2-cp310-cp310-macosx_12_0_arm64.whl", hash = "sha256:72c84f0e0f8ad0e7cb7b4b3fe9d1c899e6cbebc51c0e64df42a2a32a904aacd7"},
@@ -6733,7 +6733,7 @@ description = "TensorFlow is an open source machine learning framework for every
 optional = false
 python-versions = ">=3.9"
 groups = ["main"]
-markers = "platform_system == \"Windows\""
+markers = "sys_platform == \"darwin\" and platform_system == \"Windows\""
 files = [
     {file = "tensorflow_intel-2.16.2-cp310-cp310-win_amd64.whl", hash = "sha256:484024ee68c3bcea12e76b2358ed671cf02e71d121280268c3ee03d9513dd4ce"},
     {file = "tensorflow_intel-2.16.2-cp311-cp311-win_amd64.whl", hash = "sha256:d508e15fae4a60f233794c591d4b0e4b1ed92ccb3f017fd107950f5f45f3bd43"},
@@ -6808,6 +6808,7 @@ description = "TensorFlow is an open source machine learning framework for every
 optional = false
 python-versions = ">=3.9"
 groups = ["main"]
+markers = "sys_platform == \"darwin\""
 files = [
     {file = "tensorflow_macos-2.16.2-cp310-cp310-macosx_12_0_arm64.whl", hash = "sha256:6a945ad9c0add0d9be46f1addc07e5475ac24217609bfea6e05d9c5ab66e7204"},
     {file = "tensorflow_macos-2.16.2-cp311-cp311-macosx_12_0_arm64.whl", hash = "sha256:13687ed18ad93757b9a8b9b5a55c434cbadb142a354888ea28581b5d278338b7"},
@@ -6847,7 +6848,7 @@ description = "ANSI color formatting for output in terminal"
 optional = false
 python-versions = ">=3.9"
 groups = ["main"]
-markers = "platform_system == \"Darwin\" and platform_machine == \"arm64\" or platform_system == \"Windows\""
+markers = "sys_platform == \"darwin\" and (platform_system == \"Darwin\" or platform_system == \"Windows\") and (platform_machine == \"arm64\" or platform_system == \"Windows\")"
 files = [
     {file = "termcolor-2.5.0-py3-none-any.whl", hash = "sha256:37b17b5fc1e604945c2642c872a3764b5d547a48009871aea3edd3afa180afb8"},
     {file = "termcolor-2.5.0.tar.gz", hash = "sha256:998d8d27da6d48442e8e1f016119076b690d962507531df4890fcd2db2ef8a6f"},
@@ -7858,4 +7859,4 @@ type = ["pytest-mypy"]
 [metadata]
 lock-version = "2.1"
 python-versions = ">=3.11,<3.12"
-content-hash = "1ff3b16e307d9f942d56998c1137e21b92303f10daa47f0132523aa3816cb4b7"
+content-hash = "5ddaceb34c0b9f6a5786a23fb5d075b9f015e9e6e224913d5cc91e5d5f311506"
