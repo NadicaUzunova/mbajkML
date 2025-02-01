@@ -19,20 +19,21 @@ stages:
           persist: true
       - data/processed/combined:
           persist: true
-      - data/processed/merged:
-          persist: true
+      - data/processed/merged/data.csv:
+          persist: true  # 🔹 Sledimo le tej datoteki, ne celotni mapi
 
   reference_data_merged:
     cmd: |
+      mkdir -p data/processed/merged_reference
       dvc checkout data/processed/merged/data.csv
-      cp data/processed/merged/data.csv data/merged/reference_data.csv
+      cp data/processed/merged/data.csv data/processed/merged_reference/reference_data.csv
       dvc pull
-      cp data/processed/merged/data.csv data/merged/current_data.csv
+      cp data/processed/merged/data.csv data/processed/merged_reference/current_data.csv
     deps:
       - data/processed/merged/data.csv
     outs:
-      - data/processed/merged/reference_data.csv
-      - data/processed/merged/current_data.csv
+      - data/processed/merged_reference/reference_data.csv
+      - data/processed/merged_reference/current_data.csv
 
   split:
     cmd: poetry run python src/data/final_processing.py
