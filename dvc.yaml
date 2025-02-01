@@ -19,6 +19,15 @@ stages:
           persist: true
       - data/processed/combined:
           persist: true
+  
+  merge_combined:
+    cmd: poetry run python src/data/merge_combined.py
+    deps:
+      - src/data/merge_combined.py
+      - data/processed/combined
+    outs:
+      - data/processed/combined/data.csv:
+          persist: true
 
   reference_data_merged:
     cmd: |
