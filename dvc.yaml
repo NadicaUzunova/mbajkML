@@ -76,7 +76,7 @@ stages:
       - models/models_mlflow
       - data/processed/train_test_from_current/test
   
-    merge_data:
+  merge_data:
     cmd: poetry run python src/data/merge_data.py
     deps:
       - src/data/merge_data.py
