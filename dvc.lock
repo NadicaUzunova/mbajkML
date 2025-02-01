@@ -99,8 +99,8 @@ stages:
       nfiles: 34
     - path: src/data/validate_and_test.py
       hash: md5
-      md5: 99f1b723fd83f6d858dde9784ff4a198
-      size: 4630
+      md5: b190721d53acb9d611ce6c614abaea5f
+      size: 5013
   split_data:
     cmd: poetry run python src/data/split_data.py
     deps:

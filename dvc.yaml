@@ -20,6 +20,18 @@ stages:
       - data/processed/combined:
           persist: true
 
+  reference_data_merged:
+    cmd: |
+      dvc checkout data/processed/combined/data.csv
+      cp data/processed/combined/data.csv data/processed/merged/reference_data.csv
+      dvc pull
+      cp data/processed/combined/data.csv data/processed/merged/current_data.csv
+    deps:
+      - data/processed/combined/data.csv
+    outs:
+      - data/processed/merged/reference_data.csv
+      - data/processed/merged/current_data.csv
+
   split:
     cmd: poetry run python src/data/final_processing.py
     deps:
