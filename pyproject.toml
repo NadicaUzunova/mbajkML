@@ -24,6 +24,7 @@ numpy = "1.24.3"
 tensorflow = {version = "2.16.2", markers = "sys_platform != 'darwin'"}
 tensorflow-macos = {version = "2.16.2", markers = "sys_platform == 'darwin'"}
 tensorflow-metal = {version = "1.2.0", markers = "sys_platform == 'darwin'"}
+requests = "^2.32.3"
 
 
 [tool.poetry.group.dev.dependencies]
