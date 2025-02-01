@@ -7,6 +7,7 @@ processed_bike_dir = "./data/processed/mbajk"
 raw_weather_dir = "./data/raw/weather"
 processed_weather_dir = "./data/processed/weather"
 combined_dir = "./data/processed/combined"
+merged_dir = "./data/processed/merged"
 
 # Ensure directories exist
 os.makedirs(processed_bike_dir, exist_ok=True)
@@ -101,12 +102,12 @@ for csv_file in os.listdir(processed_bike_dir):
             print(f"⚠️ Weather data not found for {csv_file}. Skipping...")
 
 # 🛠️ **Merge all processed station files into one final dataset**
-output_file = os.path.join(combined_dir, "data.csv")
+output_file = os.path.join(merged_dir, "data.csv")
 
-csv_files = [f for f in os.listdir(combined_dir) if f.endswith(".csv")]
+csv_files = [f for f in os.listdir(merged_dir) if f.endswith(".csv")]
 df_list = []
 for file in csv_files:
-    file_path = os.path.join(combined_dir, file)
+    file_path = os.path.join(merged_dir, file)
     df = pd.read_csv(file_path)
     df_list.append(df)
 

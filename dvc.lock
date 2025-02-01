@@ -23,14 +23,14 @@ stages:
       nfiles: 69
     - path: src/data/preprocess_data.py
       hash: md5
-      md5: ccf07dd2540be91fbde12f9e12475b34
-      size: 5421
+      md5: 0560ac5af2054a459c9ddde171418d1a
+      size: 5344
     outs:
     - path: data/processed/combined
       hash: md5
-      md5: ae9d10c26eb40c40fbb25ebabcc1893e.dir
-      size: 5114586
-      nfiles: 35
+      md5: e5316771bf43705f3e5d026904d80cf6.dir
+      size: 2118667
+      nfiles: 34
     - path: data/processed/mbajk
       hash: md5
       md5: 266159ac9c4f05fbddb175684349ebcd.dir
