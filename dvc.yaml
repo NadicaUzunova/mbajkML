@@ -95,7 +95,7 @@ stages:
     outs:
       - data/processed/merged_reference/reference_data.csv
       - data/processed/merged_reference/current_data.csv
-  
+
   validate_and_test_merged:
     cmd: poetry run python src/data/validate_and_test_merged.py
     deps:
@@ -114,22 +114,6 @@ stages:
       - data/processed/train_test_merged/test.csv:
           persist: true
 
-  train_model_mlflow_merged:
-    cmd: poetry run python src/models/train_merged_model_mlflow.py
-    deps:
-      - src/models/train_merged_model_mlflow.py
-      - data/processed/train_test_merged/train.csv
-    outs:
-      - models/models_mlflow_merged:
-          persist: true
-
-  predict_model_mlflow_merged:
-    cmd: poetry run python src/models/predict_merged_model_mlflow.py
-    deps:
-      - src/models/predict_merged_model_mlflow.py
-      - models/models_mlflow_merged
-      - data/processed/train_test_merged/test.csv
-  
   train_model_full_mlflow:
     cmd: poetry run python src/models/train_full_model_mlflow.py
     deps:
