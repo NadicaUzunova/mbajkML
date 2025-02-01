@@ -262,3 +262,24 @@ stages:
       hash: md5
       md5: 65ff6395357acebb6c8eb95fb8bac4cc
       size: 1481
+  train_model_full_mlflow:
+    cmd: poetry run python src/models/train_full_model_mlflow.py
+    deps:
+    - path: data/processed/train_test_merged/test.csv
+      hash: md5
+      md5: f1d283c91624220a6e5f755ca84e24fd
+      size: 211239
+    - path: data/processed/train_test_merged/train.csv
+      hash: md5
+      md5: 0558d00c33c31952b2b2aaf5cacd32bd
+      size: 1902948
+    - path: src/models/train_full_model_mlflow.py
+      hash: md5
+      md5: 7849e7ae02517bd0f480512116019f91
+      size: 3131
+    outs:
+    - path: models/models_mlflow_full
+      hash: md5
+      md5: 8cbb15b891f14ef9b34a9d0739177b9f.dir
+      size: 206806
+      nfiles: 1
