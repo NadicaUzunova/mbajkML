@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/xopiie/Documents/IIS/iis_1_2/mlruns/0/8e5f39280a5749be85663fedbfb06ded/artifacts
+end_time: 1738403642142
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 8e5f39280a5749be85663fedbfb06ded
+run_name: Eval_TELEMACH - GLAVNI TRG - STARI PERON
+run_uuid: 8e5f39280a5749be85663fedbfb06ded
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1738403642137
+status: 3
+tags: []
+user_id: NadicaUzunova

@@ -124,3 +124,38 @@ stages:
       md5: 44c54de58ca4abc580f97e4faa9bd30f.dir
       size: 1904851
       nfiles: 34
+  train_model_mlflow:
+    cmd: poetry run python src/models/train_model_mlflow.py
+    deps:
+    - path: data/processed/train_test_from_current/train
+      hash: md5
+      md5: 44c54de58ca4abc580f97e4faa9bd30f.dir
+      size: 1904851
+      nfiles: 34
+    - path: src/models/train_model_mlflow.py
+      hash: md5
+      md5: 52773b4ee483fd6466839a6f4f384067
+      size: 3116
+    outs:
+    - path: models/models_mlflow
+      hash: md5
+      md5: 488a9e64527bc4ca55d16ef6abfec336.dir
+      size: 5988672
+      nfiles: 29
+  predict_model_mlflow:
+    cmd: poetry run python src/models/predict_model_mlflow.py
+    deps:
+    - path: data/processed/train_test_from_current/test
+      hash: md5
+      md5: e8e46d2219c1a2f46815e6db34a79ab6.dir
+      size: 218576
+      nfiles: 34
+    - path: models/models_mlflow
+      hash: md5
+      md5: 488a9e64527bc4ca55d16ef6abfec336.dir
+      size: 5988672
+      nfiles: 29
+    - path: src/models/predict_model_mlflow.py
+      hash: md5
+      md5: b7f6aa10af67d63ce8cb3763893cfc0f
+      size: 2803

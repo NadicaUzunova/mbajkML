@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/xopiie/Documents/IIS/iis_1_2/mlruns/0/8757f41f370246cea1d591f4f790e3df/artifacts
+end_time: 1738403639243
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 8757f41f370246cea1d591f4f790e3df
+run_name: Eval_OTP BANKA - TRG LEONA STUKLJA
+run_uuid: 8757f41f370246cea1d591f4f790e3df
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1738403639239
+status: 3
+tags: []
+user_id: NadicaUzunova

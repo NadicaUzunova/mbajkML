@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/xopiie/Documents/IIS/iis_1_2/mlruns/0/eec6cf77e5f4433b97f27957771e0dff/artifacts
+end_time: 1738403637851
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: eec6cf77e5f4433b97f27957771e0dff
+run_name: Eval_PARTIZANSKA C. - TIC
+run_uuid: eec6cf77e5f4433b97f27957771e0dff
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1738403637846
+status: 3
+tags: []
+user_id: NadicaUzunova

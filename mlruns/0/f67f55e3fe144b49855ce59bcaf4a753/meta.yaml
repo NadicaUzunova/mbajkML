@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/xopiie/Documents/IIS/iis_1_2/mlruns/0/f67f55e3fe144b49855ce59bcaf4a753/artifacts
+end_time: 1738403644213
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: f67f55e3fe144b49855ce59bcaf4a753
+run_name: Eval_GOSPOSVETSKA C. - VRBANSKA C.
+run_uuid: f67f55e3fe144b49855ce59bcaf4a753
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1738403644208
+status: 3
+tags: []
+user_id: NadicaUzunova

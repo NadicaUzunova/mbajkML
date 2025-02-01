@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/xopiie/Documents/IIS/iis_1_2/mlruns/0/e7044c355ca747e59c426f7b1f5575a8/artifacts
+end_time: 1738403646429
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: e7044c355ca747e59c426f7b1f5575a8
+run_name: Eval_STROSSMAYERJEVA UL. - TRZNICA
+run_uuid: e7044c355ca747e59c426f7b1f5575a8
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1738403646424
+status: 3
+tags: []
+user_id: NadicaUzunova

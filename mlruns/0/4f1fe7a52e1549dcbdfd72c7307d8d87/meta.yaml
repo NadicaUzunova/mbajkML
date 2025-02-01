@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/xopiie/Documents/IIS/iis_1_2/mlruns/0/4f1fe7a52e1549dcbdfd72c7307d8d87/artifacts
+end_time: 1738403639989
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 4f1fe7a52e1549dcbdfd72c7307d8d87
+run_name: Eval_PETROL – LENT – VODNI STOLP
+run_uuid: 4f1fe7a52e1549dcbdfd72c7307d8d87
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1738403639983
+status: 3
+tags: []
+user_id: NadicaUzunova

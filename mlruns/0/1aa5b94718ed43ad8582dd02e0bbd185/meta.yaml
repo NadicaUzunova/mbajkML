@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/xopiie/Documents/IIS/iis_1_2/mlruns/0/1aa5b94718ed43ad8582dd02e0bbd185/artifacts
+end_time: 1738403647061
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 1aa5b94718ed43ad8582dd02e0bbd185
+run_name: Eval_SPAR - TRZNICA TABOR
+run_uuid: 1aa5b94718ed43ad8582dd02e0bbd185
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1738403647057
+status: 3
+tags: []
+user_id: NadicaUzunova

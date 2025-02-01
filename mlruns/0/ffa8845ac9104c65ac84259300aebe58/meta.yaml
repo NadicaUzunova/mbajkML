@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/xopiie/Documents/IIS/iis_1_2/mlruns/0/ffa8845ac9104c65ac84259300aebe58/artifacts
+end_time: 1738403643183
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: ffa8845ac9104c65ac84259300aebe58
+run_name: Eval_UM FGPA - LENT - SODNI STOLP
+run_uuid: ffa8845ac9104c65ac84259300aebe58
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1738403643178
+status: 3
+tags: []
+user_id: NadicaUzunova

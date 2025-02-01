@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/xopiie/Documents/IIS/iis_1_2/mlruns/0/df3d1b6e030e416e9ca0c2ecd0e1459d/artifacts
+end_time: 1738403644521
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: df3d1b6e030e416e9ca0c2ecd0e1459d
+run_name: Eval_EUROPARK - POBRESKA C.
+run_uuid: df3d1b6e030e416e9ca0c2ecd0e1459d
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1738403644517
+status: 3
+tags: []
+user_id: NadicaUzunova
