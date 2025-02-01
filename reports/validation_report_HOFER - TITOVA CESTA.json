@@ -82,14 +82,14 @@
         "expectation_suite_name": "mbajk_suite_HOFER - TITOVA CESTA",
         "run_id": {
             "run_name": null,
-            "run_time": "2025-02-01T16:37:05.551125+00:00"
+            "run_time": "2025-02-01T16:47:46.542447+00:00"
         },
         "batch_kwargs": {
-            "ge_batch_id": "c599e38a-e0ba-11ef-94cf-6e87111b7e7b"
+            "ge_batch_id": "43a966f0-e0bc-11ef-a14b-6e87111b7e7b"
         },
         "batch_markers": {},
         "batch_parameters": {},
-        "validation_time": "20250201T163705.551110Z",
+        "validation_time": "20250201T164746.542432Z",
         "expectation_suite_meta": {
             "great_expectations_version": "0.15.50"
         }

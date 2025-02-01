@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/xopiie/Documents/IIS/iis_1_2/mlruns/0/4e60cbd3d52f46d59a9bc919bb1e35f5/artifacts
+end_time: 1738429112255
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 4e60cbd3d52f46d59a9bc919bb1e35f5
+run_name: Eval_PARTIZANSKA C. - ZELEZNISKA POSTAJA
+run_uuid: 4e60cbd3d52f46d59a9bc919bb1e35f5
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1738429112250
+status: 3
+tags: []
+user_id: NadicaUzunova

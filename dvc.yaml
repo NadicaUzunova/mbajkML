@@ -20,26 +20,6 @@ stages:
       - data/processed/combined:
           persist: true
 
-  merge_data:
-    cmd: poetry run python src/data/merge_data.py
-    deps:
-      - src/data/merge_data.py
-      - data/processed/combined
-    outs:
-      - data/processed/merged/data.csv:
-          persist: true
-
-  reference_data_merged:
-    cmd: |
-      mkdir -p data/processed/merged_reference
-      cp data/processed/merged/data.csv data/processed/merged_reference/reference_data.csv
-      cp data/processed/merged/data.csv data/processed/merged_reference/current_data.csv
-    deps:
-      - data/processed/merged/data.csv
-    outs:
-      - data/processed/merged_reference/reference_data.csv
-      - data/processed/merged_reference/current_data.csv
-
   split:
     cmd: poetry run python src/data/final_processing.py
     deps:
@@ -69,13 +49,6 @@ stages:
         - data/processed/reference_data
         - data/processed/current_data
 
-  validate_and_test_merged:
-    cmd: poetry run python src/data/validate_and_test_merged.py
-    deps:
-      - src/data/validate_and_test_merged.py
-      - data/processed/merged_reference/reference_data.csv
-      - data/processed/merged_reference/current_data.csv
-
   split_data:
     cmd: poetry run python src/data/split_data.py
     deps:
@@ -102,3 +75,57 @@ stages:
       - src/models/predict_model_mlflow.py
       - models/models_mlflow
       - data/processed/train_test_from_current/test
+  
+    merge_data:
+    cmd: poetry run python src/data/merge_data.py
+    deps:
+      - src/data/merge_data.py
+      - data/processed/combined
+    outs:
+      - data/processed/merged/data.csv:
+          persist: true
+
+  reference_data_merged:
+    cmd: |
+      mkdir -p data/processed/merged_reference
+      cp data/processed/merged/data.csv data/processed/merged_reference/reference_data.csv
+      cp data/processed/merged/data.csv data/processed/merged_reference/current_data.csv
+    deps:
+      - data/processed/merged/data.csv
+    outs:
+      - data/processed/merged_reference/reference_data.csv
+      - data/processed/merged_reference/current_data.csv
+  
+  validate_and_test_merged:
+    cmd: poetry run python src/data/validate_and_test_merged.py
+    deps:
+      - src/data/validate_and_test_merged.py
+      - data/processed/merged_reference/reference_data.csv
+      - data/processed/merged_reference/current_data.csv
+  
+  split_data_merged:
+    cmd: poetry run python src/data/split_data_merged.py
+    deps:
+      - src/data/split_data_merged.py
+      - data/processed/merged_reference/current_data.csv
+    outs:
+      - data/processed/train_test_merged/train.csv:
+          persist: true
+      - data/processed/train_test_merged/test.csv:
+          persist: true
+
+  train_model_mlflow_merged:
+    cmd: poetry run python src/models/train_model_mlflow_merged.py
+    deps:
+      - src/models/train_model_mlflow_merged.py
+      - data/processed/train_test_merged/train.csv
+    outs:
+      - models/models_mlflow_merged:
+          persist: true
+
+  predict_model_mlflow_merged:
+    cmd: poetry run python src/models/predict_model_mlflow_merged.py
+    deps:
+      - src/models/predict_model_mlflow_merged.py
+      - models/models_mlflow_merged
+      - data/processed/train_test_merged/test.csv

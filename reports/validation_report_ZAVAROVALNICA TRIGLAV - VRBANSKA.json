@@ -82,14 +82,14 @@
         "expectation_suite_name": "mbajk_suite_ZAVAROVALNICA TRIGLAV - VRBANSKA",
         "run_id": {
             "run_name": null,
-            "run_time": "2025-02-01T16:37:01.260626+00:00"
+            "run_time": "2025-02-01T16:47:41.733295+00:00"
         },
         "batch_kwargs": {
-            "ge_batch_id": "c30b35f6-e0ba-11ef-94cf-6e87111b7e7b"
+            "ge_batch_id": "40cb9566-e0bc-11ef-a14b-6e87111b7e7b"
         },
         "batch_markers": {},
         "batch_parameters": {},
-        "validation_time": "20250201T163701.260611Z",
+        "validation_time": "20250201T164741.733279Z",
         "expectation_suite_meta": {
             "great_expectations_version": "0.15.50"
         }

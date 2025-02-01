@@ -82,14 +82,14 @@
         "expectation_suite_name": "mbajk_suite_ZAVAROVALNICA SAVA - JADRANSKA CESTA",
         "run_id": {
             "run_name": null,
-            "run_time": "2025-02-01T16:37:01.461332+00:00"
+            "run_time": "2025-02-01T16:47:41.935789+00:00"
         },
         "batch_kwargs": {
-            "ge_batch_id": "c329d5ec-e0ba-11ef-94cf-6e87111b7e7b"
+            "ge_batch_id": "40ea7b66-e0bc-11ef-a14b-6e87111b7e7b"
         },
         "batch_markers": {},
         "batch_parameters": {},
-        "validation_time": "20250201T163701.461316Z",
+        "validation_time": "20250201T164741.935774Z",
         "expectation_suite_meta": {
             "great_expectations_version": "0.15.50"
         }

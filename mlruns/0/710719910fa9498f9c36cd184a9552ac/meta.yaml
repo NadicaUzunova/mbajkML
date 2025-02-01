@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/xopiie/Documents/IIS/iis_1_2/mlruns/0/710719910fa9498f9c36cd184a9552ac/artifacts
+end_time: 1738429114607
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 710719910fa9498f9c36cd184a9552ac
+run_name: Eval_MLINSKA UL . - AVTOBUSNA POSTAJA
+run_uuid: 710719910fa9498f9c36cd184a9552ac
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1738429114602
+status: 3
+tags: []
+user_id: NadicaUzunova

@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/xopiie/Documents/IIS/iis_1_2/mlruns/0/75e8cef1f5254a198c1c3629ff31f0c0/artifacts
+end_time: 1738429119831
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 75e8cef1f5254a198c1c3629ff31f0c0
+run_name: Eval_PARTIZANSKA C. - CANKARJEVA UL.
+run_uuid: 75e8cef1f5254a198c1c3629ff31f0c0
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1738429119826
+status: 3
+tags: []
+user_id: NadicaUzunova

@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/xopiie/Documents/IIS/iis_1_2/mlruns/0/6ac2f61d76c149b48a30368ff4c7e67e/artifacts
+end_time: 1738429113213
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 6ac2f61d76c149b48a30368ff4c7e67e
+run_name: Eval_LIDL - TITOVA C.
+run_uuid: 6ac2f61d76c149b48a30368ff4c7e67e
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1738429113209
+status: 3
+tags: []
+user_id: NadicaUzunova

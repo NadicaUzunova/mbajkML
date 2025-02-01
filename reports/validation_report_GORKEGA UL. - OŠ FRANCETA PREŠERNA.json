@@ -28,7 +28,7 @@
                 "meta": {}
             },
             "result": {
-                "element_count": 5,
+                "element_count": 1058,
                 "unexpected_count": 0,
                 "unexpected_percent": 0.0,
                 "unexpected_percent_total": 0.0,
@@ -53,7 +53,7 @@
                 "meta": {}
             },
             "result": {
-                "element_count": 5,
+                "element_count": 1058,
                 "missing_count": 0,
                 "missing_percent": 0.0,
                 "unexpected_count": 0,
@@ -82,14 +82,14 @@
         "expectation_suite_name": "mbajk_suite_GORKEGA UL. - O\u0160 FRANCETA PRE\u0160ERNA",
         "run_id": {
             "run_name": null,
-            "run_time": "2025-02-01T16:37:02.763038+00:00"
+            "run_time": "2025-02-01T16:47:43.386019+00:00"
         },
         "batch_kwargs": {
-            "ge_batch_id": "c3f0759e-e0ba-11ef-94cf-6e87111b7e7b"
+            "ge_batch_id": "41c7c4e4-e0bc-11ef-a14b-6e87111b7e7b"
         },
         "batch_markers": {},
         "batch_parameters": {},
-        "validation_time": "20250201T163702.763021Z",
+        "validation_time": "20250201T164743.386003Z",
         "expectation_suite_meta": {
             "great_expectations_version": "0.15.50"
         }

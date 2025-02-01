@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/xopiie/Documents/IIS/iis_1_2/mlruns/0/ccd5cdeddb274b19b3a51ebd4d0568b3/artifacts
+end_time: 1738429118148
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: ccd5cdeddb274b19b3a51ebd4d0568b3
+run_name: Eval_MLADINSKA UL. - TRUBARJEVA UL.
+run_uuid: ccd5cdeddb274b19b3a51ebd4d0568b3
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1738429118143
+status: 3
+tags: []
+user_id: NadicaUzunova
