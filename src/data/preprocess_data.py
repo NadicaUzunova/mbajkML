@@ -7,13 +7,11 @@ processed_bike_dir = "./data/processed/mbajk"
 raw_weather_dir = "./data/raw/weather"
 processed_weather_dir = "./data/processed/weather"
 combined_dir = "./data/processed/combined"
-merged_dir = "./data/processed/merged"
 
 # Ensure directories exist
 os.makedirs(processed_bike_dir, exist_ok=True)
 os.makedirs(processed_weather_dir, exist_ok=True)
 os.makedirs(combined_dir, exist_ok=True)
-os.makedirs(merged_dir, exist_ok=True)  # 🔹 Dodano: ustvari mapo merged
 
 print("📂 Directories set up. Starting processing...")
 
@@ -84,23 +82,3 @@ for csv_file in os.listdir(processed_bike_dir):
             print(f"✅ Saved combined data to: {combined_file_path}")
         else:
             print(f"⚠️ Weather data not found for {csv_file}. Skipping...")
-
-# 🛠️ **Merge all processed station files into one final dataset**
-output_file = os.path.join(merged_dir, "data.csv")
-
-csv_files = [f for f in os.listdir(combined_dir) if f.endswith(".csv")]
-df_list = []
-for file in csv_files:
-    file_path = os.path.join(combined_dir, file)
-    df = pd.read_csv(file_path)
-
-    if not df.empty:
-        df_list.append(df)  # 🔹 Skip empty files
-
-# Create final merged dataset
-if df_list:
-    final_df = pd.concat(df_list, ignore_index=True)
-    final_df.to_csv(output_file, index=False)
-    print(f"✅ Merged {len(csv_files)} station files into {output_file}")
-else:
-    print(f"⚠️ No valid files to merge in {combined_dir}.")
