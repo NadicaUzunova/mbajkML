@@ -19,27 +19,18 @@ stages:
           persist: true
       - data/processed/combined:
           persist: true
-  
-  merge_combined:
-    cmd: poetry run python src/data/merge_combined.py
-    deps:
-      - src/data/merge_combined.py
-      - data/processed/combined
-    outs:
-      - data/processed/combined/data.csv:
-          persist: true
 
   reference_data_merged:
     cmd: |
       dvc checkout data/processed/combined/data.csv
-      cp data/processed/combined/data.csv data/processed/merged/reference_data.csv
+      cp data/processed/combined/data.csv data/processed/reference_data.csv
       dvc pull
-      cp data/processed/combined/data.csv data/processed/merged/current_data.csv
+      cp data/processed/combined/data.csv data/processed/current_data.csv
     deps:
       - data/processed/combined/data.csv
     outs:
-      - data/processed/merged/reference_data.csv
-      - data/processed/merged/current_data.csv
+      - data/processed/reference_data.csv
+      - data/processed/current_data.csv
 
   split:
     cmd: poetry run python src/data/final_processing.py
