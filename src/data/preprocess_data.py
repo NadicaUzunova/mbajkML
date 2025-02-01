@@ -108,7 +108,6 @@ df_list = []
 for file in csv_files:
     file_path = os.path.join(combined_dir, file)
     df = pd.read_csv(file_path)
-    df["station"] = file.replace(".csv", "")  # Add station name as a column
     df_list.append(df)
 
 # Create final merged dataset
