@@ -23,19 +23,23 @@ stages:
       nfiles: 69
     - path: src/data/preprocess_data.py
       hash: md5
-      md5: 0560ac5af2054a459c9ddde171418d1a
-      size: 5344
+      md5: d0584957d53b9da2d705cd0dd7639d8f
+      size: 4406
     outs:
     - path: data/processed/combined
       hash: md5
-      md5: e5316771bf43705f3e5d026904d80cf6.dir
-      size: 2118667
+      md5: bcc49f401a154d2b41a127dbc824aee0.dir
+      size: 16236
       nfiles: 34
     - path: data/processed/mbajk
       hash: md5
-      md5: 266159ac9c4f05fbddb175684349ebcd.dir
-      size: 20499
+      md5: b06edfb4b02035ed767081f5f5328274.dir
+      size: 10761
       nfiles: 34
+    - path: data/processed/merged/data.csv
+      hash: md5
+      md5: 606cf5473f9db52ea2c356f46e9fe5f2
+      size: 11616
     - path: data/processed/weather
       hash: md5
       md5: 3c9ed97da7837cd64b27173537757b5c.dir
