@@ -28,7 +28,7 @@
                 "meta": {}
             },
             "result": {
-                "element_count": 1068,
+                "element_count": 1069,
                 "unexpected_count": 0,
                 "unexpected_percent": 0.0,
                 "unexpected_percent_total": 0.0,
@@ -53,7 +53,7 @@
                 "meta": {}
             },
             "result": {
-                "element_count": 1068,
+                "element_count": 1069,
                 "missing_count": 0,
                 "missing_percent": 0.0,
                 "unexpected_count": 0,
@@ -82,14 +82,14 @@
         "expectation_suite_name": "mbajk_suite_SPAR - TR\u017dNICA TABOR",
         "run_id": {
             "run_name": null,
-            "run_time": "2025-02-02T20:36:24.386672+00:00"
+            "run_time": "2025-02-02T21:34:01.419860+00:00"
         },
         "batch_kwargs": {
-            "ge_batch_id": "5dd9ced8-e1a5-11ef-b9ab-6045bdb534c7"
+            "ge_batch_id": "6a666c8a-e1ad-11ef-b9ab-0022484c0394"
         },
         "batch_markers": {},
         "batch_parameters": {},
-        "validation_time": "20250202T203624.386632Z",
+        "validation_time": "20250202T213401.419820Z",
         "expectation_suite_meta": {
             "great_expectations_version": "0.15.50"
         }
