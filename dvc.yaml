@@ -87,27 +87,26 @@ stages:
 
   reference_data_merged:
     cmd: |
-      mkdir -p data/processed/merged_reference
-      cp data/processed/merged/data.csv data/processed/merged_reference/reference_data.csv
-      cp data/processed/merged/data.csv data/processed/merged_reference/current_data.csv
+      cp data/processed/merged/data.csv data/processed/merged/reference_data.csv
+      cp data/processed/merged/data.csv data/processed/merged/current_data.csv
     deps:
       - data/processed/merged/data.csv
     outs:
-      - data/processed/merged_reference/reference_data.csv
-      - data/processed/merged_reference/current_data.csv
+      - data/processed/merged/reference_data.csv
+      - data/processed/merged/current_data.csv
 
   validate_and_test_merged:
     cmd: poetry run python src/data/validate_and_test_merged.py
     deps:
       - src/data/validate_and_test_merged.py
-      - data/processed/merged_reference/reference_data.csv
-      - data/processed/merged_reference/current_data.csv
+      - data/processed/merged/reference_data.csv
+      - data/processed/merged/current_data.csv
   
   split_data_merged:
     cmd: poetry run python src/data/split_merged_data.py
     deps:
       - src/data/split_merged_data.py
-      - data/processed/merged_reference/current_data.csv
+      - data/processed/merged/current_data.csv
     outs:
       - data/processed/train_test_merged/train.csv:
           persist: true

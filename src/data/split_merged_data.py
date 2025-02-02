@@ -2,7 +2,7 @@ import os
 import pandas as pd
 
 # Paths
-merged_data_path = "./data/processed/merged_reference/current_data.csv"
+merged_data_path = "./data/processed/merged/current_data.csv"
 train_output_path = "./data/processed/train_test_merged/train.csv"
 test_output_path = "./data/processed/train_test_merged/test.csv"
 
