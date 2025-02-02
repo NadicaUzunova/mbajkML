@@ -82,14 +82,14 @@
         "expectation_suite_name": "mbajk_suite_KORO\u0160KA C. - KORO\u0160KI VETER",
         "run_id": {
             "run_name": null,
-            "run_time": "2025-02-02T12:13:36.201600+00:00"
+            "run_time": "2025-02-02T12:50:45.420981+00:00"
         },
         "batch_kwargs": {
-            "ge_batch_id": "20e8579a-e15f-11ef-a33f-6e87111b7e7b"
+            "ge_batch_id": "51a033c6-e164-11ef-b9ab-7c1e5239e565"
         },
         "batch_markers": {},
         "batch_parameters": {},
-        "validation_time": "20250202T121336.201585Z",
+        "validation_time": "20250202T125045.420940Z",
         "expectation_suite_meta": {
             "great_expectations_version": "0.15.50"
         }

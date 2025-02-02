@@ -82,14 +82,14 @@
         "expectation_suite_name": "mbajk_suite_PETROL \u2013 LENT \u2013 VODNI STOLP",
         "run_id": {
             "run_name": null,
-            "run_time": "2025-02-02T12:13:33.268560+00:00"
+            "run_time": "2025-02-02T12:50:53.681168+00:00"
         },
         "batch_kwargs": {
-            "ge_batch_id": "1f28cbc4-e15f-11ef-a33f-6e87111b7e7b"
+            "ge_batch_id": "563c0d25-e164-11ef-b9ab-7c1e5239e565"
         },
         "batch_markers": {},
         "batch_parameters": {},
-        "validation_time": "20250202T121333.268545Z",
+        "validation_time": "20250202T125053.681129Z",
         "expectation_suite_meta": {
             "great_expectations_version": "0.15.50"
         }

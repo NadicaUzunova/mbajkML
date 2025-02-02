@@ -82,14 +82,14 @@
         "expectation_suite_name": "mbajk_suite_MLINSKA UL . - AVTOBUSNA POSTAJA",
         "run_id": {
             "run_name": null,
-            "run_time": "2025-02-02T12:13:34.468881+00:00"
+            "run_time": "2025-02-02T12:50:54.838573+00:00"
         },
         "batch_kwargs": {
-            "ge_batch_id": "1fdff31c-e15f-11ef-a33f-6e87111b7e7b"
+            "ge_batch_id": "563c0d27-e164-11ef-b9ab-7c1e5239e565"
         },
         "batch_markers": {},
         "batch_parameters": {},
-        "validation_time": "20250202T121334.468866Z",
+        "validation_time": "20250202T125054.838534Z",
         "expectation_suite_meta": {
             "great_expectations_version": "0.15.50"
         }

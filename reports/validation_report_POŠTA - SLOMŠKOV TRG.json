@@ -82,14 +82,14 @@
         "expectation_suite_name": "mbajk_suite_PO\u0160TA - SLOM\u0160KOV TRG",
         "run_id": {
             "run_name": null,
-            "run_time": "2025-02-02T12:13:32.551596+00:00"
+            "run_time": "2025-02-02T12:50:38.763860+00:00"
         },
         "batch_kwargs": {
-            "ge_batch_id": "1ebb6534-e15f-11ef-a33f-6e87111b7e7b"
+            "ge_batch_id": "4c9ecd63-e164-11ef-b9ab-7c1e5239e565"
         },
         "batch_markers": {},
         "batch_parameters": {},
-        "validation_time": "20250202T121332.551578Z",
+        "validation_time": "20250202T125038.763812Z",
         "expectation_suite_meta": {
             "great_expectations_version": "0.15.50"
         }

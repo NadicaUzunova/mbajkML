@@ -82,14 +82,14 @@
         "expectation_suite_name": "mbajk_suite_ULICA MO\u0160E PIJADA - UKC",
         "run_id": {
             "run_name": null,
-            "run_time": "2025-02-02T12:13:31.525542+00:00"
+            "run_time": "2025-02-02T12:50:36.442455+00:00"
         },
         "batch_kwargs": {
-            "ge_batch_id": "1e1ed4da-e15f-11ef-a33f-6e87111b7e7b"
+            "ge_batch_id": "4bdf2a0b-e164-11ef-b9ab-7c1e5239e565"
         },
         "batch_markers": {},
         "batch_parameters": {},
-        "validation_time": "20250202T121331.525525Z",
+        "validation_time": "20250202T125036.442410Z",
         "expectation_suite_meta": {
             "great_expectations_version": "0.15.50"
         }

@@ -82,14 +82,14 @@
         "expectation_suite_name": "mbajk_suite_EUROPARK - POBRE\u0160KA C.",
         "run_id": {
             "run_name": null,
-            "run_time": "2025-02-02T12:13:36.884620+00:00"
+            "run_time": "2025-02-02T12:50:40.087303+00:00"
         },
         "batch_kwargs": {
-            "ge_batch_id": "21508fcc-e15f-11ef-a33f-6e87111b7e7b"
+            "ge_batch_id": "4e19825d-e164-11ef-b9ab-7c1e5239e565"
         },
         "batch_markers": {},
         "batch_parameters": {},
-        "validation_time": "20250202T121336.884604Z",
+        "validation_time": "20250202T125040.087249Z",
         "expectation_suite_meta": {
             "great_expectations_version": "0.15.50"
         }

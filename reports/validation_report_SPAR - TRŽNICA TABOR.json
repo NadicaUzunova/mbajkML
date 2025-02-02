@@ -82,14 +82,14 @@
         "expectation_suite_name": "mbajk_suite_SPAR - TR\u017dNICA TABOR",
         "run_id": {
             "run_name": null,
-            "run_time": "2025-02-02T12:13:39.266804+00:00"
+            "run_time": "2025-02-02T12:50:40.669338+00:00"
         },
         "batch_kwargs": {
-            "ge_batch_id": "22bc0e18-e15f-11ef-a33f-6e87111b7e7b"
+            "ge_batch_id": "4e19825e-e164-11ef-b9ab-7c1e5239e565"
         },
         "batch_markers": {},
         "batch_parameters": {},
-        "validation_time": "20250202T121339.266788Z",
+        "validation_time": "20250202T125040.669299Z",
         "expectation_suite_meta": {
             "great_expectations_version": "0.15.50"
         }
