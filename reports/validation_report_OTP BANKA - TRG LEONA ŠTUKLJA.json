@@ -28,7 +28,7 @@
                 "meta": {}
             },
             "result": {
-                "element_count": 1065,
+                "element_count": 1066,
                 "unexpected_count": 0,
                 "unexpected_percent": 0.0,
                 "unexpected_percent_total": 0.0,
@@ -53,7 +53,7 @@
                 "meta": {}
             },
             "result": {
-                "element_count": 1065,
+                "element_count": 1066,
                 "missing_count": 0,
                 "missing_percent": 0.0,
                 "unexpected_count": 0,
@@ -82,14 +82,14 @@
         "expectation_suite_name": "mbajk_suite_OTP BANKA - TRG LEONA \u0160TUKLJA",
         "run_id": {
             "run_name": null,
-            "run_time": "2025-02-02T17:37:03.365111+00:00"
+            "run_time": "2025-02-02T18:43:53.229542+00:00"
         },
         "batch_kwargs": {
-            "ge_batch_id": "4fd294be-e18c-11ef-b9ab-6045bdef6d8c"
+            "ge_batch_id": "a5e462fc-e195-11ef-b9ab-6045bd0a9bb3"
         },
         "batch_markers": {},
         "batch_parameters": {},
-        "validation_time": "20250202T173703.365072Z",
+        "validation_time": "20250202T184353.229495Z",
         "expectation_suite_meta": {
             "great_expectations_version": "0.15.50"
         }

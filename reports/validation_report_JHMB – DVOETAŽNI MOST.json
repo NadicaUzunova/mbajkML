@@ -28,7 +28,7 @@
                 "meta": {}
             },
             "result": {
-                "element_count": 1065,
+                "element_count": 1066,
                 "unexpected_count": 0,
                 "unexpected_percent": 0.0,
                 "unexpected_percent_total": 0.0,
@@ -53,7 +53,7 @@
                 "meta": {}
             },
             "result": {
-                "element_count": 1065,
+                "element_count": 1066,
                 "missing_count": 0,
                 "missing_percent": 0.0,
                 "unexpected_count": 0,
@@ -82,14 +82,14 @@
         "expectation_suite_name": "mbajk_suite_JHMB \u2013 DVOETA\u017dNI MOST",
         "run_id": {
             "run_name": null,
-            "run_time": "2025-02-02T17:36:52.660243+00:00"
+            "run_time": "2025-02-02T18:43:42.557093+00:00"
         },
         "batch_kwargs": {
-            "ge_batch_id": "4a19068c-e18c-11ef-b9ab-6045bdef6d8c"
+            "ge_batch_id": "a02ebb12-e195-11ef-b9ab-6045bd0a9bb3"
         },
         "batch_markers": {},
         "batch_parameters": {},
-        "validation_time": "20250202T173652.660202Z",
+        "validation_time": "20250202T184342.557050Z",
         "expectation_suite_meta": {
             "great_expectations_version": "0.15.50"
         }

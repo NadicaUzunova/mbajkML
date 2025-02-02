@@ -28,7 +28,7 @@
                 "meta": {}
             },
             "result": {
-                "element_count": 9,
+                "element_count": 10,
                 "unexpected_count": 0,
                 "unexpected_percent": 0.0,
                 "unexpected_percent_total": 0.0,
@@ -53,7 +53,7 @@
                 "meta": {}
             },
             "result": {
-                "element_count": 9,
+                "element_count": 10,
                 "missing_count": 0,
                 "missing_percent": 0.0,
                 "unexpected_count": 0,
@@ -82,14 +82,14 @@
         "expectation_suite_name": "mbajk_suite_PLINARNA MARIBOR - OSOJNIKOVA ULICA",
         "run_id": {
             "run_name": null,
-            "run_time": "2025-02-02T17:36:44.679585+00:00"
+            "run_time": "2025-02-02T18:43:34.627110+00:00"
         },
         "batch_kwargs": {
-            "ge_batch_id": "4557363c-e18c-11ef-b9ab-6045bdef6d8c"
+            "ge_batch_id": "9b74a9ce-e195-11ef-b9ab-6045bd0a9bb3"
         },
         "batch_markers": {},
         "batch_parameters": {},
-        "validation_time": "20250202T173644.679504Z",
+        "validation_time": "20250202T184334.627044Z",
         "expectation_suite_meta": {
             "great_expectations_version": "0.15.50"
         }
