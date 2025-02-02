@@ -28,7 +28,7 @@
                 "meta": {}
             },
             "result": {
-                "element_count": 1063,
+                "element_count": 1064,
                 "unexpected_count": 0,
                 "unexpected_percent": 0.0,
                 "unexpected_percent_total": 0.0,
@@ -53,7 +53,7 @@
                 "meta": {}
             },
             "result": {
-                "element_count": 1063,
+                "element_count": 1064,
                 "missing_count": 0,
                 "missing_percent": 0.0,
                 "unexpected_count": 0,
@@ -82,14 +82,14 @@
         "expectation_suite_name": "mbajk_suite_PO\u0160TA - SLOM\u0160KOV TRG",
         "run_id": {
             "run_name": null,
-            "run_time": "2025-02-02T15:36:41.063580+00:00"
+            "run_time": "2025-02-02T16:41:40.718364+00:00"
         },
         "batch_kwargs": {
-            "ge_batch_id": "7f50233d-e17b-11ef-b9ab-6045bd49a8c4"
+            "ge_batch_id": "93567262-e184-11ef-b9ab-7c1e526cc678"
         },
         "batch_markers": {},
         "batch_parameters": {},
-        "validation_time": "20250202T153641.063536Z",
+        "validation_time": "20250202T164140.718318Z",
         "expectation_suite_meta": {
             "great_expectations_version": "0.15.50"
         }

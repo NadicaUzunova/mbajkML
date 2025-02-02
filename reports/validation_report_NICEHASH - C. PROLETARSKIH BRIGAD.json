@@ -28,7 +28,7 @@
                 "meta": {}
             },
             "result": {
-                "element_count": 1062,
+                "element_count": 1063,
                 "unexpected_count": 0,
                 "unexpected_percent": 0.0,
                 "unexpected_percent_total": 0.0,
@@ -53,7 +53,7 @@
                 "meta": {}
             },
             "result": {
-                "element_count": 1062,
+                "element_count": 1063,
                 "missing_count": 0,
                 "missing_percent": 0.0,
                 "unexpected_count": 0,
@@ -82,14 +82,14 @@
         "expectation_suite_name": "mbajk_suite_NICEHASH - C. PROLETARSKIH BRIGAD",
         "run_id": {
             "run_name": null,
-            "run_time": "2025-02-02T15:36:51.897466+00:00"
+            "run_time": "2025-02-02T16:41:51.534263+00:00"
         },
         "batch_kwargs": {
-            "ge_batch_id": "85123ab5-e17b-11ef-b9ab-6045bd49a8c4"
+            "ge_batch_id": "9a792cae-e184-11ef-b9ab-7c1e526cc678"
         },
         "batch_markers": {},
         "batch_parameters": {},
-        "validation_time": "20250202T153651.897427Z",
+        "validation_time": "20250202T164151.534223Z",
         "expectation_suite_meta": {
             "great_expectations_version": "0.15.50"
         }

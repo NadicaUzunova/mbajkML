@@ -28,7 +28,7 @@
                 "meta": {}
             },
             "result": {
-                "element_count": 1063,
+                "element_count": 1064,
                 "unexpected_count": 0,
                 "unexpected_percent": 0.0,
                 "unexpected_percent_total": 0.0,
@@ -53,7 +53,7 @@
                 "meta": {}
             },
             "result": {
-                "element_count": 1063,
+                "element_count": 1064,
                 "missing_count": 0,
                 "missing_percent": 0.0,
                 "unexpected_count": 0,
@@ -82,14 +82,14 @@
         "expectation_suite_name": "mbajk_suite_KORO\u0160KA C. - KORO\u0160KI VETER",
         "run_id": {
             "run_name": null,
-            "run_time": "2025-02-02T15:36:47.671461+00:00"
+            "run_time": "2025-02-02T16:41:47.347100+00:00"
         },
         "batch_kwargs": {
-            "ge_batch_id": "82e76cdc-e17b-11ef-b9ab-6045bd49a8c4"
+            "ge_batch_id": "97fa444a-e184-11ef-b9ab-7c1e526cc678"
         },
         "batch_markers": {},
         "batch_parameters": {},
-        "validation_time": "20250202T153647.671420Z",
+        "validation_time": "20250202T164147.347048Z",
         "expectation_suite_meta": {
             "great_expectations_version": "0.15.50"
         }
