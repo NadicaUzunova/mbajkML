@@ -28,7 +28,7 @@
                 "meta": {}
             },
             "result": {
-                "element_count": 1067,
+                "element_count": 1068,
                 "unexpected_count": 0,
                 "unexpected_percent": 0.0,
                 "unexpected_percent_total": 0.0,
@@ -53,7 +53,7 @@
                 "meta": {}
             },
             "result": {
-                "element_count": 1067,
+                "element_count": 1068,
                 "missing_count": 0,
                 "missing_percent": 0.0,
                 "unexpected_count": 0,
@@ -82,14 +82,14 @@
         "expectation_suite_name": "mbajk_suite_LJUBLJANSKA UL. - II. GIMNAZIJA",
         "run_id": {
             "run_name": null,
-            "run_time": "2025-02-02T19:32:17.347185+00:00"
+            "run_time": "2025-02-02T20:36:35.666808+00:00"
         },
         "batch_kwargs": {
-            "ge_batch_id": "69886764-e19c-11ef-b9ab-000d3a1f2c4f"
+            "ge_batch_id": "64ec9b5f-e1a5-11ef-b9ab-6045bdb534c7"
         },
         "batch_markers": {},
         "batch_parameters": {},
-        "validation_time": "20250202T193217.347142Z",
+        "validation_time": "20250202T203635.666768Z",
         "expectation_suite_meta": {
             "great_expectations_version": "0.15.50"
         }

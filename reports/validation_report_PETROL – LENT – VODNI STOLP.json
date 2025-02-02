@@ -28,7 +28,7 @@
                 "meta": {}
             },
             "result": {
-                "element_count": 1067,
+                "element_count": 1068,
                 "unexpected_count": 0,
                 "unexpected_percent": 0.0,
                 "unexpected_percent_total": 0.0,
@@ -53,7 +53,7 @@
                 "meta": {}
             },
             "result": {
-                "element_count": 1067,
+                "element_count": 1068,
                 "missing_count": 0,
                 "missing_percent": 0.0,
                 "unexpected_count": 0,
@@ -82,14 +82,14 @@
         "expectation_suite_name": "mbajk_suite_PETROL \u2013 LENT \u2013 VODNI STOLP",
         "run_id": {
             "run_name": null,
-            "run_time": "2025-02-02T19:32:19.142112+00:00"
+            "run_time": "2025-02-02T20:36:37.441104+00:00"
         },
         "batch_kwargs": {
-            "ge_batch_id": "6a9a4938-e19c-11ef-b9ab-000d3a1f2c4f"
+            "ge_batch_id": "6653fbea-e1a5-11ef-b9ab-6045bdb534c7"
         },
         "batch_markers": {},
         "batch_parameters": {},
-        "validation_time": "20250202T193219.142072Z",
+        "validation_time": "20250202T203637.441062Z",
         "expectation_suite_meta": {
             "great_expectations_version": "0.15.50"
         }

@@ -28,7 +28,7 @@
                 "meta": {}
             },
             "result": {
-                "element_count": 1067,
+                "element_count": 1068,
                 "unexpected_count": 0,
                 "unexpected_percent": 0.0,
                 "unexpected_percent_total": 0.0,
@@ -53,7 +53,7 @@
                 "meta": {}
             },
             "result": {
-                "element_count": 1067,
+                "element_count": 1068,
                 "missing_count": 0,
                 "missing_percent": 0.0,
                 "unexpected_count": 0,
@@ -82,14 +82,14 @@
         "expectation_suite_name": "mbajk_suite_PARTIZANSKA C. - CANKARJEVA UL.",
         "run_id": {
             "run_name": null,
-            "run_time": "2025-02-02T19:32:02.370339+00:00"
+            "run_time": "2025-02-02T20:36:20.730055+00:00"
         },
         "batch_kwargs": {
-            "ge_batch_id": "5fdaf9e0-e19c-11ef-b9ab-000d3a1f2c4f"
+            "ge_batch_id": "5b9e8b4a-e1a5-11ef-b9ab-6045bdb534c7"
         },
         "batch_markers": {},
         "batch_parameters": {},
-        "validation_time": "20250202T193202.370296Z",
+        "validation_time": "20250202T203620.730010Z",
         "expectation_suite_meta": {
             "great_expectations_version": "0.15.50"
         }
