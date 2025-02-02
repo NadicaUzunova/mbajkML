@@ -6,6 +6,13 @@ import mlflow.tensorflow
 import tensorflow as tf
 from tensorflow.keras.models import load_model
 from sklearn.metrics import mean_absolute_error, mean_squared_error, explained_variance_score
+from dotenv import load_dotenv
+
+load_dotenv()
+
+mlflow.set_tracking_uri(os.getenv("MLFLOW_TRACKING_URI"))
+os.environ["MLFLOW_TRACKING_USERNAME"] = os.getenv("MLFLOW_TRACKING_USERNAME")
+os.environ["MLFLOW_TRACKING_PASSWORD"] = os.getenv("MLFLOW_TRACKING_PASSWORD")
 
 def normalize_string(input_str: str) -> str:
     replacements = str.maketrans({'š': 's', 'č': 'c', 'ž': 'z', 'Š': 'S', 'Č': 'C', 'Ž': 'Z'})

@@ -7,6 +7,9 @@ import tensorflow as tf
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Dense, LSTM
 import unicodedata
+from dotenv import load_dotenv
+
+load_dotenv()
 
 def create_model(input_shape):
     model = Sequential([
@@ -35,8 +38,10 @@ output_dir = "./models/models_mlflow"  # NOVA LOKACIJA
 os.makedirs(output_dir, exist_ok=True)
 
 # MLflow setup
-mlflow.set_tracking_uri("https://dagshub.com/NadicaUzunova/mbajkML.mlflow")
-mlflow.set_experiment("mBajk - LSTM Model Training")
+mlflow.set_tracking_uri(os.getenv("MLFLOW_TRACKING_URI"))
+os.environ["MLFLOW_TRACKING_USERNAME"] = os.getenv("MLFLOW_TRACKING_USERNAME")
+os.environ["MLFLOW_TRACKING_PASSWORD"] = os.getenv("MLFLOW_TRACKING_PASSWORD")
+
 
 csv_files = [file for file in os.listdir(directory) if file.endswith('.csv')]
 

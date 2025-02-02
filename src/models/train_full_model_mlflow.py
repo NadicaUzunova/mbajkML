@@ -10,6 +10,9 @@ from keras.layers import Dense, LSTM
 from tqdm import tqdm
 from mlflow.tracking import MlflowClient
 from requests.exceptions import RequestException
+from dotenv import load_dotenv
+
+load_dotenv()
 
 # Paths
 train_data_path = "./data/processed/train_test_merged/train.csv"
@@ -30,7 +33,10 @@ full_df.to_csv(final_train_path, index=False)
 print(f"✅ Merged train & test datasets into {final_train_path}.")
 
 # MLflow setup
-mlflow.set_tracking_uri("https://dagshub.com/NadicaUzunova/mbajkML.mlflow")
+mlflow.set_tracking_uri(os.getenv("MLFLOW_TRACKING_URI"))
+os.environ["MLFLOW_TRACKING_USERNAME"] = os.getenv("MLFLOW_TRACKING_USERNAME")
+os.environ["MLFLOW_TRACKING_PASSWORD"] = os.getenv("MLFLOW_TRACKING_PASSWORD")
+
 client = MlflowClient(tracking_uri="https://dagshub.com/NadicaUzunova/mbajkML.mlflow")
 
 # Retry connecting to MLflow (10x poskusov)

@@ -6,6 +6,9 @@ import mlflow.tensorflow
 import tensorflow as tf
 from keras.models import Sequential
 from keras.layers import Dense, LSTM
+from dotenv import load_dotenv
+
+load_dotenv()
 
 # Paths
 train_data_path = "./data/processed/train_test_merged/train.csv"
@@ -15,8 +18,10 @@ output_dir = "./models/models_mlflow_merged"
 os.makedirs(output_dir, exist_ok=True)
 
 # MLflow setup
-mlflow.set_tracking_uri("https://dagshub.com/NadicaUzunova/mbajkML.mlflow")
-mlflow.set_experiment("mBajk - Merged LSTM Model Training")
+mlflow.set_tracking_uri(os.getenv("MLFLOW_TRACKING_URI"))
+os.environ["MLFLOW_TRACKING_USERNAME"] = os.getenv("MLFLOW_TRACKING_USERNAME")
+os.environ["MLFLOW_TRACKING_PASSWORD"] = os.getenv("MLFLOW_TRACKING_PASSWORD")
+
 
 # Load train data
 df = pd.read_csv(train_data_path)
