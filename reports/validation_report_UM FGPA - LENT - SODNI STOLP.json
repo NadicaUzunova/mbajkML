@@ -28,7 +28,7 @@
                 "meta": {}
             },
             "result": {
-                "element_count": 1062,
+                "element_count": 1063,
                 "unexpected_count": 0,
                 "unexpected_percent": 0.0,
                 "unexpected_percent_total": 0.0,
@@ -53,7 +53,7 @@
                 "meta": {}
             },
             "result": {
-                "element_count": 1062,
+                "element_count": 1063,
                 "missing_count": 0,
                 "missing_percent": 0.0,
                 "unexpected_count": 0,
@@ -82,14 +82,14 @@
         "expectation_suite_name": "mbajk_suite_UM FGPA - LENT - SODNI STOLP",
         "run_id": {
             "run_name": null,
-            "run_time": "2025-02-02T14:36:17.816855+00:00"
+            "run_time": "2025-02-02T15:36:47.092798+00:00"
         },
         "batch_kwargs": {
-            "ge_batch_id": "0f4a2790-e173-11ef-b9ab-000d3a0ea179"
+            "ge_batch_id": "82e76cdb-e17b-11ef-b9ab-6045bd49a8c4"
         },
         "batch_markers": {},
         "batch_parameters": {},
-        "validation_time": "20250202T143617.816813Z",
+        "validation_time": "20250202T153647.092760Z",
         "expectation_suite_meta": {
             "great_expectations_version": "0.15.50"
         }

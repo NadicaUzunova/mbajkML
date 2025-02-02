@@ -28,7 +28,7 @@
                 "meta": {}
             },
             "result": {
-                "element_count": 9,
+                "element_count": 10,
                 "unexpected_count": 0,
                 "unexpected_percent": 0.0,
                 "unexpected_percent_total": 0.0,
@@ -53,7 +53,7 @@
                 "meta": {}
             },
             "result": {
-                "element_count": 9,
+                "element_count": 10,
                 "missing_count": 0,
                 "missing_percent": 0.0,
                 "unexpected_count": 0,
@@ -82,14 +82,14 @@
         "expectation_suite_name": "mbajk_suite_MCDONALD\u2019S - STUDENCI",
         "run_id": {
             "run_name": null,
-            "run_time": "2025-02-02T14:36:26.628766+00:00"
+            "run_time": "2025-02-02T15:36:55.367024+00:00"
         },
         "batch_kwargs": {
-            "ge_batch_id": "14f529b9-e173-11ef-b9ab-000d3a0ea179"
+            "ge_batch_id": "87878970-e17b-11ef-b9ab-6045bd49a8c4"
         },
         "batch_markers": {},
         "batch_parameters": {},
-        "validation_time": "20250202T143626.628721Z",
+        "validation_time": "20250202T153655.366984Z",
         "expectation_suite_meta": {
             "great_expectations_version": "0.15.50"
         }
