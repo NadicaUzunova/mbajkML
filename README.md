@@ -1,29 +1,27 @@
-## Installation guide
+# mbajkML
 
-To use this code environment you must first have Poetry installed. Please refer to the 
-installation guide [here](https://python-poetry.org/docs/).
+**mbajkML** is a machine learning project that utilizes tools such as DVC (Data Version Control), Great Expectations for data validation, and MLflow for experiment tracking. The project is structured to facilitate efficient data management, model training, and evaluation.
 
-When you have Poetry installed, you can begin using this package. To begin we first need to 
-install all necessary dependencies. To do that, we can use the command:
+## Project Structure
 
-```poetry install```
+The repository is organized as follows:
 
-However, there are a few limitations with the Poetry package manager, as it does not 
-fully function with keras and tensorflow, so those must be installed separately using the
-following commands:
+- `.dvc/`: Contains DVC configuration files for data version control.
+- `.github/workflows/`: Includes GitHub Actions workflows for CI/CD pipelines.
+- `data/`: Directory designated for storing datasets.
+- `great_expectations/`: Houses configurations and scripts for data validation using Great Expectations.
+- `mlruns/0/`: Directory for MLflow experiment tracking artifacts.
+- `reports/`: Contains generated reports and analysis results.
+- `src/`: Source code for data processing, model training, and evaluation.
 
-```shell
-poetry shell
-pip install tensorflow==2.15.0
-pip install keras==2.15.0
-```
+## Installation
 
-After that all our packages and libraries are installed and ready to go! :rocket:
+To set up the project environment, follow these steps:
 
-To run scripts you can use the following command:
+1. **Install Poetry**: Ensure that [Poetry](https://python-poetry.org/docs/#installation) is installed on your system.
 
-```shell
-poetry run .\src\data\fetch_data.py
-```
+2. **Install Dependencies**: Run the following command to install the necessary dependencies:
 
-
+   ```bash
+   poetry install
+   ```
