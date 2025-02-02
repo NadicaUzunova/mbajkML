@@ -28,7 +28,7 @@
                 "meta": {}
             },
             "result": {
-                "element_count": 30904,
+                "element_count": 30938,
                 "unexpected_count": 0,
                 "unexpected_percent": 0.0,
                 "unexpected_percent_total": 0.0,
@@ -53,7 +53,7 @@
                 "meta": {}
             },
             "result": {
-                "element_count": 30904,
+                "element_count": 30938,
                 "missing_count": 0,
                 "missing_percent": 0.0,
                 "unexpected_count": 0,
@@ -82,14 +82,14 @@
         "expectation_suite_name": "mbajk_merged_suite",
         "run_id": {
             "run_name": null,
-            "run_time": "2025-02-02T16:50:51.593006+00:00"
+            "run_time": "2025-02-02T17:46:15.044034+00:00"
         },
         "batch_kwargs": {
-            "ge_batch_id": "dc5f9800-e185-11ef-b9ab-7c1e526cc678"
+            "ge_batch_id": "994df8e2-e18d-11ef-b9ab-6045bdef6d8c"
         },
         "batch_markers": {},
         "batch_parameters": {},
-        "validation_time": "20250202T165051.592960Z",
+        "validation_time": "20250202T174615.043988Z",
         "expectation_suite_meta": {
             "great_expectations_version": "0.15.50"
         }
