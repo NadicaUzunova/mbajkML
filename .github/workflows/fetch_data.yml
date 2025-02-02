@@ -1,4 +1,4 @@
-name: 'Fetch and Process Data'
+name: 'Data pipeline'
 
 on:
   schedule:
@@ -10,6 +10,12 @@ on:
 jobs:
   process_data:
     runs-on: ubuntu-latest
+    
+    env:
+      MLFLOW_TRACKING_URI: ${{ secrets.MLFLOW_TRACKING_URI }}
+      MLFLOW_TRACKING_USERNAME: ${{ secrets.MLFLOW_TRACKING_USERNAME }}
+      MLFLOW_TRACKING_PASSWORD: ${{ secrets.MLFLOW_TRACKING_PASSWORD }}
+      DAGSHUB_TOKEN: ${{ secrets.DAGSHUB_TOKEN }}
 
     steps:
       # Step 1: Checkout repository
@@ -40,23 +46,11 @@ jobs:
         run: |
           dvc remote modify dagshub_remote --local auth basic
           dvc remote modify dagshub_remote --local user NadicaUzunova
-          dvc remote modify dagshub_remote --local password ${{ secrets.DAGSHUB_TOKEN }}
+          dvc remote modify dagshub_remote --local password $DAGSHUB_TOKEN
 
       # Step 6: Pull DVC data
       - name: Pull DVC data
         run: dvc pull
-
-      # # Step 7: Fetch data
-      # - name: Fetch data
-      #   run: poetry run python ./src/data/fetch_data.py
-
-      # # Step 8: Preprocess data
-      # - name: Preprocess data
-      #   run: poetry run python ./src/data/preprocess_data.py
-
-      # # Step 9: Final processing
-      # - name: Final processing
-      #   run: poetry run python ./src/data/final_processing.py
 
       # NOV KORAK: Reproduciraj DVC pipeline z --force
       - name: Reproduce DVC pipeline (force)
