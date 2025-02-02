@@ -28,7 +28,7 @@
                 "meta": {}
             },
             "result": {
-                "element_count": 1060,
+                "element_count": 1061,
                 "unexpected_count": 0,
                 "unexpected_percent": 0.0,
                 "unexpected_percent_total": 0.0,
@@ -53,7 +53,7 @@
                 "meta": {}
             },
             "result": {
-                "element_count": 1060,
+                "element_count": 1061,
                 "missing_count": 0,
                 "missing_percent": 0.0,
                 "unexpected_count": 0,
@@ -82,14 +82,14 @@
         "expectation_suite_name": "mbajk_suite_PARTIZANSKA C. - \u017dELEZNI\u0160KA POSTAJA",
         "run_id": {
             "run_name": null,
-            "run_time": "2025-02-02T12:50:38.182190+00:00"
+            "run_time": "2025-02-02T13:36:20.860061+00:00"
         },
         "batch_kwargs": {
-            "ge_batch_id": "4c9ecd62-e164-11ef-b9ab-7c1e5239e565"
+            "ge_batch_id": "afbbabf7-e16a-11ef-b9ab-000d3a3d791a"
         },
         "batch_markers": {},
         "batch_parameters": {},
-        "validation_time": "20250202T125038.182144Z",
+        "validation_time": "20250202T133620.860017Z",
         "expectation_suite_meta": {
             "great_expectations_version": "0.15.50"
         }
