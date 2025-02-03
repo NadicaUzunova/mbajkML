@@ -9,6 +9,7 @@ import datetime
 import requests
 from flask_cors import CORS
 from dotenv import load_dotenv
+from pymongo import MongoClient
 
 app = Flask(__name__)
 CORS(app, resources={r"/*": {"origins": "*"}})
@@ -18,6 +19,16 @@ load_dotenv()
 mlflow.set_tracking_uri(os.getenv("MLFLOW_TRACKING_URI"))
 os.environ["MLFLOW_TRACKING_USERNAME"] = os.getenv("MLFLOW_TRACKING_USERNAME")
 os.environ["MLFLOW_TRACKING_PASSWORD"] = os.getenv("MLFLOW_TRACKING_PASSWORD")
+
+# MongoDB konfiguracija
+MONGO_URI = os.getenv("MONGO_URI")
+DB_NAME = os.getenv("MONGO_DB_NAME")
+COLLECTION_NAME = os.getenv("MONGO_COLLECTION_NAME")
+
+# Povezava z MongoDB
+client = MongoClient(MONGO_URI)
+db = client[DB_NAME]
+collection = db[COLLECTION_NAME]
 
 # Konstante
 window_size = 12
@@ -38,75 +49,40 @@ def load_production_model(model_name):
     print(f"✅ Nalagam model {model_name} (verzija {models[0].version})...")
     return mlflow.sklearn.load_model(model_uri)
 
+# 🔹 Shrani napovedi v MongoDB
+def save_prediction_to_mongo(input_data, predicted_values, model_name, actual_values=None):
+    """Shrani vhodne podatke, napovedi in čas v MongoDB."""
+    timestamp = datetime.datetime.now().isoformat()
+    feature_names = ['position_lat', 'position_lng', 'available_bikes', 
+                     'temperature', 'humidity', 'dew_point', 'apparent_temperature']
+    
+    # Oblikovanje podatkov za MongoDB
+    documents = []
+    for i in range(len(predicted_values)):
+        doc = {
+            "timestamp": timestamp,
+            "model_name": model_name,
+            "features": {feature_names[j]: float(input_data[i, j]) for j in range(len(feature_names))},
+            "predicted_value": float(predicted_values[i])
+        }
+        if actual_values is not None:
+            doc["actual_value"] = float(actual_values[i])  # Dodamo dejansko vrednost, če obstaja
+        documents.append(doc)
+
+    # Shrani v MongoDB
+    collection.insert_many(documents)
+    print(f"✅ Napovedi shranjene v MongoDB ({COLLECTION_NAME})")
+
 # 🔹 Normalizacija imena postaje
 def normalize_string(input_str: str) -> str:
     """Normalize a string by replacing Slovenian characters with ASCII equivalents."""
     replacements = str.maketrans({'š': 's', 'č': 'c', 'ž': 'z', 'Š': 'S', 'Č': 'C', 'Ž': 'Z'})
     return input_str.translate(replacements)
 
-# 🔹 Pridobivanje trenutnih podatkov o postajah
-@app.route('/live-data', methods=['POST'])
-def fetch_live_data():
-    """Fetches live bike data for a specific bike stand location."""
-    try:
-        request_body = request.get_json()
-        location = request_body['location']
-
-        # Fetch live bike data from external API
-        response = requests.get(BIKE_API_URL)
-        if response.status_code != 200:
-            return jsonify({"error": "Failed to fetch live data from the API"}), response.status_code
-
-        bike_data = response.json()
-
-        # Search for the specific location in the fetched data
-        for station in bike_data:
-            if station['name'].lower() == location.lower():
-                return jsonify({
-                    "available_bike_stands": station["available_bike_stands"],
-                    "available_bikes": station["available_bikes"],
-                    "timestamp": station["last_update"]
-                }), 200
-
-        return jsonify({"error": f"Location '{location}' not found in live data."}), 404
-    except Exception as e:
-        print(f"Error fetching live data: {e}")
-        return jsonify({"error": str(e)}), 500
-
-# 🔹 Pridobivanje zadnjih 12 vrstic podatkov
-@app.route('/data', methods=['POST'])
-def fetch_last_12_rows():
-    """Fetches the last 12 rows of data for a specific location."""
-    try:
-        request_body = request.get_json()
-        location = request_body['location']
-        location = location.replace('\u010c', 'Č').replace('\u017d', 'Ž')
-
-        file_name = f"{location}.csv"
-        file_path = os.path.join(data_directory, file_name)
-
-        # Read last 12 rows from CSV
-        if not os.path.exists(file_path):
-            raise FileNotFoundError(f"File '{file_name}' not found.")
-
-        with open(file_path, 'r', newline='') as file:
-            csv_reader = csv.reader(file)
-            rows = list(csv_reader)
-            last_12_rows = rows[-12:]
-
-        # Log the last row for debugging
-        print("Last row fetched from CSV:", last_12_rows[-1])
-
-        return jsonify({"data": last_12_rows}), 200
-    except FileNotFoundError as e:
-        return jsonify({"error": str(e)}), 404
-    except Exception as e:
-        return jsonify({"error": str(e)}), 400
-
 # 🔹 Napovedovanje prostih koles na postaji
 @app.route('/mbajk/predict', methods=['POST'])
 def process_time_series():
-    """Processes time series data for prediction."""
+    """Processes time series data for prediction and saves it to MongoDB."""
     try:
         request_body = request.get_json()
 
@@ -160,6 +136,10 @@ def process_time_series():
 
         # Napoved
         predictions = model.predict(X).flatten()
+
+        # Shrani napovedi v MongoDB (če obstaja 'available_bikes', se doda kot actual_value)
+        actual_values = df['available_bikes'].values if 'available_bikes' in df.columns else None
+        save_prediction_to_mongo(multi_data_np, predictions, normalize_string(location), actual_values)
 
         # Zaokrožene napovedi
         rounded_predictions = [round(pred) for pred in predictions]

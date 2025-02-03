@@ -12,9 +12,6 @@ RUN pip install poetry
 # Install dependencies using Poetry
 RUN poetry install --no-root || poetry lock --no-update && poetry install --no-root
 
-# Manually install TensorFlow and Keras due to compatibility issues with Poetry
-RUN poetry run pip install tensorflow==2.15.0 keras==2.15.0
-
 # Copy the rest of the application code
 COPY . .
 

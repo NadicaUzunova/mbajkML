@@ -1,0 +1,54 @@
+name: Evaluate Model Predictions
+
+on:
+  schedule:
+    - cron: "0 0 * * *"  # Zagon vsak dan ob polnoči UTC (00:00 UTC = 01:00 CET)
+  workflow_dispatch:  # Možnost ročnega zagona iz GitHub vmesnika
+
+permissions:
+  contents: read
+
+env:
+  MLFLOW_TRACKING_URI: ${{ secrets.MLFLOW_TRACKING_URI }}
+  MLFLOW_TRACKING_USERNAME: ${{ secrets.MLFLOW_TRACKING_USERNAME }}
+  MLFLOW_TRACKING_PASSWORD: ${{ secrets.MLFLOW_TRACKING_PASSWORD }}
+  DAGSHUB_TOKEN: ${{ secrets.DAGSHUB_TOKEN }}
+  MONGO_URI: ${{ secrets.MONGO_URI }}
+  MONGO_DB_NAME: ${{ secrets.MONGO_DB_NAME }}
+  MONGO_COLLECTION_NAME: ${{ secrets.MONGO_COLLECTION_NAME }}
+
+jobs:
+  evaluate:
+    runs-on: ubuntu-latest
+
+    steps:
+      # ✅ 1. Preveri kodo iz GitHub repozitorija
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # ✅ 2. Nastavi Python okolje
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      # ✅ 3. Namesti potrebne odvisnosti
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install poetry dvc[all]
+          poetry install
+
+      # ✅ 4. Nastavi DVC povezavo do DagsHub in prenesi podatke
+      - name: DVC setup
+        run: |
+          dvc remote modify dagshub_remote --local auth basic
+          dvc remote modify dagshub_remote --local user NadicaUzunova
+          dvc remote modify dagshub_remote --local password ${{ secrets.DAGSHUB_TOKEN }}
+          dvc pull -r dagshub_remote --force
+
+      # ✅ 5. Izvedi evalvacijo napovedi za posamezne postaje in združeni model
+      - name: Evaluate predictions
+        run: |
+          poetry run python src/models/evaluate_predictions.py --model_type station
+          poetry run python src/models/evaluate_predictions.py --model_type merged

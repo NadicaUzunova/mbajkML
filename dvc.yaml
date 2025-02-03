@@ -90,3 +90,13 @@ stages:
     outs:
       - data/predictions/merged_predictions.csv:
           persist: true
+  
+  evaluate_predictions:
+    cmd: |
+      poetry run python src/models/evaluate_predictions.py --model_type station
+      poetry run python src/models/evaluate_predictions.py --model_type merged
+    deps:
+      - src/models/evaluate_predictions.py
+    outs:
+      - reports/evaluation:
+          persist: true
