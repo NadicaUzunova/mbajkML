@@ -37,11 +37,12 @@ def predict(model_name, input_data_path, output_path):
         return
 
     # Naloži podatke
-    df = pd.read_csv(input_data_path)
+    df = pd.read_csv(input_data_path, dtype={"timestamp": str})  # Prepreči napačno interpretacijo timestamp-a
 
     features = config["features"]
-    if not all(f in df.columns for f in features):
-        print(f"❌ Manjkajoče značilke v {input_data_path}")
+    missing_features = [f for f in features if f not in df.columns]
+    if missing_features:
+        print(f"❌ Manjkajoče značilke v {input_data_path}: {missing_features}")
         return
 
     X = df[features].values

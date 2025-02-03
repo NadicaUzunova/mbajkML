@@ -320,18 +320,15 @@ stages:
       size: 206850
       nfiles: 1
   evaluate_and_register:
-    cmd: poetry run python src/models/evaluate_and_register_models.py
+    cmd: "poetry run python src/models/evaluate_and_register_models.py --model_type
+      station\npoetry run python src/models/evaluate_and_register_models.py --model_type
+      merged\n"
     deps:
     - path: models/models_mlflow
       hash: md5
       md5: 87f2056c89c5f9f5d191723c94881e20.dir
       size: 6608215
       nfiles: 189
-    - path: models/models_mlflow_full
-      hash: md5
-      md5: 095f1b56521ccbd5b2f6cc4a86c5bd8e.dir
-      size: 206850
-      nfiles: 1
     - path: models/models_mlflow_merged
       hash: md5
       md5: d751713988987e9331980363e24189ce.dir
@@ -339,8 +336,8 @@ stages:
       nfiles: 0
     - path: src/models/evaluate_and_register_models.py
       hash: md5
-      md5: 673d45542840ee55ce1fe46be09d45f3
-      size: 4456
+      md5: 0330c027c3bcde4c8102b98e4b689863
+      size: 4454
   final_processing:
     cmd: poetry run python src/data/final_processing.py
     deps:
@@ -433,3 +430,25 @@ stages:
       md5: d751713988987e9331980363e24189ce.dir
       size: 0
       nfiles: 0
+  predict_model:
+    cmd: poetry run python src/models/predict_model_unified.py --model_type merged
+      --input_data data/processed/train_test_merged/test.csv --output data/predictions/merged_predictions.csv
+    deps:
+    - path: data/processed/train_test_merged/test.csv
+      hash: md5
+      md5: 4bb4dfb5f3f5d0ca1500b263efc9c84c
+      size: 222874
+    - path: models/models_mlflow_merged
+      hash: md5
+      md5: d751713988987e9331980363e24189ce.dir
+      size: 0
+      nfiles: 0
+    - path: src/models/predict_model_unified.py
+      hash: md5
+      md5: 17c8c45e2a6200989a287c479747f3a7
+      size: 2587
+    outs:
+    - path: data/predictions/merged_predictions.csv
+      hash: md5
+      md5: 7b2778241196873bbcbf1ba767e3c9f9
+      size: 281052
