@@ -28,7 +28,7 @@
                 "meta": {}
             },
             "result": {
-                "element_count": 1071,
+                "element_count": 1072,
                 "unexpected_count": 0,
                 "unexpected_percent": 0.0,
                 "unexpected_percent_total": 0.0,
@@ -53,7 +53,7 @@
                 "meta": {}
             },
             "result": {
-                "element_count": 1071,
+                "element_count": 1072,
                 "missing_count": 0,
                 "missing_percent": 0.0,
                 "unexpected_count": 0,
@@ -82,14 +82,14 @@
         "expectation_suite_name": "mbajk_suite_RAZLAGOVA UL. - OB\u010cINA",
         "run_id": {
             "run_name": null,
-            "run_time": "2025-02-02T23:34:17.173835+00:00"
+            "run_time": "2025-02-03T02:02:30.538902+00:00"
         },
         "batch_kwargs": {
-            "ge_batch_id": "38061fd4-e1be-11ef-b9ab-002248338008"
+            "ge_batch_id": "ece1eff0-e1d2-11ef-b9ab-6045bd08c8c6"
         },
         "batch_markers": {},
         "batch_parameters": {},
-        "validation_time": "20250202T233417.173791Z",
+        "validation_time": "20250203T020230.538858Z",
         "expectation_suite_meta": {
             "great_expectations_version": "0.15.50"
         }

@@ -82,14 +82,14 @@
         "expectation_suite_name": "mbajk_suite_PARTIZANSKA C. - \u017dELEZNI\u0160KA POSTAJA",
         "run_id": {
             "run_name": null,
-            "run_time": "2025-02-02T23:34:17.749024+00:00"
+            "run_time": "2025-02-03T02:02:31.109404+00:00"
         },
         "batch_kwargs": {
-            "ge_batch_id": "38061fd5-e1be-11ef-b9ab-002248338008"
+            "ge_batch_id": "ece1eff1-e1d2-11ef-b9ab-6045bd08c8c6"
         },
         "batch_markers": {},
         "batch_parameters": {},
-        "validation_time": "20250202T233417.748982Z",
+        "validation_time": "20250203T020231.109358Z",
         "expectation_suite_meta": {
             "great_expectations_version": "0.15.50"
         }

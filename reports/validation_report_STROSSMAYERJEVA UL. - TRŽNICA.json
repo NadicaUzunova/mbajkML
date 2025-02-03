@@ -28,7 +28,7 @@
                 "meta": {}
             },
             "result": {
-                "element_count": 1071,
+                "element_count": 1072,
                 "unexpected_count": 0,
                 "unexpected_percent": 0.0,
                 "unexpected_percent_total": 0.0,
@@ -53,7 +53,7 @@
                 "meta": {}
             },
             "result": {
-                "element_count": 1071,
+                "element_count": 1072,
                 "missing_count": 0,
                 "missing_percent": 0.0,
                 "unexpected_count": 0,
@@ -82,14 +82,14 @@
         "expectation_suite_name": "mbajk_suite_STROSSMAYERJEVA UL. - TR\u017dNICA",
         "run_id": {
             "run_name": null,
-            "run_time": "2025-02-02T23:34:22.419399+00:00"
+            "run_time": "2025-02-03T02:02:35.789049+00:00"
         },
         "batch_kwargs": {
-            "ge_batch_id": "3a815438-e1be-11ef-b9ab-002248338008"
+            "ge_batch_id": "ef07b62d-e1d2-11ef-b9ab-6045bd08c8c6"
         },
         "batch_markers": {},
         "batch_parameters": {},
-        "validation_time": "20250202T233422.419361Z",
+        "validation_time": "20250203T020235.788994Z",
         "expectation_suite_meta": {
             "great_expectations_version": "0.15.50"
         }
