@@ -97,6 +97,3 @@ stages:
       poetry run python src/models/evaluate_predictions.py --model_type merged
     deps:
       - src/models/evaluate_predictions.py
-    outs:
-      - reports/evaluation:
-          persist: true
