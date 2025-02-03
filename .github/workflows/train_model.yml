@@ -49,10 +49,6 @@ jobs:
           dvc remote modify dagshub_remote --local password ${{ secrets.DAGSHUB_TOKEN }}
           dvc pull -r dagshub_remote --force
 
-      # ✅ 5. Namesti MongoDB klienta
-      - name: Install MongoDB Client
-        run: sudo apt-get install -y mongodb-clients
-
       # ✅ 6. Razdeli podatke na train/test (za posamezne postaje in združene podatke)
       - name: Split data
         run: |
