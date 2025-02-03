@@ -47,7 +47,7 @@ def save_prediction_to_mongo(input_data, predicted_values, actual_values, model_
 
     # Shrani v MongoDB
     collection.insert_many(documents)
-    print(f"✅ Napovedi in dejanske vrednosti shranjene v MongoDB ({COLLECTION_NAME})")
+    print(f"✅ Napovedi in dejanske vrednosti shranjene v MongoDB.")
 
 def load_production_model(model_name):
     """Naloži najnovejši 'Production' model iz MLflow Model Registry."""
