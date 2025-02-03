@@ -49,4 +49,4 @@ jobs:
 
       # ✅ 6. Izvedi testiranje API-ja
       - name: Run API tests
-        run: poetry run pytest tests/test_service.py
+        run: poetry run pytest .src/tests/test_service.py
