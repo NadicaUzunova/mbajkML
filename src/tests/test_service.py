@@ -4,9 +4,9 @@ from pymongo import MongoClient
 from src.serve.app import app as flask_app  # Flask aplikacija
 
 # 📌 MongoDB konfiguracija
-MONGO_URI = os.getenv("MONGO_URI")
-DB_NAME = os.getenv("MONGO_DB_NAME")
-COLLECTION_NAME = os.getenv("MONGO_COLLECTION_NAME")
+client = MongoClient("mongodb+srv://nadicauzunova:7H8mP7RhyTaYlpy7@mbajkml.q7lre.mongodb.net/?retryWrites=true&w=majority&appName=mbajkML")
+db = client["mbajkML"]
+collection = db["predictions"]
 
 # 📌 Testni odjemalec Flask
 @pytest.fixture
@@ -48,9 +48,9 @@ def test_predict_valid_data(client):
 # 📌 Testiranje, ali so napovedi shranjene v MongoDB
 def test_predictions_stored_in_mongo():
     """Preveri, ali so napovedi shranjene v MongoDB."""
-    client = MongoClient(MONGO_URI)
-    db = client[DB_NAME]
-    collection = db[COLLECTION_NAME]
+    client = MongoClient("mongodb+srv://nadicauzunova:7H8mP7RhyTaYlpy7@mbajkml.q7lre.mongodb.net/?retryWrites=true&w=majority&appName=mbajkML")
+    db = client["mbajkML"]
+    collection = db["predictions"]
 
     # Poiščemo zadnji zapis
     last_prediction = collection.find_one(sort=[("_id", -1)])

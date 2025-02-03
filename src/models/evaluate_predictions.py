@@ -18,14 +18,9 @@ os.environ["MLFLOW_TRACKING_USERNAME"] = os.getenv("MLFLOW_TRACKING_USERNAME")
 os.environ["MLFLOW_TRACKING_PASSWORD"] = os.getenv("MLFLOW_TRACKING_PASSWORD")
 
 # MongoDB konfiguracija
-MONGO_URI = os.getenv("MONGO_URI")
-DB_NAME = os.getenv("MONGO_DB_NAME")
-COLLECTION_NAME = os.getenv("MONGO_COLLECTION_NAME")
-
-# Povezava z MongoDB
-client = MongoClient(MONGO_URI)
-db = client[DB_NAME]
-collection = db[COLLECTION_NAME]
+client = MongoClient("mongodb+srv://nadicauzunova:7H8mP7RhyTaYlpy7@mbajkml.q7lre.mongodb.net/?retryWrites=true&w=majority&appName=mbajkML")
+db = client["mbajkML"]
+collection = db["predictions"]
 
 def evaluate_model(model_name):
     """Pridobi napovedi iz MongoDB, izračuna metrike in jih shrani v MLflow."""
