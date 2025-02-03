@@ -1,0 +1,81 @@
+name: Train and Evaluate Pipeline
+
+on:
+  workflow_run:
+    workflows: ["Data Pipeline"]
+    types:
+      - completed
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+env:
+  MLFLOW_TRACKING_URI: ${{ secrets.MLFLOW_TRACKING_URI }}
+  MLFLOW_TRACKING_USERNAME: ${{ secrets.MLFLOW_TRACKING_USERNAME }}
+  MLFLOW_TRACKING_PASSWORD: ${{ secrets.MLFLOW_TRACKING_PASSWORD }}
+  DAGSHUB_TOKEN: ${{ secrets.DAGSHUB_TOKEN }}
+
+jobs:
+  train_and_evaluate:
+    runs-on: ubuntu-latest
+
+    steps:
+      # ✅ 1. Preveri kodo iz GitHub repozitorija
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # ✅ 2. Nastavi Python okolje
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      # ✅ 3. Namesti potrebne odvisnosti
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install poetry dvc[all]
+          poetry install
+
+      # ✅ 4. Nastavi DVC povezavo do DagsHub in prenesi podatke
+      - name: DVC setup
+        run: |
+          dvc remote modify dagshub_remote --local auth basic
+          dvc remote modify dagshub_remote --local user NadicaUzunova
+          dvc remote modify dagshub_remote --local password ${{ secrets.DAGSHUB_TOKEN }}
+          dvc pull -r dagshub_remote --force
+
+      # ✅ 5. Razdeli podatke na train/test (za posamezne postaje in združene podatke)
+      - name: Split data
+        run: |
+          poetry run python src/data/split_data_unified.py --input data/processed/current_data --output_train data/processed/train_test_from_current/train --output_test data/processed/train_test_from_current/test
+          poetry run python src/data/split_data_unified.py --input data/processed/merged/data.csv --output_train data/processed/train_test_merged/train.csv --output_test data/processed/train_test_merged/test.csv
+
+      # ✅ 6. Validacija in testiranje podatkov (za posamezne postaje in združene podatke)
+      - name: Validate and test data
+        run: |
+          poetry run python src/data/validate_and_test_unified.py --reference data/processed/reference_data --current data/processed/current_data --suite_name "mbajk_suite"
+          poetry run python src/data/validate_and_test_unified.py --reference data/processed/merged/reference_data.csv --current data/processed/merged/current_data.csv --suite_name "mbajk_merged_suite"
+
+      # ✅ 7. Izvedi treniranje modelov za posamezne postaje
+      - name: Train individual station models
+        run: poetry run python src/models/train_model_unified.py --model_type station
+
+      # ✅ 8. Izvedi treniranje združenega modela
+      - name: Train merged model
+        run: poetry run python src/models/train_model_unified.py --model_type merged
+
+      # ✅ 9. Evaluacija in registracija modelov v MLflow
+      - name: Evaluate and register models
+        run: |
+          poetry run python src/models/evaluate_and_register_models.py --model_type station
+          poetry run python src/models/evaluate_and_register_models.py --model_type merged
+
+      # ✅ 10. Izvedi napovedi z najboljšim modelom
+      - name: Make predictions
+        run: poetry run python src/models/predict_model_unified.py --model_type merged --input_data data/processed/train_test_merged/test.csv --output data/predictions/merged_predictions.csv
+
+      # ✅ 11. Pošlji spremembe nazaj v DVC
+      - name: Push DVC changes
+        run: dvc push -r dagshub_remote

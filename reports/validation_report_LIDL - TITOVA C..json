@@ -28,7 +28,7 @@
                 "meta": {}
             },
             "result": {
-                "element_count": 1073,
+                "element_count": 1078,
                 "unexpected_count": 0,
                 "unexpected_percent": 0.0,
                 "unexpected_percent_total": 0.0,
@@ -53,7 +53,7 @@
                 "meta": {}
             },
             "result": {
-                "element_count": 1073,
+                "element_count": 1078,
                 "missing_count": 0,
                 "missing_percent": 0.0,
                 "unexpected_count": 0,
@@ -82,14 +82,14 @@
         "expectation_suite_name": "mbajk_suite_LIDL - TITOVA C.",
         "run_id": {
             "run_name": null,
-            "run_time": "2025-02-03T03:03:19.616556+00:00"
+            "run_time": "2025-02-03T14:05:39.698936+00:00"
         },
         "batch_kwargs": {
-            "ge_batch_id": "6b8fca05-e1db-11ef-b9ab-7c1e528bb31d"
+            "ge_batch_id": "f2d65df0-e237-11ef-8d07-6e87111b7e7b"
         },
         "batch_markers": {},
         "batch_parameters": {},
-        "validation_time": "20250203T030319.616518Z",
+        "validation_time": "20250203T140539.698912Z",
         "expectation_suite_meta": {
             "great_expectations_version": "0.15.50"
         }

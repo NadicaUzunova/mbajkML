@@ -1,0 +1,22 @@
+{
+    "station_train_data": "data/processed/train_test_from_current/train",
+    "merged_train_data": "data/processed/train_test_merged/train.csv",
+    "station_test_data": "data/processed/train_test_from_current/test",
+    "merged_test_data": "data/processed/train_test_merged/test.csv",
+    "station_reference_data": "data/processed/reference_data",
+    "merged_reference_data": "data/processed/merged/reference_data.csv",
+    "station_current_data": "data/processed/current_data",
+    "merged_current_data": "data/processed/merged/current_data.csv",
+    "predictions_output": "data/predictions",
+    "features": [
+      "available_bike_stands",
+      "position_lat",
+      "position_lng",
+      "temperature",
+      "humidity",
+      "dew_point",
+      "apparent_temperature",
+      "precipitation"
+    ],
+    "target": "available_bikes"
+  }

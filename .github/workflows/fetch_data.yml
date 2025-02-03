@@ -1,11 +1,11 @@
-name: 'Data pipeline'
+name: 'Data Pipeline'
 
 on:
   schedule:
     - cron: '15 * * * *' # Runs every hour at 15 minutes past the hour
   push:
     branches: [ main ]
-  workflow_dispatch: # Allows manual triggering of the workflow
+  workflow_dispatch:
 
 jobs:
   process_data:
@@ -18,45 +18,39 @@ jobs:
       DAGSHUB_TOKEN: ${{ secrets.DAGSHUB_TOKEN }}
 
     steps:
-      # Step 1: Checkout repository
-      - uses: actions/checkout@v3
+      # ✅ 1. Preveri kodo iz GitHub repozitorija
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-      # Step 2: Set up Python
-      - name: Set up Python 3.11.7
+      # ✅ 2. Nastavi Python okolje
+      - name: Set up Python 3.11
         uses: actions/setup-python@v4
         with:
-          python-version: 3.11.7
+          python-version: '3.11'
 
-      # Step 3: Install Poetry
-      - name: Install Poetry
-        run: |
-          python -m pip install --upgrade pip
-          pip install poetry
-
-      # Step 4: Install dependencies
+      # ✅ 3. Namesti potrebne odvisnosti
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install -r requirements.txt
-          pip install dvc[all]
+          pip install poetry dvc[all]
           poetry install
 
-      # Step 5: Configure DagsHub credentials
+      # ✅ 4. Nastavi DVC povezavo do DagsHub
       - name: Configure DagsHub credentials
         run: |
           dvc remote modify dagshub_remote --local auth basic
           dvc remote modify dagshub_remote --local user NadicaUzunova
-          dvc remote modify dagshub_remote --local password $DAGSHUB_TOKEN
+          dvc remote modify dagshub_remote --local password ${{ secrets.DAGSHUB_TOKEN }}
 
-      # Step 6: Pull DVC data
+      # ✅ 5. Prenesi podatke z DVC
       - name: Pull DVC data
         run: dvc pull
 
-      # NOV KORAK: Reproduciraj DVC pipeline z --force
+      # ✅ 6. Izvedi DVC pipeline
       - name: Reproduce DVC pipeline (force)
         run: dvc repro --force
 
-      # Step 10: Commit and push changes if necessary
+      # ✅ 7. Pošlji spremembe, če obstajajo
       - name: Commit and push if there are changes
         env:
           mbajkML: ${{ secrets.mbajkML }}
@@ -68,6 +62,6 @@ jobs:
           git commit -m "Update data" || echo "No changes to commit"
           git push origin main
 
-      # Step 11: Push DVC changes
+      # ✅ 8. Pošlji podatke nazaj v DVC
       - name: Push DVC changes
         run: dvc push

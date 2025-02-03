@@ -28,7 +28,7 @@
                 "meta": {}
             },
             "result": {
-                "element_count": 1073,
+                "element_count": 1078,
                 "unexpected_count": 0,
                 "unexpected_percent": 0.0,
                 "unexpected_percent_total": 0.0,
@@ -53,7 +53,7 @@
                 "meta": {}
             },
             "result": {
-                "element_count": 1073,
+                "element_count": 1078,
                 "missing_count": 0,
                 "missing_percent": 0.0,
                 "unexpected_count": 0,
@@ -82,14 +82,14 @@
         "expectation_suite_name": "mbajk_suite_MLINSKA UL . - AVTOBUSNA POSTAJA",
         "run_id": {
             "run_name": null,
-            "run_time": "2025-02-03T03:03:30.086495+00:00"
+            "run_time": "2025-02-03T14:05:41.153960+00:00"
         },
         "batch_kwargs": {
-            "ge_batch_id": "71ccecc7-e1db-11ef-b9ab-7c1e528bb31d"
+            "ge_batch_id": "f3b462ee-e237-11ef-8d07-6e87111b7e7b"
         },
         "batch_markers": {},
         "batch_parameters": {},
-        "validation_time": "20250203T030330.086457Z",
+        "validation_time": "20250203T140541.153944Z",
         "expectation_suite_meta": {
             "great_expectations_version": "0.15.50"
         }

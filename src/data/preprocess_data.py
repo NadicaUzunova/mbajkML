@@ -22,12 +22,12 @@ for csv_file in os.listdir(raw_bike_dir):
         file_path = os.path.join(raw_bike_dir, csv_file)
         bike_df = pd.read_csv(file_path)
 
-        # Odstranimo neželene stolpce (latitude, longitude)
+        # ✅ Ohranjeno odstranjevanje latitude in longitude, ker ju ne potrebujemo
         bike_df = bike_df.drop(columns=["latitude", "longitude"], errors="ignore")
 
         # Convert timestamps
         bike_df['last_update'] = pd.to_datetime(bike_df['last_update'], unit='ms')
-        bike_df['timestamp'] = bike_df['last_update'].dt.floor('H')  # Aggregate to hourly level
+        bike_df['timestamp'] = bike_df['last_update'].dt.floor('H')  # ✅ Ohranjena agregacija na uro
 
         # Rename and select columns
         bike_df = bike_df.rename(columns={
@@ -36,7 +36,7 @@ for csv_file in os.listdir(raw_bike_dir):
         })
         bike_df = bike_df[['timestamp', 'position_lat', 'position_lng', 'available_bike_stands', 'available_bikes']]
 
-        # Aggregate by hour
+        # ✅ Ohranjena agregacija podatkov na urni interval
         bike_df = bike_df.groupby('timestamp', as_index=False).mean()
 
         # Save processed bike data
@@ -44,7 +44,10 @@ for csv_file in os.listdir(raw_bike_dir):
         if os.path.exists(processed_file_path):
             print(f"Appending to existing bike file: {processed_file_path}")
             existing_bike_df = pd.read_csv(processed_file_path, parse_dates=['timestamp'])
+
+            # ✅ Ohranjeno odstranjevanje duplikatov
             bike_df = pd.concat([existing_bike_df, bike_df]).drop_duplicates(subset=['timestamp']).reset_index(drop=True)
+
         bike_df.to_csv(processed_file_path, index=False)
         print(f"Saved processed bike data to: {processed_file_path}")
 
@@ -58,12 +61,18 @@ for csv_file in os.listdir(raw_weather_dir):
         # Ensure weather timestamps are datetime objects
         weather_raw['timestamp'] = pd.to_datetime(weather_raw['timestamp'])
 
+        # ✅ Ohranjena agregacija podatkov na urni interval
+        weather_raw = weather_raw.groupby('timestamp', as_index=False).mean()
+
         # Save processed weather data
         processed_file_path = os.path.join(processed_weather_dir, csv_file)
         if os.path.exists(processed_file_path):
             print(f"Appending to existing weather file: {processed_file_path}")
             existing_weather_df = pd.read_csv(processed_file_path, parse_dates=['timestamp'])
+
+            # ✅ Ohranjeno odstranjevanje duplikatov
             weather_raw = pd.concat([existing_weather_df, weather_raw]).drop_duplicates(subset=['timestamp']).reset_index(drop=True)
+
         weather_raw.to_csv(processed_file_path, index=False)
         print(f"Saved processed weather data to: {processed_file_path}")
 
@@ -77,7 +86,7 @@ for csv_file in os.listdir(processed_bike_dir):
         if os.path.exists(weather_data_path):
             bike_df = pd.read_csv(bike_data_path, parse_dates=['timestamp'])
 
-            # Odstranimo neželene stolpce (latitude, longitude)
+            # ✅ Ohranjeno odstranjevanje latitude in longitude, ker ju ne potrebujemo
             bike_df = bike_df.drop(columns=["latitude", "longitude"], errors="ignore")
 
             weather_df = pd.read_csv(weather_data_path, parse_dates=['timestamp'])
@@ -91,12 +100,18 @@ for csv_file in os.listdir(processed_bike_dir):
                 'temperature', 'humidity', 'dew_point', 'apparent_temperature', 'precipitation'
             ]]
 
+            # ✅ Ohranjena agregacija podatkov na urni interval
+            merged_df = merged_df.groupby('timestamp', as_index=False).mean()
+
             # Save combined data
             combined_file_path = os.path.join(combined_dir, csv_file)
             if os.path.exists(combined_file_path):
                 print(f"Appending to existing combined file: {combined_file_path}")
                 existing_combined_df = pd.read_csv(combined_file_path, parse_dates=['timestamp'])
+
+                # ✅ Ohranjeno odstranjevanje duplikatov
                 merged_df = pd.concat([existing_combined_df, merged_df]).drop_duplicates(subset=['timestamp']).reset_index(drop=True)
+
             merged_df.to_csv(combined_file_path, index=False)
             print(f"Saved combined data to: {combined_file_path}")
         else:

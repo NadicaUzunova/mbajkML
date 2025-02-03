@@ -107,7 +107,8 @@ def fetch_weather_data(lat, lng, station_name):
                 "precipitation": hourly_data.get("precipitation", [None] * len(hourly_data["time"]))
             })
 
-            weather_df.dropna(how='all', subset=["temperature", "humidity", "dew_point", "apparent_temperature", "precipitation"], inplace=True)
+            # 🔴 **Odstranjeno** zapolnjevanje manjkajočih vrednosti (prej se je `dropna()` izvajal)
+            # weather_df.dropna(how='all', subset=["temperature", "humidity", "dew_point", "apparent_temperature", "precipitation"], inplace=True)
 
             if not weather_df.empty:
                 weather_file_path = os.path.join(weather_raw_dir, f"{station_name}.csv")
