@@ -21,15 +21,10 @@ mlflow.set_tracking_uri(os.getenv("MLFLOW_TRACKING_URI"))
 os.environ["MLFLOW_TRACKING_USERNAME"] = os.getenv("MLFLOW_TRACKING_USERNAME")
 os.environ["MLFLOW_TRACKING_PASSWORD"] = os.getenv("MLFLOW_TRACKING_PASSWORD")
 
-# MongoDB konfiguracija
-# MONGO_URI = os.getenv("MONGO_URI")
-# DB_NAME = os.getenv("MONGO_DB_NAME")
-# COLLECTION_NAME = os.getenv("MONGO_COLLECTION_NAME")
-
 # Vzpostavi povezavo z MongoDB
-client = MongoClient(os.getenv("MONGO_URI"))
-db = client[os.getenv("MONGO_DB_NAME")]
-collection = db[os.getenv("MONGO_COLLECTION_NAME")]
+client = MongoClient("mongodb+srv://nadicauzunova:7H8mP7RhyTaYlpy7@mbajkml.q7lre.mongodb.net/?retryWrites=true&w=majority&appName=mbajkML")
+db = client["mbajkML"]
+collection = db["predictions"]
 
 def save_prediction_to_mongo(input_data, predicted_values, actual_values, model_name):
     """Shrani vhodne podatke, napovedi, prave vrednosti in čas v MongoDB."""
