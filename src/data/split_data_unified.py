@@ -4,10 +4,16 @@ import argparse
 
 def split_data(input_path, output_train, output_test, test_size_ratio=0.1):
     """Razdeli podatke na train in test glede na časovne žige."""
+    
+    # Preverimo, ali datoteka obstaja
+    if not os.path.exists(input_path):
+        print(f"⚠️ Warning: {input_path} ne obstaja. Preskakujem...")
+        return
+    
     df = pd.read_csv(input_path, parse_dates=["timestamp"])
 
     if df.empty:
-        print(f"⚠️ Warning: {input_path} is empty. Skipping...")
+        print(f"⚠️ Warning: {input_path} je prazna. Preskakujem...")
         return
     
     df = df.sort_values(by="timestamp")
@@ -33,13 +39,19 @@ def main():
 
     args = parser.parse_args()
 
+    # Preverimo, ali je input mapa ali datoteka
     if os.path.isdir(args.input):
-        for csv_file in os.listdir(args.input):
-            if csv_file.endswith('.csv'):
-                input_path = os.path.join(args.input, csv_file)
-                output_train = os.path.join(args.output_train, csv_file)
-                output_test = os.path.join(args.output_test, csv_file)
-                split_data(input_path, output_train, output_test, args.test_size_ratio)
+        csv_files = [f for f in os.listdir(args.input) if f.endswith('.csv')]
+
+        if not csv_files:  # Preverimo, ali je mapa prazna
+            print(f"⚠️ Warning: Mapa {args.input} je prazna. Preskakujem...")
+            return
+
+        for csv_file in csv_files:
+            input_path = os.path.join(args.input, csv_file)
+            output_train = os.path.join(args.output_train, csv_file)
+            output_test = os.path.join(args.output_test, csv_file)
+            split_data(input_path, output_train, output_test, args.test_size_ratio)
     else:
         split_data(args.input, args.output_train, args.output_test, args.test_size_ratio)
 
