@@ -19,6 +19,17 @@ stages:
           persist: true
       - data/processed/combined:
           persist: true
+  
+  reference_data:
+    cmd: |
+      mkdir -p data/processed
+      cp -r data/processed/combined data/processed/reference_data
+      cp -r data/processed/combined data/processed/current_data
+    deps:
+      - data/processed/combined
+    outs:
+      - data/processed/reference_data
+      - data/processed/current_data
 
   merge_data:
     cmd: poetry run python src/data/merge_data.py
@@ -28,6 +39,17 @@ stages:
     outs:
       - data/processed/merged/data.csv:
           persist: true
+
+  reference_data_merged:
+    cmd: |
+      cp data/processed/merged/data.csv data/processed/merged/reference_data.csv
+      cp data/processed/merged/data.csv data/processed/merged/current_data.csv
+    deps:
+      - data/processed/merged/data.csv
+    outs:
+      - data/processed/merged/reference_data.csv
+      - data/processed/merged/current_data.csv
+
 
   split_data:
     cmd: |
