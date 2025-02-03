@@ -50,14 +50,12 @@ stages:
       - data/processed/merged/reference_data.csv
       - data/processed/merged/current_data.csv
 
-
   split_data:
     cmd: |
       poetry run python src/data/split_data_unified.py --input data/processed/current_data --output_train data/processed/train_test_from_current/train --output_test data/processed/train_test_from_current/test
       poetry run python src/data/split_data_unified.py --input data/processed/merged/data.csv --output_train data/processed/train_test_merged/train.csv --output_test data/processed/train_test_merged/test.csv
     deps:
       - src/data/split_data_unified.py
-      - data/processed/current_data
       - data/processed/merged/data.csv
     outs:
       - data/processed/train_test_from_current/train:
