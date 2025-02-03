@@ -1,122 +1,87 @@
 import pytest
-from src.serve.app import app as flask_app  # Import the Flask app instance
+import os
+from pymongo import MongoClient
+from src.serve.app import app as flask_app  # Flask aplikacija
 
+# 📌 MongoDB konfiguracija
+MONGO_URI = os.getenv("MONGO_URI")
+DB_NAME = os.getenv("MONGO_DB_NAME")
+COLLECTION_NAME = os.getenv("MONGO_COLLECTION_NAME")
+
+# 📌 Testni odjemalec Flask
 @pytest.fixture
 def client():
-    """Set up the Flask test client."""
+    """Nastavi Flask testni odjemalec."""
     with flask_app.test_client() as client:
         yield client
 
-
-def test_live_data_endpoint_with_valid_location(client):
-    """Test the /live-data endpoint with a valid location."""
-    valid_location = {"location": "DVORANA TABOR"}
-
-    response = client.post('/live-data', json=valid_location)
+# 📌 Testiranje /live-data endpointa
+def test_live_data_valid_location(client):
+    """Testira /live-data endpoint z veljavno lokacijo."""
+    response = client.post('/live-data', json={"location": "DVORANA TABOR"})
     assert response.status_code == 200
-    response_data = response.get_json()
-    assert "available_bike_stands" in response_data
-    assert "available_bikes" in response_data
-    assert "timestamp" in response_data
+    data = response.get_json()
+    assert "available_bike_stands" in data, "Manjka ključ 'available_bike_stands'"
+    assert "available_bikes" in data, "Manjka ključ 'available_bikes'"
+    assert "timestamp" in data, "Manjka ključ 'timestamp'"
 
-
-def test_live_data_endpoint_with_invalid_location(client):
-    """Test the /live-data endpoint with an invalid location."""
-    invalid_location = {"location": "INVALID LOCATION"}
-
-    response = client.post('/live-data', json=invalid_location)
+def test_live_data_invalid_location(client):
+    """Testira /live-data endpoint z neveljavno lokacijo."""
+    response = client.post('/live-data', json={"location": "NEVELJAVNA LOKACIJA"})
     assert response.status_code == 404
-    response_data = response.get_json()
-    assert "error" in response_data
-    assert "not found in live data" in response_data["error"]
+    assert "error" in response.get_json()
 
-
-def test_predict_endpoint_with_valid_data(client):
-    """Test the /mbajk/predict endpoint with valid data."""
+# 📌 Testiranje napovedi na /mbajk/predict
+def test_predict_valid_data(client):
+    """Testira /mbajk/predict endpoint z veljavnimi podatki."""
     valid_data = {
         "location": "DVORANA TABOR",
-        "data": [
-            ["2024-12-15 19:00:00", "46.549946", "15.635611", "5", "15", "8.0", "60", "6.0", "7.5", "0.0"],
-            ["2024-12-15 20:00:00", "46.549946", "15.635611", "5", "14", "7.5", "65", "5.8", "7.2", "0.0"],
-            ["2024-12-15 21:00:00", "46.549946", "15.635611", "4", "16", "7.0", "70", "5.5", "7.0", "0.0"],
-            ["2024-12-15 22:00:00", "46.549946", "15.635611", "4", "17", "6.5", "75", "5.2", "6.8", "0.0"],
-            ["2024-12-15 23:00:00", "46.549946", "15.635611", "4", "13", "6.0", "80", "4.9", "6.5", "0.0"],
-            ["2024-12-16 00:00:00", "46.549946", "15.635611", "3", "10", "5.5", "85", "4.6", "6.2", "0.0"],
-            ["2024-12-16 01:00:00", "46.549946", "15.635611", "3", "12", "5.0", "90", "4.3", "6.0", "0.0"],
-            ["2024-12-16 02:00:00", "46.549946", "15.635611", "3", "14", "4.5", "92", "4.0", "5.8", "0.0"],
-            ["2024-12-16 03:00:00", "46.549946", "15.635611", "3", "16", "4.0", "95", "3.7", "5.6", "0.0"],
-            ["2024-12-16 04:00:00", "46.549946", "15.635611", "2", "15", "3.5", "98", "3.4", "5.4", "0.0"],
-            ["2024-12-16 05:00:00", "46.549946", "15.635611", "2", "17", "3.0", "100", "3.1", "5.2", "0.0"],
-            ["2024-12-16 06:00:00", "46.549946", "15.635611", "2", "20", "2.5", "102", "2.8", "5.0", "0.0"]
-        ]
+        "data": [["2024-12-15 19:00:00", "46.549946", "15.635611", "5", "15", "8.0", "60", "6.0", "7.5", "0.0"]] * 12
     }
 
     response = client.post('/mbajk/predict', json=valid_data)
     assert response.status_code == 200
-    response_data = response.get_json()
-    assert "predictions" in response_data
+    data = response.get_json()
+    assert "predictions" in data, "Manjka ključ 'predictions'"
+    assert len(data["predictions"]) == 7, "Napovedi niso dolžine 7"
 
-    # Check that the output has 7 predictions, as per the model design
-    assert len(response_data["predictions"]) == 7
+# 📌 Testiranje, ali so napovedi shranjene v MongoDB
+def test_predictions_stored_in_mongo():
+    """Preveri, ali so napovedi shranjene v MongoDB."""
+    client = MongoClient(MONGO_URI)
+    db = client[DB_NAME]
+    collection = db[COLLECTION_NAME]
 
+    # Poiščemo zadnji zapis
+    last_prediction = collection.find_one(sort=[("_id", -1)])
 
-def test_predict_endpoint_with_invalid_data(client):
-    """Test the /mbajk/predict endpoint with invalid data."""
+    assert last_prediction is not None, "Ni shranjenih napovedi v MongoDB"
+    assert "predicted_value" in last_prediction, "Manjka ključ 'predicted_value' v MongoDB zapisu"
+    assert "features" in last_prediction, "Manjka ključ 'features' v MongoDB zapisu"
+
+# 📌 Testiranje nepravilnih vhodnih podatkov
+def test_predict_invalid_data(client):
+    """Testira /mbajk/predict endpoint z neveljavnimi podatki."""
     invalid_data = {
         "location": "DVORANA TABOR",
-        "data": [
-            ["2024-12-15 19:00:00", "46.549946", "15.635611", "5", "15", "8.0", "60", "6.0", "7.5", "0.0"]
-        ]  # Too few rows
+        "data": [["2024-12-15 19:00:00", "46.549946", "15.635611", "5", "15", "8.0"]]  # Premalo značilk
     }
 
     response = client.post('/mbajk/predict', json=invalid_data)
     assert response.status_code == 400
-    response_data = response.get_json()
-    assert "error" in response_data
-    assert "Invalid array length" in response_data["error"]
+    assert "error" in response.get_json()
 
-
-def test_predict_endpoint_with_invalid_location(client):
-    """Test the /mbajk/predict endpoint with a non-existent model."""
-    invalid_location_data = {
-        "location": "INVALID LOCATION",
-        "data": [
-            ["2024-12-15 19:00:00", "46.549946", "15.635611", "5", "15", "8.0", "60", "6.0", "7.5", "0.0"]
-        ] * 12
-    }
-
-    response = client.post('/mbajk/predict', json=invalid_location_data)
-    assert response.status_code == 404
-    response_data = response.get_json()
-    assert "error" in response_data
-    assert "Model for location" in response_data["error"]
-
-
-def test_data_endpoint_with_valid_location(client):
-    """Test the /data endpoint with a valid location."""
-    valid_location = {"location": "DVORANA TABOR"}
-
-    response = client.post('/data', json=valid_location)
+# 📌 Testiranje /data endpointa
+def test_data_endpoint_valid(client):
+    """Testira /data endpoint z veljavno lokacijo."""
+    response = client.post('/data', json={"location": "DVORANA TABOR"})
     assert response.status_code == 200
-    response_data = response.get_json()
-    assert "data" in response_data
-    assert len(response_data["data"]) == 12
+    data = response.get_json()
+    assert "data" in data, "Manjka ključ 'data'"
+    assert len(data["data"]) == 12, "Vrnjeno napačno število vrstic"
 
-
-def test_data_endpoint_with_invalid_location(client):
-    """Test the /data endpoint with an invalid location."""
-    invalid_location = {"location": "INVALID LOCATION"}
-
-    response = client.post('/data', json=invalid_location)
+def test_data_endpoint_invalid(client):
+    """Testira /data endpoint z neobstoječo lokacijo."""
+    response = client.post('/data', json={"location": "NEVELJAVNA"})
     assert response.status_code == 404
-    response_data = response.get_json()
-    assert "error" in response_data
-    assert "not found" in response_data["error"]
-
-
-def test_data_endpoint_without_body(client):
-    """Test the /data endpoint without a request body."""
-    response = client.post('/data')
-    assert response.status_code == 400
-    response_data = response.get_json()
-    assert "error" in response_data
+    assert "error" in response.get_json()

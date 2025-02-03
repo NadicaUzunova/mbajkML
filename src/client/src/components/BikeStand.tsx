@@ -5,9 +5,11 @@ import BikeIcon from '../assets/bike-icon.png';
 import { mbajkApi } from "../utils/axios";
 import { v4 as uuid } from 'uuid';
 
-type BikeStandProps = {};
+/** Pridobi API URL iz okolja */
+const API_URL = process.env.REACT_APP_API_URL || "http://localhost:8000";
 
-type DataRow = (string | number)[]; // Type for each row of old data
+type BikeStandProps = {};
+type DataRow = (string | number)[];
 
 const BikeStand: FC<BikeStandProps> = () => {
     const [hours, setHours] = useState<number[]>([]);
@@ -16,85 +18,69 @@ const BikeStand: FC<BikeStandProps> = () => {
     const [isLoading, setIsLoading] = useState<boolean>(true);
     const { currentBikeStand } = useContext(BikeStandContext);
 
-    /**
-     * Calculate the next 6 hours for predictions display.
-     */
-    const calculateNextSixHours = () => {
-        const currentDate = new Date();
-        const currentHour = currentDate.getHours();
-        const nextHours = [];
+    /** Normalizacija imen postaj */
+    const normalizeString = (inputStr: string): string => {
+        return inputStr.replace(/[ščžŠČŽ]/g, char => ({
+            'š': 's', 'č': 'c', 'ž': 'z',
+            'Š': 'S', 'Č': 'C', 'Ž': 'Z'
+        }[char] || char));
+    };
 
-        for (let i = 1; i <= 7; i++) {
-            const nextHour = (currentHour + i) % 24;
-            nextHours.push(nextHour);
-        }
-
+    /** Izračun naslednjih 7 ur za prikaz napovedi */
+    const calculateNextSevenHours = () => {
+        const currentHour = new Date().getHours();
+        const nextHours = Array.from({ length: 7 }, (_, i) => (currentHour + i + 1) % 24);
         setHours(nextHours);
     };
 
-    /**
-     * Fetch predictions and current bike stand data.
-     */
+    /** Pridobi podatke v realnem času in napovedi */
     const fetchPredictions = async () => {
-        if (currentBikeStand) {
-            setIsLoading(true);
-            try {
-                console.log("Fetching data for:", currentBikeStand);
+        if (!currentBikeStand) return;
 
-                // Fetch live data from the backend
-                const liveDataRes = await mbajkApi.post('http://localhost:8000/live-data', {
-                    location: currentBikeStand.name || currentBikeStand.location,
-                });
+        setIsLoading(true);
+        try {
+            const location = normalizeString(currentBikeStand.name || currentBikeStand.location);
+            console.log("Fetching data for:", location);
 
-                const liveData = liveDataRes.data;
-                console.log("Live data fetched:", liveData);
+            // Pridobi trenutne podatke
+            const liveDataRes = await mbajkApi.post(`${API_URL}/live-data`, { location });
+            const liveData = liveDataRes.data;
+            setData(liveData.available_bikes || 0);
 
-                const currentBikes = liveData.available_bikes || 0;
-                setData(currentBikes);
+            // Pridobi pretekle podatke
+            const oldDataRes = await mbajkApi.post(`${API_URL}/data`, { location });
+            let oldData: DataRow[] = oldDataRes.data.data;
+            console.log("Old data fetched:", oldData);
 
-                // Fetch old data from the backend
-                const oldDataRes = await mbajkApi.post('http://localhost:8000/data', {
-                    location: currentBikeStand.name || currentBikeStand.location,
-                });
+            // Očisti podatke (pretvori v številke, nadomesti null vrednosti)
+            const cleanOldData = oldData.map(row =>
+                row.map(value => (typeof value === 'string' && !isNaN(Number(value)) ? Number(value) : value || 0))
+            );
 
-                const oldData: DataRow[] = oldDataRes.data.data;
-                console.log("Old data fetched:", oldData);
-
-                // Clean and process old data
-                const cleanOldData = oldData.map((row: DataRow) => {
-                    return row.map(value => {
-                        if (typeof value === 'string' && !isNaN(Number(value))) {
-                            return Number(value); // Convert numeric strings to numbers
-                        }
-                        return value === null || value === undefined ? 0 : value; // Replace null/undefined with 0
-                    });
-                });
-
-                console.log("Cleaned old data:", cleanOldData);
-
-                // Fetch predictions from the backend
-                const predictionRes = await mbajkApi.post('http://localhost:8000/mbajk/predict', {
-                    location: currentBikeStand.location,
-                    data: cleanOldData,
-                });
-
-                const predictions = predictionRes.data.predictions;
-                console.log("Predictions fetched:", predictions);
-
-                setPredictions(predictions);
-            } catch (error) {
-                console.error("Error fetching predictions:", error);
-            } finally {
-                setIsLoading(false);
+            // Preveri, ali imamo dovolj podatkov za napoved
+            if (cleanOldData.length !== 12) {
+                console.warn("Insufficient historical data, skipping prediction.");
+                setPredictions([]);
+                return;
             }
+
+            // Pošlji poizvedbo za napoved
+            const predictionRes = await mbajkApi.post(`${API_URL}/mbajk/predict`, {
+                location,
+                data: cleanOldData,
+            });
+
+            setPredictions(predictionRes.data.predictions);
+        } catch (error) {
+            console.error("Error fetching predictions:", error);
+            setPredictions([]);
+        } finally {
+            setIsLoading(false);
         }
     };
 
-    /**
-     * Fetch predictions on component mount and when the bike stand changes.
-     */
     useEffect(() => {
-        calculateNextSixHours();
+        calculateNextSevenHours();
         fetchPredictions();
     }, [currentBikeStand]);
 
@@ -103,16 +89,14 @@ const BikeStand: FC<BikeStandProps> = () => {
             <div className="bike-stand-inner-container">
                 {currentBikeStand?.location && (
                     <>
-                        {/* Display the station name */}
                         <div className="bike-stand-menu-title">
-                            {currentBikeStand.location} {/* Ensure correct display of š, č, ž */}
+                            {currentBikeStand.location}
                         </div>
 
-                        {/* Display current state */}
                         <div className="bike-stand-current-state-title">Trenutno stanje:</div>
                         <div className="bike-stand-current-state">
                             {isLoading ? (
-                                <div className="loading-spinner"></div> // Show a loading spinner while waiting
+                                <div className="loading-spinner"></div>
                             ) : (
                                 <div className="bike-stand-current-state-number">
                                     {data !== null ? data : "N/A"}
@@ -123,25 +107,24 @@ const BikeStand: FC<BikeStandProps> = () => {
                             </div>
                         </div>
 
-                        {/* Display predictions */}
                         <h3>Napovedi</h3>
                         <div className="date-grid-container">
-                            {/* Display hours */}
                             {hours.map((hour, index) => (
-                                <div key={`hour-${index}`} className="date-grid-item">
-                                    {hour}:00
-                                </div>
+                                <div key={`hour-${index}`} className="date-grid-item">{hour}:00</div>
                             ))}
 
-                            {/* Display predictions */}
-                            {predictions.map((prediction) => (
-                                <div key={uuid()} className="date-grid-item">
-                                    <div className="date-grid-item-text">{prediction}</div>
-                                    <div className="date-grid-item-image">
-                                        <img src={BikeIcon} width="20px" height="20px" alt="Bike icon" />
+                            {predictions.length > 0 ? (
+                                predictions.map((prediction) => (
+                                    <div key={uuid()} className="date-grid-item">
+                                        <div className="date-grid-item-text">{prediction}</div>
+                                        <div className="date-grid-item-image">
+                                            <img src={BikeIcon} width="20px" height="20px" alt="Bike icon" />
+                                        </div>
                                     </div>
-                                </div>
-                            ))}
+                                ))
+                            ) : (
+                                <div className="no-data-message">❌ Ni razpoložljivih napovedi.</div>
+                            )}
                         </div>
                     </>
                 )}

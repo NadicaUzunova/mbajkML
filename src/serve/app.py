@@ -79,6 +79,10 @@ def normalize_string(input_str: str) -> str:
     replacements = str.maketrans({'š': 's', 'č': 'c', 'ž': 'z', 'Š': 'S', 'Č': 'C', 'Ž': 'Z'})
     return input_str.translate(replacements)
 
+@app.route('/health', methods=['GET'])
+def health_check():
+    return jsonify({"status": "ok"}), 200
+
 # 🔹 Napovedovanje prostih koles na postaji
 @app.route('/mbajk/predict', methods=['POST'])
 def process_time_series():
