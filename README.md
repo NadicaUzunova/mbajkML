@@ -25,3 +25,13 @@ To set up the project environment, follow these steps:
    ```bash
    poetry install
    ```
+3. Set Up Environment Variables: Create a .env file in the root directory with the following variables:
+   ```bash
+         MLFLOW_TRACKING_URI=<your_mlflow_uri>
+         MLFLOW_TRACKING_USERNAME=<your_mlflow_username>
+         MLFLOW_TRACKING_PASSWORD=<your_mlflow_password>
+         DAGSHUB_TOKEN=<your_dagshub_token>
+         MONGO_URI=<your_mongo_uri>
+         MONGO_DB_NAME=<your_mongo_db_name>
+         MONGO_COLLECTION_NAME=<your_mongo_collection>
+   ```
