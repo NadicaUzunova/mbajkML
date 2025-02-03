@@ -28,7 +28,7 @@
                 "meta": {}
             },
             "result": {
-                "element_count": 1071,
+                "element_count": 1073,
                 "unexpected_count": 0,
                 "unexpected_percent": 0.0,
                 "unexpected_percent_total": 0.0,
@@ -53,7 +53,7 @@
                 "meta": {}
             },
             "result": {
-                "element_count": 1071,
+                "element_count": 1073,
                 "missing_count": 0,
                 "missing_percent": 0.0,
                 "unexpected_count": 0,
@@ -82,14 +82,14 @@
         "expectation_suite_name": "mbajk_suite_PARTIZANSKA C. - TIC",
         "run_id": {
             "run_name": null,
-            "run_time": "2025-02-03T02:02:40.011268+00:00"
+            "run_time": "2025-02-03T03:03:22.480990+00:00"
         },
         "batch_kwargs": {
-            "ge_batch_id": "f2874e78-e1d2-11ef-b9ab-6045bd08c8c6"
+            "ge_batch_id": "6ceda2ba-e1db-11ef-b9ab-7c1e528bb31d"
         },
         "batch_markers": {},
         "batch_parameters": {},
-        "validation_time": "20250203T020240.011228Z",
+        "validation_time": "20250203T030322.480936Z",
         "expectation_suite_meta": {
             "great_expectations_version": "0.15.50"
         }
