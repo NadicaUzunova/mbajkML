@@ -10,7 +10,7 @@ The repository is organized as follows:
 - `.github/workflows/`: Includes GitHub Actions workflows for CI/CD pipelines.
 - `data/`: Directory designated for storing datasets.
 - `great_expectations/`: Houses configurations and scripts for data validation using Great Expectations.
-- `mlruns/0/`: Directory for MLflow experiment tracking artifacts.
+- `mlruns/`: Directory for MLflow experiment tracking artifacts.
 - `reports/`: Contains generated reports and analysis results.
 - `src/`: Source code for data processing, model training, and evaluation.
 
