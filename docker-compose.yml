@@ -1,38 +1,24 @@
 version: '3.8'
 
 services:
-  backend:
+  mbajk-backend:
     build:
-      context: .  # Gradimo iz glavne mape
+      context: .
       dockerfile: Dockerfile
     ports:
       - "8000:8000"
     env_file:
       - .env
-    networks:
-      - mbajk_network
-    healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
-      interval: 10s
-      retries: 5
-      start_period: 5s
 
-  frontend:
+  mbajk-frontend:
     build:
-      context: ./src/client  # Gradimo frontend iz `src/client`
+      context: ./src/client
       dockerfile: Dockerfile
     ports:
       - "3000:3000"
     environment:
-      - REACT_APP_BACKEND_API_URL=http://backend:8000  # Povezava z backend storitvijo
+      - REACT_APP_BACKEND_API_URL=http://backend:8000
     env_file:
       - ./src/client/.env
     depends_on:
-      backend:
-        condition: service_healthy  # Počakaj, da je backend zdrav
-    networks:
-      - mbajk_network
-
-networks:
-  mbajk_network:
-    driver: bridge
+      - mbajk-backend

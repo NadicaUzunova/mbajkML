@@ -78,6 +78,63 @@ def normalize_string(input_str: str) -> str:
 def health_check():
     return jsonify({"status": "ok"}), 200
 
+@app.route('/live-data', methods=['POST'])
+def fetch_live_data():
+    """Fetches live data for a specific bike stand location."""
+    try:
+        request_body = request.get_json()
+        location = request_body['location']
+
+        # Fetch live bike data from external API
+        response = requests.get(BIKE_API_URL)
+        if response.status_code != 200:
+            return jsonify({"error": "Failed to fetch live data from the API"}), response.status_code
+
+        bike_data = response.json()
+
+        # Search for the specific location in the fetched data
+        for station in bike_data:
+            if station['name'].lower() == location.lower():
+                return jsonify({
+                    "available_bike_stands": station["available_bike_stands"],
+                    "available_bikes": station["available_bikes"],
+                    "timestamp": station["last_update"]
+                }), 200
+
+        return jsonify({"error": f"Location '{location}' not found in live data."}), 404
+    except Exception as e:
+        print(f"Error fetching live data: {e}")
+        return jsonify({"error": str(e)}), 500
+    
+@app.route('/data', methods=['POST'])
+def fetch_last_12_rows():
+    """Fetches the last 12 rows of data for a specific location."""
+    try:
+        request_body = request.get_json()
+        location = request_body['location']
+        location = location.replace('\u010c', 'Č').replace('\u017d', 'Ž')
+
+        file_name = f"{location}.csv"
+        file_path = os.path.join(data_directory, file_name)
+
+        # Read last 12 rows from CSV
+        if not os.path.exists(file_path):
+            raise FileNotFoundError(f"File '{file_name}' not found.")
+
+        with open(file_path, 'r', newline='') as file:
+            csv_reader = csv.reader(file)
+            rows = list(csv_reader)
+            last_12_rows = rows[-12:]
+
+        # Log the last row for debugging
+        print("Last row fetched from CSV:", last_12_rows[-1])
+
+        return jsonify({"data": last_12_rows}), 200
+    except FileNotFoundError as e:
+        return jsonify({"error": str(e)}), 404
+    except Exception as e:
+        return jsonify({"error": str(e)}), 400
+
 # 🔹 Napovedovanje prostih koles na postaji
 @app.route('/mbajk/predict', methods=['POST'])
 def process_time_series():
