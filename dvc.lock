@@ -366,16 +366,16 @@ stages:
     outs:
     - path: data/raw
       hash: md5
-      md5: abd7cde5fc24420c19449f0d72256190.dir
-      size: 601112
+      md5: 3d988e40a8b32301adbe0dd68fdcfe87.dir
+      size: 605796
       nfiles: 69
   preprocess_data:
     cmd: poetry run python src/data/preprocess_data.py
     deps:
     - path: data/raw
       hash: md5
-      md5: abd7cde5fc24420c19449f0d72256190.dir
-      size: 601112
+      md5: 3d988e40a8b32301adbe0dd68fdcfe87.dir
+      size: 605796
       nfiles: 69
     - path: src/data/preprocess_data.py
       hash: md5
