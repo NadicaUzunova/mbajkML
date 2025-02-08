@@ -70,19 +70,19 @@ stages:
     deps:
     - path: data/processed/combined
       hash: md5
-      md5: 665fa2e2e2316cb233c03b3eeb9c976a.dir
-      size: 2456366
+      md5: 32895a03b3e5d5ad3d6357a8c3f38a51.dir
+      size: 2458843
       nfiles: 34
     outs:
     - path: data/processed/current_data
       hash: md5
-      md5: 665fa2e2e2316cb233c03b3eeb9c976a.dir
-      size: 2456366
+      md5: 32895a03b3e5d5ad3d6357a8c3f38a51.dir
+      size: 2458843
       nfiles: 34
     - path: data/processed/reference_data
       hash: md5
-      md5: 665fa2e2e2316cb233c03b3eeb9c976a.dir
-      size: 2456366
+      md5: 32895a03b3e5d5ad3d6357a8c3f38a51.dir
+      size: 2458843
       nfiles: 34
   validate_and_test:
     cmd: "poetry run python src/data/validate_and_test_unified.py --reference data/processed/reference_data
@@ -93,21 +93,21 @@ stages:
     deps:
     - path: data/processed/current_data
       hash: md5
-      md5: 665fa2e2e2316cb233c03b3eeb9c976a.dir
-      size: 2456366
+      md5: 32895a03b3e5d5ad3d6357a8c3f38a51.dir
+      size: 2458843
       nfiles: 34
     - path: data/processed/merged/current_data.csv
       hash: md5
-      md5: 563911b64a5620dff111db8d7012094c
-      size: 2451746
+      md5: 5d7db5368777ebeea54eca42b19a6055
+      size: 2454223
     - path: data/processed/merged/reference_data.csv
       hash: md5
-      md5: 563911b64a5620dff111db8d7012094c
-      size: 2451746
+      md5: 5d7db5368777ebeea54eca42b19a6055
+      size: 2454223
     - path: data/processed/reference_data
       hash: md5
-      md5: 665fa2e2e2316cb233c03b3eeb9c976a.dir
-      size: 2456366
+      md5: 32895a03b3e5d5ad3d6357a8c3f38a51.dir
+      size: 2458843
       nfiles: 34
     - path: src/data/validate_and_test_unified.py
       hash: md5
@@ -121,8 +121,8 @@ stages:
     deps:
     - path: data/processed/merged/data.csv
       hash: md5
-      md5: 563911b64a5620dff111db8d7012094c
-      size: 2451746
+      md5: 5d7db5368777ebeea54eca42b19a6055
+      size: 2454223
     - path: src/data/split_data_unified.py
       hash: md5
       md5: 07b40675fd52d33fdc804455a0b178b3
@@ -130,22 +130,22 @@ stages:
     outs:
     - path: data/processed/train_test_from_current/test
       hash: md5
-      md5: 827b264d378dddc11cc90070e01dbcc3.dir
-      size: 252280
+      md5: 3704093d4afc340869fb06c1dfc2350a.dir
+      size: 252198
       nfiles: 34
     - path: data/processed/train_test_from_current/train
       hash: md5
-      md5: e198ae148a3d13675cea4fa679b1f965.dir
-      size: 2208846
+      md5: 69e5288c9f8092e162e56dc9249b0a60.dir
+      size: 2211405
       nfiles: 34
     - path: data/processed/train_test_merged/test.csv
       hash: md5
-      md5: a8af48817b818fa732b6af78204716c1
-      size: 248848
+      md5: 6ddf9c0baeaffc9383a93c868040f77f
+      size: 249101
     - path: data/processed/train_test_merged/train.csv
       hash: md5
-      md5: 025795bff9803b1ed659eb2f0ed13c16
-      size: 2203038
+      md5: e324fadf1f3af935d6ff1976e81c87a3
+      size: 2205262
   train_model_mlflow:
     cmd: poetry run python src/models/train_model_mlflow.py
     deps:
@@ -196,8 +196,8 @@ stages:
     deps:
     - path: data/processed/combined
       hash: md5
-      md5: 665fa2e2e2316cb233c03b3eeb9c976a.dir
-      size: 2456366
+      md5: 32895a03b3e5d5ad3d6357a8c3f38a51.dir
+      size: 2458843
       nfiles: 34
     - path: src/data/merge_data.py
       hash: md5
@@ -206,25 +206,25 @@ stages:
     outs:
     - path: data/processed/merged/data.csv
       hash: md5
-      md5: 563911b64a5620dff111db8d7012094c
-      size: 2451746
+      md5: 5d7db5368777ebeea54eca42b19a6055
+      size: 2454223
   reference_data_merged:
     cmd: "cp data/processed/merged/data.csv data/processed/merged/reference_data.csv\n
       cp data/processed/merged/data.csv data/processed/merged/current_data.csv\n"
     deps:
     - path: data/processed/merged/data.csv
       hash: md5
-      md5: 563911b64a5620dff111db8d7012094c
-      size: 2451746
+      md5: 5d7db5368777ebeea54eca42b19a6055
+      size: 2454223
     outs:
     - path: data/processed/merged/current_data.csv
       hash: md5
-      md5: 563911b64a5620dff111db8d7012094c
-      size: 2451746
+      md5: 5d7db5368777ebeea54eca42b19a6055
+      size: 2454223
     - path: data/processed/merged/reference_data.csv
       hash: md5
-      md5: 563911b64a5620dff111db8d7012094c
-      size: 2451746
+      md5: 5d7db5368777ebeea54eca42b19a6055
+      size: 2454223
   validate_and_test_merged:
     cmd: poetry run python src/data/validate_and_test_merged.py
     deps:
@@ -366,16 +366,16 @@ stages:
     outs:
     - path: data/raw
       hash: md5
-      md5: 06c2eb18c4e788222c9a5b8433c287d5.dir
-      size: 980222
+      md5: 224e62add4a0456603a47269f04e86d3.dir
+      size: 984907
       nfiles: 69
   preprocess_data:
     cmd: poetry run python src/data/preprocess_data.py
     deps:
     - path: data/raw
       hash: md5
-      md5: 06c2eb18c4e788222c9a5b8433c287d5.dir
-      size: 980222
+      md5: 224e62add4a0456603a47269f04e86d3.dir
+      size: 984907
       nfiles: 69
     - path: src/data/preprocess_data.py
       hash: md5
@@ -384,13 +384,13 @@ stages:
     outs:
     - path: data/processed/combined
       hash: md5
-      md5: 665fa2e2e2316cb233c03b3eeb9c976a.dir
-      size: 2456366
+      md5: 32895a03b3e5d5ad3d6357a8c3f38a51.dir
+      size: 2458843
       nfiles: 34
     - path: data/processed/mbajk
       hash: md5
-      md5: 69ea0ae3663b255feae684aeb5770b15.dir
-      size: 198382
+      md5: c5edc72035be3e5b305ce724b29e905d.dir
+      size: 200043
       nfiles: 34
     - path: data/processed/weather
       hash: md5
@@ -403,13 +403,13 @@ stages:
     deps:
     - path: data/processed/train_test_from_current/train
       hash: md5
-      md5: e198ae148a3d13675cea4fa679b1f965.dir
-      size: 2208846
+      md5: 69e5288c9f8092e162e56dc9249b0a60.dir
+      size: 2211405
       nfiles: 34
     - path: data/processed/train_test_merged/train.csv
       hash: md5
-      md5: 025795bff9803b1ed659eb2f0ed13c16
-      size: 2203038
+      md5: e324fadf1f3af935d6ff1976e81c87a3
+      size: 2205262
     - path: src/models/train_model_unified.py
       hash: md5
       md5: f211a80fb1b24db5f157fdf968c23827
@@ -431,8 +431,8 @@ stages:
     deps:
     - path: data/processed/train_test_merged/test.csv
       hash: md5
-      md5: a8af48817b818fa732b6af78204716c1
-      size: 248848
+      md5: 6ddf9c0baeaffc9383a93c868040f77f
+      size: 249101
     - path: models/models_mlflow_merged
       hash: md5
       md5: d751713988987e9331980363e24189ce.dir
